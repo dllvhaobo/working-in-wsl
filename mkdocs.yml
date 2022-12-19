@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: HOME
 theme: 
   # name: 'windmill'
   # name: 'rtd-dropdown'
@@ -10,8 +10,8 @@ theme:
 plugins: 
   - 'search'
 nav:
-  - WSL: 'wsl.md'
-  - VIM: 'vim.md'
-  # - 'User Guide': 'user-guide.md'
-  # - 'Bug Tracker': '/bugs/'
+    - Home: index.md
+    - WSL配置: wsl.md
+    - VIM操作: vim.md
+    - CLANG配置: clang.md
 docs_dir: docs
