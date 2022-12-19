@@ -55,18 +55,12 @@ _个人日常工作的主要环境是 WLS2+UBUNTU，关于`WSL2+UBUNTU`会经常
     * [CLangFormat](#clangformat)
     * [golang](#golang)
 * [加速访问](#加速访问)
-    * [apt source](#apt-source)
-    * [hosts](#hosts)
     * [npm&yarn](#npmyarn)
     * [coc mirrors](#coc-mirrors)
     * [vim-plug](#vim-plug-1)
-    * [pip](#pip)
-    * [docker](#docker-1)
-    * [golang](#golang-1)
 * [FAQ](#faq)
     * [Coc Language Server not found](#coc-language-server-not-found)
     * [LanguageClient not found](#languageclient-not-found)
-    * [Docker for WSL2](#docker-for-wsl2)
 
 <!-- vim-markdown-toc -->
 
@@ -537,24 +531,6 @@ go get golang.org/x/tools/gopls@latest
 
 ## 加速访问
 
-### apt source
-
-```bash
-sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-```
-
-### hosts
-
-系统配置过程中，有很多需要依赖于 Github 的访问，因为国内 DNS 污染的原因，需要手动配置 hosts 文件才能够正确的访问 github。参考[hosts](config/hosts)文件中关于 github 的配置，修改本地 HOSTS 文件.
-
-- windows："C:\Windows\System32\drivers\etc\hosts"
-- Ubuntu: "/etc/hosts"
-
-查找 Github 与 IP 地址的映射关系，可以在网站https://www.ipaddress.com/上搜索如下三个网址的IP，将结果填写到Hosts文件中。
-
-- github.com
-- github.global.ssl.fastly.net
-- assets-cdn.github.com
 
 ### npm&yarn
 
@@ -601,66 +577,55 @@ git@gitee.com:dllvhaobo/vim-startify.git
 https://gitee.com/dllvhaobo/vim-airline.git
 
 ```bash
-git@gitee.com:dllvhaobo/DoxygenToolkit.vim.git
-git@gitee.com:dllvhaobo/LanguageClient-neovim.git
-git@gitee.com:dllvhaobo/LeaderF-marks.git
-git@gitee.com:dllvhaobo/LeaderF.git
-git@gitee.com:dllvhaobo/coc-highlight.git
-git@gitee.com:dllvhaobo/coc-jedi.git
-git@gitee.com:dllvhaobo/coc.nvim.git
-git@gitee.com:dllvhaobo/copilot.vim.git
-git@gitee.com:dllvhaobo/defx.nvim.git
-git@gitee.com:dllvhaobo/docker-compose.vim.git
-git@gitee.com:dllvhaobo/fzf.git
-git@gitee.com:dllvhaobo/fzf.vim.git
-git@gitee.com:dllvhaobo/gruvbox.git
-git@gitee.com:dllvhaobo/indentpython.vim.git
-git@gitee.com:dllvhaobo/markdown-preview.nvim.git
-git@gitee.com:dllvhaobo/neoformat.git
-git@gitee.com:dllvhaobo/nerdcommenter.git
-git@gitee.com:dllvhaobo/nvim-treesitter.git
-git@gitee.com:dllvhaobo/open-browser.vim.git
-git@gitee.com:dllvhaobo/plantuml-previewer.vim.git
-git@gitee.com:dllvhaobo/plantuml-syntax.git
-git@gitee.com:dllvhaobo/syntastic.git
-git@gitee.com:dllvhaobo/tagbar.git
-git@gitee.com:dllvhaobo/undotree.git
-git@gitee.com:dllvhaobo/vim-airline.git
-git@gitee.com:dllvhaobo/vim-devicons.git
-git@gitee.com:dllvhaobo/vim-easy-align.git
-git@gitee.com:dllvhaobo/vim-easymotion.git
-git@gitee.com:dllvhaobo/vim-fugitive.git
-git@gitee.com:dllvhaobo/vim-go.git
-git@gitee.com:dllvhaobo/vim-instant-markdown.git
-git@gitee.com:dllvhaobo/vim-lsp-cxx-highlight.git
-git@gitee.com:dllvhaobo/vim-markdown-toc.git
-git@gitee.com:dllvhaobo/vim-peekaboo.git
-git@gitee.com:dllvhaobo/vim-polyglot.git
-git@gitee.com:dllvhaobo/vim-prettier.git
-git@gitee.com:dllvhaobo/vim-signify.git
-git@gitee.com:dllvhaobo/vim-slumlord.git
-git@gitee.com:dllvhaobo/vim-snippets.git
-git@gitee.com:dllvhaobo/vim-startify.git
-git@gitee.com:dllvhaobo/vim-surround.git
-git@gitee.com:dllvhaobo/vim-table-mode.git
-git@gitee.com:dllvhaobo/vim-visual-multi.git
-git@gitee.com:dllvhaobo/vimspector.git
-git@gitee.com:dllvhaobo/vimwiki.git
-git@gitee.com:dllvhaobo/vista.vim.git
-git@gitee.com:dllvhaobo/wildfire.vim.git
+https://gitee.com/dllvhaobo/DoxygenToolkit.vim.git
+https://gitee.com/dllvhaobo/LanguageClient-neovim.git
+https://gitee.com/dllvhaobo/LeaderF-marks.git
+https://gitee.com/dllvhaobo/LeaderF.git
+https://gitee.com/dllvhaobo/coc-highlight.git
+https://gitee.com/dllvhaobo/coc-jedi.git
+https://gitee.com/dllvhaobo/coc.nvim.git
+https://gitee.com/dllvhaobo/copilot.vim.git
+https://gitee.com/dllvhaobo/defx.nvim.git
+https://gitee.com/dllvhaobo/docker-compose.vim.git
+https://gitee.com/dllvhaobo/fzf.git
+https://gitee.com/dllvhaobo/fzf.vim.git
+https://gitee.com/dllvhaobo/gruvbox.git
+https://gitee.com/dllvhaobo/indentpython.vim.git
+https://gitee.com/dllvhaobo/markdown-preview.nvim.git
+https://gitee.com/dllvhaobo/neoformat.git
+https://gitee.com/dllvhaobo/nerdcommenter.git
+https://gitee.com/dllvhaobo/nvim-treesitter.git
+https://gitee.com/dllvhaobo/open-browser.vim.git
+https://gitee.com/dllvhaobo/plantuml-previewer.vim.git
+https://gitee.com/dllvhaobo/plantuml-syntax.git
+https://gitee.com/dllvhaobo/syntastic.git
+https://gitee.com/dllvhaobo/tagbar.git
+https://gitee.com/dllvhaobo/undotree.git
+https://gitee.com/dllvhaobo/vim-airline.git
+https://gitee.com/dllvhaobo/vim-devicons.git
+https://gitee.com/dllvhaobo/vim-easy-align.git
+https://gitee.com/dllvhaobo/vim-easymotion.git
+https://gitee.com/dllvhaobo/vim-fugitive.git
+https://gitee.com/dllvhaobo/vim-go.git
+https://gitee.com/dllvhaobo/vim-instant-markdown.git
+https://gitee.com/dllvhaobo/vim-lsp-cxx-highlight.git
+https://gitee.com/dllvhaobo/vim-markdown-toc.git
+https://gitee.com/dllvhaobo/vim-peekaboo.git
+https://gitee.com/dllvhaobo/vim-polyglot.git
+https://gitee.com/dllvhaobo/vim-prettier.git
+https://gitee.com/dllvhaobo/vim-signify.git
+https://gitee.com/dllvhaobo/vim-slumlord.git
+https://gitee.com/dllvhaobo/vim-snippets.git
+https://gitee.com/dllvhaobo/vim-startify.git
+https://gitee.com/dllvhaobo/vim-surround.git
+https://gitee.com/dllvhaobo/vim-table-mode.git
+https://gitee.com/dllvhaobo/vim-visual-multi.git
+https://gitee.com/dllvhaobo/vimspector.git
+https://gitee.com/dllvhaobo/vimwiki.git
+https://gitee.com/dllvhaobo/vista.vim.git
+https://gitee.com/dllvhaobo/wildfire.vim.git
 ```
 
-### pip
-
-TODO
-
-### docker
-
-TODO
-
-### golang
-
-TODO
 
 ## FAQ
 
@@ -672,35 +637,6 @@ TODO
 
 PlugInstall 的步骤没有完全执行完就退出了，可能导致安装脚本没有执行。可以手动执行安装 `cd ~/.config/nvim/plugged/LanguageClient-neovim;./install.sh`
 
-### Docker for WSL2
-
-今天在更新了 WSL2 上的 Ubuntu22.04 版本，在安装 Docker 后无法启动，查看 Docker 的日志显示如下的错误.
-
-```bash
-INFO[2022-04-22T16:14:55.718999500+08:00] stopping event stream following graceful shutdown error="<nil>" module=libcontainerd namespace=moby
-INFO[2022-04-22T16:14:55.719787400+08:00] stopping event stream following graceful shutdown error="context canceled" module=libcontainerd namespace=plugins.moby
-INFO[2022-04-22T16:14:55.719906400+08:00] stopping healthcheck following graceful shutdown module=libcontainerd
-failed to start daemon: Error initializing network controller: error obtaining controller instance: unable to add return rule in DOCKER-ISOLATION-STAGE-1 chain: (iptables failed: iptables --wait -A DOCKER-ISOLATION-STAGE-1 -j RETURN: iptables v1.8.7 (nf_tables): RULE_APPEND failed (No such file or directory): rule in chain DOCKER-ISOLATION-STAGE-1
-(exit status 4))
-```
-
-原因是由于新的 ubuntu 系统使用了 iptables-nft，而 WSL2 不支持导致的。可以通过以下命令进行修改.
-
-```bash
-sudo update-alternatives --config iptables
-There are 2 choices for the alternative iptables (providing /usr/sbin/iptables).
-
-Selection Path Priority Status
-------------------------------------------------------------
-* 0 /usr/sbin/iptables-nft 20 auto mode
-1 /usr/sbin/iptables-legacy 10 manual mode
-2 /usr/sbin/iptables-nft 20 manual mode
-Press <enter> to keep the current choice[*], or type selection number: 1
-
-Press <enter> to keep the current choice[*], or type selection number: 1
-update-alternatives: using /usr/sbin/iptables-legacy to provide /usr/sbin/iptables (iptables) in manual mode
-
-```
 
 [githubissue]: https://github.com/neovim/neovim/issues/19711#issuecomment-1214241593
 [docker-install]: https://docs.docker.com/engine/install/ubuntu/
