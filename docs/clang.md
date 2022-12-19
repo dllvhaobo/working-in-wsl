@@ -1,5 +1,3 @@
-# CLANG
-
 ## Clang-format
 
 - 跳转到[clang-format官方说明]，查看最新的关于Clang-format所有配置说明。

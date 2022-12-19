@@ -4,13 +4,12 @@ theme:
   # name: 'rtd-dropdown'
   # name: 'gitbook'
   # name: 'material'
-  # name: 'bootstrap4'
-  name: 'mkdocs'
+  name: 'bootstrap4'
+  # name: 'mkdocs'
   # name: 'ivory'
 plugins: 
   - 'search'
 nav:
-    - Home: index.md
     - WSL配置: wsl.md
     - VIM操作: vim.md
     - CLANG配置: clang.md
