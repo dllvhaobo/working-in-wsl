@@ -1,0 +1,45 @@
+# Commit Message
+
+# %FIN RDM=2075%Redmine Tickets
+# %TBC JRA=CNSDEFECT-2056%JRA Tickets
+# %REM%Disciption Only
+# %FIN RDM=2075  TBC JRA=XIT-3847 REM% Combined commit summary 
+                                                                                                                                    and keyword 'REM' is needed only no ticket/issue is associated at most cases.
+
+# Main Rules:
+# Commit message must be composed of TICKETS part and DESCRIPTION part.
+# The first and second character '%' appeared in the commit message are regarded as split symbol, and rest ones are normal characters. 
+# The commit message must be lead by '%', the content between first '%' and second '%' is the TICKETS part, the left part is the DESCRIPTION part.
+# The DESCRIPTION part is some summry words about this commit, and it must include 5 characters at least.
+# The TICKETS is composed of one or more items, and each item has the format:
+# 
+#                 <STA> <TY>=<value> 
+# 
+# Attention: there has to be a blank between <STA> and <TY>
+# 
+# or           REM
+# It is recommended that one commit only contain one item, however multi items are also supported. 
+# if theres is no related JIRA ticket or Redmine issue is associated with current commit, you should explictly specify REM keyword.
+# 
+# Abbreviations:
+# 
+# <STA>       : Status Information
+# 
+# <TY>          : Type Information
+# 
+# Keywords/Syntax
+# Supported Keywords Status Information <STA>
+# FIN      implementation/fixing FINished
+#                               (1) Bug correction to be marked as completed (i.e. Ready For Testing in Jira tool)
+#                               (2) Feature/Task to be marked as completed (see also Redmine application)
+# 
+# TBC    implementation/fixing has To Be Continued
+# 
+# BCK    rollBaCK of a Bug, Feature or other
+# 
+# Supported Keywords Type Information <TY=xyz>
+# JRA=xyz            JiRA issue with ID xyz
+# 
+# RDM=xyz          ReDMine ticket with ID xyz
+# 
+# REM                  REMark should be known

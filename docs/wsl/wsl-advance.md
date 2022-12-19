@@ -1,38 +1,4 @@
-# WSL2安装及相关配置
-
-关于 WSL 的安装的详细说明请参考[微软的官方网页]或者以管理员账户启动 PowerShell 执行如下步骤.
-
-## 安装 Windows SubSystem For Linux
-
-```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-```
-
-## 安装 Virtual Machine Platform
-
-```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
-## 下载 Linux 内核更新包
-
-安装并下载[Linux 内核更新包]
-
-## 设置 WSL2 为默认版本
-
-```powershell
-wsl --set-default-version 2
-```
-
-## 安装 Linux 的发行版本
-
-在[Microsoft Store]中选择偏好的 Linux 发行版选择安装；或者执行如下命令安装默认的 Ubuntu 发行版。
-
-```powershell
-wsl --install
-```
-
-## WSL 高级配置
+## WSL2 配置
 
 如果需要限制 WSL 使用的内存，处理器，交换分区等相关设置，请参考[WSL 高级设置]
 
@@ -71,6 +37,46 @@ nestedVirtualization=false
 
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
+```
+
+## 传统 WSL 配置
+
+`\\wsl.localhost\Ubuntu-20.04\etc\wsl.conf`
+
+```bash
+# Automatically mount Windows drive when the distribution is launched
+[automount]
+
+# Set to true will automount fixed drives (C:/ or D:/) with DrvFs under the root directory set above. Set to false means drives won't be mounted automatically, but need to be mounted manually or with fstab.
+enabled = true
+
+# Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c.
+root = /
+
+# DrvFs-specific options can be specified.
+options = "metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
+
+# Sets the `/etc/fstab` file to be processed when a WSL distribution is launched.
+mountFsTab = true
+
+# Network host settings that enable the DNS server used by WSL 2. This example changes the hostname, sets generateHosts to false, preventing WSL from the default behavior of auto-generating /etc/hosts, and sets generateResolvConf to false, preventing WSL from auto-generating /etc/resolv.conf, so that you can create your own (ie. nameserver 1.1.1.1).
+[network]
+hostname = DemoHost
+generateHosts = false
+generateResolvConf = false
+
+# Set whether WSL supports interop process like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
+[interop]
+enabled = false
+appendWindowsPath = false
+
+# Set the user when launching a distribution with WSL.
+[user]
+default = DemoUser
+
+# Set a command to run when a new WSL instance launches. This example starts the Docker container service.
+[boot]
+command = service docker start
 ```
 
 [linux 内核更新包]: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi

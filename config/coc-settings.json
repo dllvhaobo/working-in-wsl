@@ -1,0 +1,55 @@
+{
+  "suggest.noselect": true,
+  "suggest.enablePreselect": false,
+  "codeLens.enable": true,
+  // "clangd.semanticHighlighting": true,
+  // "coc.preferences.formatOnSaveFiletypes": ["json", "python", "c", "c++"],
+  // "coc.preferences.formatOnSaveFiletypes": ["json", "python"],
+
+  // "coc.preferences.previewAutoClose": false,
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        ".ccls-root",
+        "compile_commands.json",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    },
+//    "clangd": {
+//      "command": "clangd",
+//      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+//      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+//    },
+
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  },
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.enableFloatinput": true,
+  //  "snippets.userSnippetsDirectory": "/home/lv/.config/nvim/plugged/vim-snippets/snippets",
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd",
+  "clangd.enabled": true,
+  "clangd.compilationDatabasePath": ""
+}

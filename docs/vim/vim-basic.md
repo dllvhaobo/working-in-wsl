@@ -54,7 +54,7 @@ VIM 的最基本操作流程：
 
 ### 模式切换
 
-![vim-mode-switch](img/vim-mode-switch.png)
+![vim-mode-switch](../img/vim-mode-switch.png)
 
 | KEY     | 目标模式        | 说明                      |
 | ------- | --------------- | ------------------------- |

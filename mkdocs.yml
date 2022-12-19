@@ -1,16 +1,51 @@
 site_name: HOME
-theme: 
+theme:
   # name: 'windmill'
   # name: 'rtd-dropdown'
   # name: 'gitbook'
   # name: 'material'
-  name: 'bootstrap4'
-  # name: 'mkdocs'
+  # name: "bootstrap4"
+  name: 'mkdocs'
   # name: 'ivory'
-plugins: 
-  - 'search'
 nav:
-    - WSL配置: wsl.md
-    - VIM操作: vim.md
-    - CLANG配置: clang.md
-docs_dir: docs
+  - "SYS": sys/
+  - "WSL": wsl/
+  - "VIM": vim/
+  - "CLANG": clang/
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - attr_list
+  - def_list
+  - tables
+  - pymdownx.highlight:
+      use_pygments: false
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - callouts
+  - mdx_gh_links:
+      user: mkdocs
+      repo: mkdocs
+  # - mkdocs-click
+
+plugins:
+  - search
+  # - redirects:
+  # redirect_maps:
+  # user-guide/plugins.md: dev-guide/plugins.md
+  # user-guide/custom-themes.md: dev-guide/themes.md
+  # user-guide/styling-your-docs.md: user-guide/choosing-your-theme.md
+  # - autorefs
+  - literate-nav:
+      nav_file: README.md
+      implicit_index: true
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_section_style: list
+            members_order: source
+            show_root_heading: true
+            show_source: false
+            show_signature_annotations: true

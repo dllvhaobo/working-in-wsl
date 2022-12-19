@@ -1,0 +1,25 @@
+[user]
+        email = haobo.lv@joynext.com
+        name = lv_h1 
+[diff]
+    tool = vimdiff
+    ; tool = meld
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[pull]
+        rebase = false
+[core]
+        editor = nvim
+[init]
+        defaultBranch = main
+[difftool "vimdiff"]
+    path = /home/lv/.local/bin/nvim
+[proxy]
+	; https = socks5://172.19.208.1:20170
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
