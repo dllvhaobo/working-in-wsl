@@ -7,7 +7,11 @@ theme:
   # name: 'bootstrap4'
   name: 'mkdocs'
   # name: 'ivory'
-plugins: ['search']
-# nav:
-    # - Home: index.md
-    # - About: about.md
+plugins: 
+  - 'search'
+nav:
+  - WSL: 'wsl.md'
+  - VIM: 'vim.md'
+  # - 'User Guide': 'user-guide.md'
+  # - 'Bug Tracker': '/bugs/'
+docs_dir: docs
