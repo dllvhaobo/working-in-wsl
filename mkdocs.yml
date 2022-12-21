@@ -8,10 +8,10 @@ theme:
   name: 'mkdocs'
   # name: 'ivory'
 nav:
-  - "SYS": sys/
   - "WSL": wsl/
   - "VIM": vim/
   - "CLANG": clang/
+  - "MISC": misc/
 
 markdown_extensions:
   - toc:

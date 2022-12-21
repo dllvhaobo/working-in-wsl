@@ -1,15 +1,26 @@
 # 个人系统安装指南
 
+日常的工作环境配置（Windows10，Windows11，WSL2，Ubuntu）
+
 ## APPLICATION
 
-- [AutoHotKey](docs/sys/keymap/autohotkey.md)
-- [SharpKey](docs/sys/keymap/sharpkey.md)
-- [字体](docs/sys/font.md)
+- [AutoHotKey](docs/misc/autohotkey.md)
+- [SharpKey](docs/misc/sharpkey.md)
+- [字体](docs/misc/font.md)
 - [WindowsTerminal](docs/sys/WindowsTerminal.md)
+- [VScode](docs/misc/vscode.md)
 
 ## WSL2
 
+- [WSL2安装](docs/wsl/wsl-install.md)
+- [WSL2高级配置](docs/wsl/wsl-advance.md)
+- [WSL2中使用Docker](docs/wsl/wsl-docker.md)
+
 ## VIM
+
+- [neovim安装](docs/vim/vim-basic.md)
+- [plugin](docs/vim/vim-plugin.md)
+- [coc](docs/sys/coc.md)
 
 ## CLANG
 
@@ -641,4 +652,5 @@ PlugInstall 的步骤没有完全执行完就退出了，可能导致安装脚�
 [githubissue]: https://github.com/neovim/neovim/issues/19711#issuecomment-1214241593
 [docker-install]: https://docs.docker.com/engine/install/ubuntu/
 [use-docker-non-root]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+[website]:https://workinginwsl.readthedocs.io
 [package_repo]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
