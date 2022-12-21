@@ -651,10 +651,10 @@ PlugInstall 的步骤没有完全执行完就退出了，可能导致安装脚�
 [use-docker-non-root]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 [website]: https://workinginwsl.readthedocs.io
 [package仓库]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
-[修改键位]: docs/misc/修改键位.md
-[字体]: docs/misc/font.md
-[windowsterminal]: docs/sys/WindowsTerminal.md
-[vscode]: docs/misc/vscode.md
-[wsl2 安装]: docs/wsl/wsl-install.md
-[wsl2 高级配置]: docs/wsl/wsl-advance.md
-[wsl2 中使用 docker]: docs/wsl/wsl-docker.md
+[修改键位]: ./docs/misc/修改键位.md
+[字体]: ./docs/misc/字体.md
+[windowsterminal]: ./docs/sys/WindowsTerminal.md
+[vscode]: ./docs/misc/vscode.md
+[wsl2 安装]: ./docs/wsl/wsl-install.md
+[wsl2 高级配置]: ./docs/wsl/wsl-advance.md
+[wsl2 中使用 docker]: ./docs/wsl/wsl-docker.md
