@@ -1,24 +1,24 @@
 # 个人系统安装指南
 
-日常的工作环境配置（Windows10，Windows11，WSL2，Ubuntu）
+- 日常的工作环境配置（Windows10，Windows11，WSL2，Ubuntu，MacBook，Manjaro）
+- 所有安装包都已经打包到[package 仓库][]
 
 ## APPLICATION
 
-- [AutoHotKey](docs/misc/autohotkey.md)
-- [SharpKey](docs/misc/sharpkey.md)
-- [字体](docs/misc/font.md)
-- [WindowsTerminal](docs/sys/WindowsTerminal.md)
-- [VScode](docs/misc/vscode.md)
+- [修改键位][]
+- [字体][]
+- [WindowsTerminal][]
+- [VScode][]
 
 ## WSL2
 
-- [WSL2安装](docs/wsl/wsl-install.md)
-- [WSL2高级配置](docs/wsl/wsl-advance.md)
-- [WSL2中使用Docker](docs/wsl/wsl-docker.md)
+- [WSL2 安装](docs/wsl/wsl-install.md)
+- [WSL2 高级配置](docs/wsl/wsl-advance.md)
+- [WSL2 中使用 Docker](docs/wsl/wsl-docker.md)
 
 ## VIM
 
-- [neovim安装](docs/vim/vim-basic.md)
+- [neovim 安装](docs/vim/vim-basic.md)
 - [plugin](docs/vim/vim-plugin.md)
 - [coc](docs/sys/coc.md)
 
@@ -542,7 +542,6 @@ go get golang.org/x/tools/gopls@latest
 
 ## 加速访问
 
-
 ### npm&yarn
 
 参照如下命令使用国内镜像。
@@ -637,7 +636,6 @@ https://gitee.com/dllvhaobo/vista.vim.git
 https://gitee.com/dllvhaobo/wildfire.vim.git
 ```
 
-
 ## FAQ
 
 ### Coc Language Server not found
@@ -648,9 +646,15 @@ https://gitee.com/dllvhaobo/wildfire.vim.git
 
 PlugInstall 的步骤没有完全执行完就退出了，可能导致安装脚本没有执行。可以手动执行安装 `cd ~/.config/nvim/plugged/LanguageClient-neovim;./install.sh`
 
-
 [githubissue]: https://github.com/neovim/neovim/issues/19711#issuecomment-1214241593
 [docker-install]: https://docs.docker.com/engine/install/ubuntu/
 [use-docker-non-root]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
-[website]:https://workinginwsl.readthedocs.io
-[package_repo]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
+[website]: https://workinginwsl.readthedocs.io
+[package仓库]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
+[修改键位]: docs/misc/修改键位.md
+[字体]: docs/misc/font.md
+[windowsterminal]: docs/sys/WindowsTerminal.md
+[vscode]: docs/misc/vscode.md
+[wsl2 安装]: docs/wsl/wsl-install.md
+[wsl2 高级配置]: docs/wsl/wsl-advance.md
+[wsl2 中使用 docker]: docs/wsl/wsl-docker.md
