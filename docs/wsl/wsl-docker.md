@@ -31,7 +31,9 @@ if [ ! -S "$DOCKER_SOCK" ]; then
 fi
 ```
 
-## Use IPTALBES-LEGACY
+## 常见问题
+
+### 基于WSL2, UBUNTU 22.04的环境下，Docker无法启动
 
 ubuntu 22.04系统使用了 iptables-nft，WSL2不支持iptables-nft，导致docker-engine无法启动。。可以通过以下命令进行修改.
 
