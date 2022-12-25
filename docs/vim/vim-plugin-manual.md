@@ -1,51 +1,56 @@
 # Neovim 配置说明
 
+```bash
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
+cp plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
+```
+
 ## 插件说明
 
-| 插件名                             | 启用状态 | 描述 |
-| ---------------------------------- | -------- | ---- |
-| 'vim-airline/vim-airline'          |          |      |
-| 'tpope/vim-surround'               |          |      |
-| 'junegunn/vim-peekaboo'            |          |      |
-| 'easymotion/vim-easymotion'        |          |      |
-| 'liuchengxu/vista.vim'             |          |      |
-| 'dhruvasagar/vim-table-mode'       |          |      |
-| 'iamcco/markdown-preview.nvim'     |          |      |
-| 'Yggdroot/LeaderF'                 |          |      |
-| 'Yggdroot/LeaderF-marks'           |          |      |
-| 'junegunn/fzf'                     |          |      |
-| 'junegunn/fzf.vim'                 |          |      |
-| 'mhinz/vim-signify'                |          |      |
-| 'tpope/vim-fugitive'               |          |      |
-| 'preservim/nerdcommenter'          |          |      |
-| 'junegunn/vim-easy-align'          |          |      |
-| 'mbbill/undotree'                  |          |      |
-| 'aklt/plantuml-syntax'             |          |      |
-| 'weirongxu/plantuml-previewer.vim' |          |      |
-| 'mg979/vim-visual-multi'           |          |      |
-| 'autozimu/LanguageClient-neovim'   |          |      |
-| 'neoclide/coc.nvim'                |          |      |
-| 'honza/vim-snippets'               | not use  |      |
-| 'ryanoasis/vim-devicons'           | not use  |      |
-| 'tyru/open-browser.vim'            | not use  |      |
-| 'puremourning/vimspector'          | not use  |      |
-| 'skanehira/docker-compose.vim'     | not use  |      |
-| 'neoclide/coc-highlight'           | not use  |      |
-| 'jackguo380/vim-lsp-cxx-highlight' | not use  |      |
-| 'sheerun/vim-polyglot'             | not use  |      |
-| 'vim-syntastic/syntastic'          | not use  |      |
-| 'majutsushi/tagbar'                | not use  |      |
-| 'vim-scripts/indentpython.vim'     | not use  |      |
-| 'vimwiki/vimwiki'                  | disabled |      |
-| 'sbdchd/neoformat'                 | disabled |      |
-| 'prettier/vim-prettier'            | disabled |      |
-| 'scrooloose/vim-slumlord'          | disabled |      |
-| 'mzlogin/vim-markdown-toc'         | disabled |      |
-| 'Shougo/defx.nvim'                 | disabled |      |
-| 'vim-scripts/DoxygenToolkit.vim'   | disabled |      |
-| 'mhinz/vim-startify'               | disabled |      |
-| 'gcmt/wildfire.vim'                | disabled |      |
-| 'morhetz/gruvbox'                  | disabled |      |
+| 插件名                             | 启用状态 |
+| ---------------------------------- | -------- |
+| 'vim-airline/vim-airline'          | selected |
+| 'tpope/vim-surround'               | selected |
+| 'junegunn/vim-peekaboo'            | selected |
+| 'easymotion/vim-easymotion'        | selected |
+| 'liuchengxu/vista.vim'             | selected |
+| 'dhruvasagar/vim-table-mode'       | selected |
+| 'iamcco/markdown-preview.nvim'     | selected |
+| 'Yggdroot/LeaderF'                 | selected |
+| 'Yggdroot/LeaderF-marks'           | selected |
+| 'junegunn/fzf'                     | selected |
+| 'junegunn/fzf.vim'                 | selected |
+| 'mhinz/vim-signify'                | selected |
+| 'tpope/vim-fugitive'               | selected |
+| 'preservim/nerdcommenter'          | selected |
+| 'junegunn/vim-easy-align'          | selected |
+| 'mbbill/undotree'                  | selected |
+| 'aklt/plantuml-syntax'             | selected |
+| 'weirongxu/plantuml-previewer.vim' | selected |
+| 'mg979/vim-visual-multi'           | selected |
+| 'autozimu/LanguageClient-neovim'   | selected |
+| 'neoclide/coc.nvim'                | selected |
+| 'honza/vim-snippets'               | not use  |
+| 'ryanoasis/vim-devicons'           | not use  |
+| 'tyru/open-browser.vim'            | not use  |
+| 'puremourning/vimspector'          | not use  |
+| 'skanehira/docker-compose.vim'     | not use  |
+| 'neoclide/coc-highlight'           | not use  |
+| 'jackguo380/vim-lsp-cxx-highlight' | not use  |
+| 'sheerun/vim-polyglot'             | not use  |
+| 'vim-syntastic/syntastic'          | not use  |
+| 'majutsushi/tagbar'                | not use  |
+| 'vim-scripts/indentpython.vim'     | not use  |
+| 'vimwiki/vimwiki'                  | disabled |
+| 'sbdchd/neoformat'                 | disabled |
+| 'prettier/vim-prettier'            | disabled |
+| 'scrooloose/vim-slumlord'          | disabled |
+| 'mzlogin/vim-markdown-toc'         | disabled |
+| 'Shougo/defx.nvim'                 | disabled |
+| 'vim-scripts/DoxygenToolkit.vim'   | disabled |
+| 'mhinz/vim-startify'               | disabled |
+| 'gcmt/wildfire.vim'                | disabled |
+| 'morhetz/gruvbox'                  | disabled |
 
 ## coc-extensions
 
@@ -68,12 +73,13 @@ coc-groovy
 coc-yaml
 
 CocList exe
+
 ## coc-showdocuments
 
-| 快捷键         | 动作                   |
-| -------------- | ---------------------- |
-| `<PageUp>`     | 帮助文档中上翻页       |
-| `<PageDown`    | 帮助文档中下翻页       |
+| 快捷键      | 动作             |
+| ----------- | ---------------- |
+| `<PageUp>`  | 帮助文档中上翻页 |
+| `<PageDown` | 帮助文档中下翻页 |
 
 ## coc-explorer
 
@@ -141,28 +147,27 @@ CocList exe
   | name1 | name2 | name 3 |
   |-------|-------|--------|
   ```
-        
-- 转化CSV格式，将`value, value2, value3`转化成`| value | value2| value3 |`  
+
+- 转化 CSV 格式，将`value, value2, value3`转化成`| value | value2| value3 |`
 
 - 转化其他格式，比如，将`value; value2; value3`转化成`| value | value2| value3 |`, 输入`:tableize/;`, `/`之后指定分隔符，此处为`;`
 
-| 快捷键                 | 动作              |
-|------------------------|-------------------|
-| `<leader>` `t` `m`     | 开启/关闭         |
-| `<leader>` `t` `t`     | 转化CSV格式到表格 |
-| `<leader>` `t` `d` `c` | 删除列            |
-| `<leader>` `t` `d` `d` | 删除行            |
-| `[` `<BAR>`            | 左移              |
-| `]` `<BAR>`            | 左移              |
-| `{` `<BAR>`            | 上移              |
-| `}` `<BAR>`            | 下移              |
+| 快捷键                 | 动作                |
+| ---------------------- | ------------------- |
+| `<leader>` `t` `m`     | 开启/关闭           |
+| `<leader>` `t` `t`     | 转化 CSV 格式到表格 |
+| `<leader>` `t` `d` `c` | 删除列              |
+| `<leader>` `t` `d` `d` | 删除行              |
+| `[` `<BAR>`            | 左移                |
+| `]` `<BAR>`            | 左移                |
+| `{` `<BAR>`            | 上移                |
+| `}` `<BAR>`            | 下移                |
 
 ## makrdown-preview
 
 | 快捷键             | 动作     |
-|--------------------|----------|
+| ------------------ | -------- |
 | `<leader>` `m` `p` | 开启预览 |
-
 
 ## diff
 

@@ -1,7 +1,7 @@
 # Clang-format
 
 - 跳转到[clang-format官方说明]，查看最新的关于Clang-format所有配置说明。
-- [clang-format](./clang-format/Clang-Format.html)
+- [clang-format本地][]
 
 ### 使用配置
 
@@ -24,3 +24,5 @@ clang-format-cn是之前收集的说明文件。
 style文件的配置项的说明见Clang官网。
 
 [clang-format官方说明]:https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+[clang-format本地]:./clang-format-style-options.md
+

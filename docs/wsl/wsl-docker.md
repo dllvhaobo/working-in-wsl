@@ -1,6 +1,6 @@
 # DockerEngine In WSL2
 
-## Docker安装
+## Docker 安装
 
 ```bash
 sudo apt remove docker docker-engine docker.io containerd runc
@@ -13,9 +13,9 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
-## WSL2启动Docker服务
+## WSL2 启动 Docker 服务
 
-将如下脚添加到`~/.zshrc`或者`~/bashrc`文件的末尾，在WSL2中启动原生Docker服务(而不是DockerDesktop For Windows).
+将如下脚添加到`~/.zshrc`或者`~/bashrc`文件的末尾，在 WSL2 中启动原生 Docker 服务(而不是 DockerDesktop For Windows).
 
 ```bash
 # 不使用Docker-Desktop，默认启动Docker服务
@@ -31,11 +31,9 @@ if [ ! -S "$DOCKER_SOCK" ]; then
 fi
 ```
 
-## 常见问题
+## 基于 WSL2, UBUNTU 22.04 的环境下，Docker 无法启动
 
-### 基于WSL2, UBUNTU 22.04的环境下，Docker无法启动
-
-ubuntu 22.04系统使用了 iptables-nft，WSL2不支持iptables-nft，导致docker-engine无法启动。。可以通过以下命令进行修改.
+ubuntu 22.04 系统使用了 iptables-nft，WSL2 不支持 iptables-nft，导致 docker-engine 无法启动。。可以通过以下命令进行修改.
 
 ```bash
 sudo update-alternatives --config iptables

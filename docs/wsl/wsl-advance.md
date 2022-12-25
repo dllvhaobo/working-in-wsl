@@ -1,8 +1,8 @@
 ## WSL2 高级配置
 
-如果需要限制 WSL 使用的内存，处理器，交换分区等相关设置，请参考[WSL 高级设置]
+如果需要限制 WSL 使用的内存，处理器，交换分区等相关设置，请参考[WSL 高级设置][]
 
-`.wslconfig`下面的示例文件演示了一些可用的配置选项。 在此示例中，文件路径为 `C:\Users\<UserName>\.wslconfig`.
+`.wslconfig`下面的示例文件演示了一些可用的配置选项。 在此示例中，文件路径为 `%USERPROFILE%\.wslconfig`.
 
 ```bash
 # Settings apply across all Linux distros running on WSL 2
@@ -41,7 +41,7 @@ debugConsole=true
 
 ## 传统 WSL 配置
 
-`\\wsl.localhost\Ubuntu-20.04\etc\wsl.conf`
+在Ubuntu文件系统中创建`/etc/wsl.conf`.
 
 ```bash
 # Automatically mount Windows drive when the distribution is launched
@@ -79,7 +79,4 @@ default = DemoUser
 command = service docker start
 ```
 
-[linux 内核更新包]: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-[微软的官方网页]: https://learn.microsoft.com/zh-cn/windows/wsl/install-manual
-[microsoft store]: https://aka.ms/wslstore
 [wsl高级设置]: https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config

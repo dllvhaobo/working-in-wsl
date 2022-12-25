@@ -2,6 +2,22 @@
 
 - 日常的工作环境配置（Windows10，Windows11，WSL2，Ubuntu，MacBook，Manjaro）
 - 所有安装包都已经打包到[package 仓库][]
+- 线上说明请跳转到 https://workinginwsl.readthedocs.io
+- 本地生成文档
+
+  ```
+  git clone https://gitlink.org.cn/dllvhaobo/working-in-wsl.git
+  cd working-in-wsl/docs
+  pip install -r ../requirements.txt
+  mkdocs serve
+  # 浏览器打开 http://127.0.0.1:8000
+  ```
+
+## WSL2
+
+- [WSL2 安装](docs/wsl/wsl-install.md)
+- [WSL2 高级配置](docs/wsl/wsl-advance.md)
+- [WSL2 中使用 Docker](docs/wsl/wsl-docker.md)
 
 ## APPLICATION
 
@@ -9,12 +25,6 @@
 - [字体][]
 - [WindowsTerminal][]
 - [VScode][]
-
-## WSL2
-
-- [WSL2 安装](docs/wsl/wsl-install.md)
-- [WSL2 高级配置](docs/wsl/wsl-advance.md)
-- [WSL2 中使用 Docker](docs/wsl/wsl-docker.md)
 
 ## VIM
 
@@ -30,10 +40,8 @@ _个人日常工作的主要环境是 WLS2+UBUNTU，关于`WSL2+UBUNTU`会经常
 
 <!-- vim-markdown-toc GitLab -->
 
-* [键盘映射](#键盘映射)
 * [Ubuntu/WSL-UBUNTU](#ubuntuwsl-ubuntu)
     * [依赖](#依赖)
-    * [字体](#字体)
     * [Neovim](#neovim)
         * [Install from Prebuild Neovim](#install-from-prebuild-neovim)
         * [Installation from Source Code](#installation-from-source-code)
@@ -64,24 +72,11 @@ _个人日常工作的主要环境是 WLS2+UBUNTU，关于`WSL2+UBUNTU`会经常
     * [Linux 平台 ADB 配置](#linux-平台-adb-配置)
     * [tmux](#tmux-1)
     * [CLangFormat](#clangformat)
-    * [golang](#golang)
-* [加速访问](#加速访问)
-    * [npm&yarn](#npmyarn)
-    * [coc mirrors](#coc-mirrors)
-    * [vim-plug](#vim-plug-1)
 * [FAQ](#faq)
     * [Coc Language Server not found](#coc-language-server-not-found)
     * [LanguageClient not found](#languageclient-not-found)
 
 <!-- vim-markdown-toc -->
-
-## 键盘映射
-
-通过软件或者系统高配置实现以下按键配置详见[keymap](./docs/keymap.md)页
-
-- Switch `backspace` and `backslash`
-- CapsLock only as `escape`
-- CapsLock + `X` as `Ctrl+X`
 
 ## Ubuntu/WSL-UBUNTU
 
@@ -94,10 +89,6 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install git subversion g++ gcc clang-12 tig curl build-essential python3-pip ruby universal-ctags ruby-dev cmake build-essential autoconf  global ripgrep libtool libtool-bin make  automake tig gettext  pkg-config
 ```
-
-### 字体
-
-安装对应字体，并且在 Terminal 中选中安装的字体，可以在 Terminal 中现实 DevIcons，连体字,中文等等。[详见 Font 说明](./docs/fonts.md)
 
 ### Neovim
 
@@ -533,108 +524,6 @@ TODO
 
 TODO
 
-### golang
-
-```bash
-go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/
-go get golang.org/x/tools/gopls@latest
-```
-
-## 加速访问
-
-### npm&yarn
-
-参照如下命令使用国内镜像。
-
-```bash
-yarn config set registry https://registry.npm.taobao.org --global  && \
-yarn config set disturl https://npm.taobao.org/dist --global && \
-yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass --global  && \
-yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ --global  && \
-yarn config set puppeteer_download_host https://npm.taobao.org/mirrors --global  && \
-yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver --global  && \
-yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver --global  && \
-yarn config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs --global  && \
-yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium --global  && \
-yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector --global
-
-
-npm set registry https://registry.npm.taobao.org && \
-npm set disturl https://npm.taobao.org/dist && \
-npm set sass_binary_site https://npm.taobao.org/mirrors/node-sass && \
-npm set electron_mirror https://npm.taobao.org/mirrors/electron && \
-npm set puppeteer_download_host https://npm.taobao.org/mirrors && \
-npm set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver && \
-npm set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver && \
-npm set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs && \
-npm set selenium_cdnurl https://npm.taobao.org/mirrors/selenium && \
-npm set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector && \
-npm cache clean --force
-```
-
-### coc mirrors
-
-Using custom registry
-You can customize npm registry for coc.nvim by add coc.nvim:registry in the file ~/.npmrc:
-
-```bash
-coc.nvim:registry=https://registry.npmmirror.com/
-```
-
-### vim-plug
-
-git@gitee.com:dllvhaobo/vim-startify.git
-https://gitee.com/dllvhaobo/vim-airline.git
-
-```bash
-https://gitee.com/dllvhaobo/DoxygenToolkit.vim.git
-https://gitee.com/dllvhaobo/LanguageClient-neovim.git
-https://gitee.com/dllvhaobo/LeaderF-marks.git
-https://gitee.com/dllvhaobo/LeaderF.git
-https://gitee.com/dllvhaobo/coc-highlight.git
-https://gitee.com/dllvhaobo/coc-jedi.git
-https://gitee.com/dllvhaobo/coc.nvim.git
-https://gitee.com/dllvhaobo/copilot.vim.git
-https://gitee.com/dllvhaobo/defx.nvim.git
-https://gitee.com/dllvhaobo/docker-compose.vim.git
-https://gitee.com/dllvhaobo/fzf.git
-https://gitee.com/dllvhaobo/fzf.vim.git
-https://gitee.com/dllvhaobo/gruvbox.git
-https://gitee.com/dllvhaobo/indentpython.vim.git
-https://gitee.com/dllvhaobo/markdown-preview.nvim.git
-https://gitee.com/dllvhaobo/neoformat.git
-https://gitee.com/dllvhaobo/nerdcommenter.git
-https://gitee.com/dllvhaobo/nvim-treesitter.git
-https://gitee.com/dllvhaobo/open-browser.vim.git
-https://gitee.com/dllvhaobo/plantuml-previewer.vim.git
-https://gitee.com/dllvhaobo/plantuml-syntax.git
-https://gitee.com/dllvhaobo/syntastic.git
-https://gitee.com/dllvhaobo/tagbar.git
-https://gitee.com/dllvhaobo/undotree.git
-https://gitee.com/dllvhaobo/vim-airline.git
-https://gitee.com/dllvhaobo/vim-devicons.git
-https://gitee.com/dllvhaobo/vim-easy-align.git
-https://gitee.com/dllvhaobo/vim-easymotion.git
-https://gitee.com/dllvhaobo/vim-fugitive.git
-https://gitee.com/dllvhaobo/vim-go.git
-https://gitee.com/dllvhaobo/vim-instant-markdown.git
-https://gitee.com/dllvhaobo/vim-lsp-cxx-highlight.git
-https://gitee.com/dllvhaobo/vim-markdown-toc.git
-https://gitee.com/dllvhaobo/vim-peekaboo.git
-https://gitee.com/dllvhaobo/vim-polyglot.git
-https://gitee.com/dllvhaobo/vim-prettier.git
-https://gitee.com/dllvhaobo/vim-signify.git
-https://gitee.com/dllvhaobo/vim-slumlord.git
-https://gitee.com/dllvhaobo/vim-snippets.git
-https://gitee.com/dllvhaobo/vim-startify.git
-https://gitee.com/dllvhaobo/vim-surround.git
-https://gitee.com/dllvhaobo/vim-table-mode.git
-https://gitee.com/dllvhaobo/vim-visual-multi.git
-https://gitee.com/dllvhaobo/vimspector.git
-https://gitee.com/dllvhaobo/vimwiki.git
-https://gitee.com/dllvhaobo/vista.vim.git
-https://gitee.com/dllvhaobo/wildfire.vim.git
-```
 
 ## FAQ
 
@@ -650,11 +539,4 @@ PlugInstall 的步骤没有完全执行完就退出了，可能导致安装脚�
 [docker-install]: https://docs.docker.com/engine/install/ubuntu/
 [use-docker-non-root]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 [website]: https://workinginwsl.readthedocs.io
-[package仓库]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
-[修改键位]: ./docs/misc/修改键位.md
-[字体]: ./docs/misc/字体.md
-[windowsterminal]: ./docs/sys/WindowsTerminal.md
-[vscode]: ./docs/misc/vscode.md
-[wsl2 安装]: ./docs/wsl/wsl-install.md
-[wsl2 高级配置]: ./docs/wsl/wsl-advance.md
-[wsl2 中使用 docker]: ./docs/wsl/wsl-docker.md
+[package 仓库]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package

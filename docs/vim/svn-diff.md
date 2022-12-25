@@ -1,3 +1,4 @@
+
 ## SVN 配置
 
 - `cp script/svndiff_nvim.sh ${XDG_DATA_HOME:-$HOME/.local}"/bin/svndiff_nvim.sh`

@@ -1,5 +1,3 @@
-# README
-
 - 在 VIM 的 TAB 中打开 git 工程目录中的所有改动。
 - 在 Meld 中查看所有的 git 改动。
 
@@ -28,20 +26,20 @@
 
 ## VIM
 
-### 以串行方式在VIM中比对修改的文件
+### 以串行方式在 VIM 中比对修改的文件
 
 ```bash
 git difftool ./
 ```
 
-### 在VIM的Tabs中打开所有的改动文件。
+### 在 VIM 的 Tabs 中打开所有的改动文件。
 
-- 安装gitdiffall，并进行相关配置，详见[gitdiffall] 
+- 安装 gitdiffall，并进行相关配置，详见[gitdiffall]
 
   ```bash
   git clone https://github.com/bootleq/vim-gitdiffall.git
   cd vim-gitdiffall
-  
+
   # 修改install.zsh，配置安装目录，比如(~/.local/bin)
   ./install.zsh
 
@@ -62,7 +60,7 @@ git difftool ./
   }).merge!(defined?(CONFIG) ? CONFIG : {})
   ```
 
-- 在zsh中执行`gitdiffall`，在VIM的Tabs中打开所有的改动文件。
+- 在 zsh 中执行`gitdiffall`，在 VIM 的 Tabs 中打开所有的改动文件。
 
 ## MELD
 
@@ -73,12 +71,13 @@ git difftool ./
   - 原生 Linux 不需要进行额外配置。
 
 - 配置 Terminal 的 DISPLAY 环境变量
-    - 配置环境变量 `export DISPLAY=YOUR_IP:1.0`
-    - 启动xclock，查看是否能够在本机显示。 
 
-- 在工作目录中执行`git difftool --dir-diff ./`，meld的会在本机显示。
+  - 配置环境变量 `export DISPLAY=YOUR_IP:1.0`
+  - 启动 xclock，查看是否能够在本机显示。
+
+- 在工作目录中执行`git difftool --dir-diff ./`，meld 的会在本机显示。
 
 [wslg]: https://github.com/microsoft/wslg
 [xorg]: https://wiki.archlinuxcn.org/wiki/Xorg
 [wayland]: https://wiki.archlinuxcn.org/wiki/Wayland
-[gitdiffall]:https://github.com/bootleq/vim-gitdiffall
+[gitdiffall]: https://github.com/bootleq/vim-gitdiffall

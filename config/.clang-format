@@ -1,5 +1,6 @@
 BasedOnStyle: Microsoft
-ColumnLimit: 160 
+
+ColumnLimit: 120
 
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: true
