@@ -1,9 +1,9 @@
 site_name: HOME
 theme:
-  name: 'windmill'
+  # name: 'windmill'
   # name: 'rtd-dropdown'
   # name: 'custommill'
-  # name: 'gitbook'
+  name: 'gitbook'
   # name: 'material'
   # name: "bootstrap4"
   # name: "cerulean"
