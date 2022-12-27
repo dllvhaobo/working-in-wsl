@@ -36,3 +36,6 @@ wsl --install
 [微软的官方网页]: https://learn.microsoft.com/zh-cn/windows/wsl/install-manual
 [microsoft store]: https://aka.ms/wslstore
 [wsl高级设置]: https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config
+
+
+

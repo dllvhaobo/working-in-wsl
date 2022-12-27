@@ -1,3 +1,4 @@
+# Clang-Format Style Options
 This section lists the supported style options. Value type is specified for each option. For enumeration types possible values are specified both as a C++ enumeration member (with a prefix, e.g. `LS_Auto`), and as a value usable in the configuration (without a prefix: `Auto`).
 
 __BasedOnStyle__ (`String`)
