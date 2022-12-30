@@ -46,6 +46,10 @@ if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
 fi
 
+if [ -e "${XDG_DATA_HOME:-$HOME}"/adddns.sh ]; then
+  source  "${XDG_DATA_HOME:-$HOME}"/adddns.sh
+fi
+
 bindkey '^ ' autosuggest-accept
 
 PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
@@ -71,10 +75,10 @@ alias vim=nvim
 alias v=nvim 
 
 # alias adb=adb.exe
-# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
-# if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
-# 	git config --global proxy.https socks5://${HOST_GW}:20170
-# fi
+alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
+if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
+    git config --global proxy.https socks5://${HOST_GW}:20170
+fi
 # 
 # 不使用Docker-Desktop，默认启动Docker服务
 # DOCKER_DISTRO="Ubuntu"
