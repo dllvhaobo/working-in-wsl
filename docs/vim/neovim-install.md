@@ -9,7 +9,7 @@ neovim 的安装方法详细说明可以参考[neovim-install-from-package][]的
   ```bash
   git clone https://github.com/neovim/neovim.git
   cd neovim
-  make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/full/path/
+  make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/full/path/
   make install
   ```
 

@@ -21,7 +21,6 @@ ln -s $(pwd)/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
 chsh lv -s /usr/bin/zsh
 ```
 
-
 ## Neovim
 
 neovim 是 vim 的一个分支，其特性是 vim 的超集，操作与 VIM 几乎完全兼容。快速安装请参考如下步骤。详细信息请参考[neovim][]和[neovim.io][]
@@ -35,8 +34,8 @@ sudo apt install neovim
 
 mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim}"
 ln -s $(pwd)/config/init.vim ~/.config/nvim/init.vim
-
 ```
+
 ## Nodejs
 
 ```bash
@@ -85,8 +84,19 @@ cp config/plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
 
 ## 安装插件
 
-neovim 安装完成之后，拷贝`config/init.vim`到`~/.config/nvim/init.vim`之后，执行`nvim -c PlugInstall -c quit -c quit`等待插件安装完成。
+### 本地解压
 
+受到网络的影响，在线安装非常慢并且不稳定。所有的插件都已经同步到国内仓库，可以使用如下步骤安装。
+
+```bash
+git clone https://gitlink.org.cn/dllvhaobo/working-in-wsl-package.git package
+cd package/vim-plug
+./unpack.sh
+```
+
+### 在线下载
+
+neovim 安装完成之后，拷贝`config/init.vim`到`~/.config/nvim/init.vim`之后，执行`nvim -c PlugInstall -c quit -c quit`等待插件安装完成。
 
 ## 安装 COC Extensions
 

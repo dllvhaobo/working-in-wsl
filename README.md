@@ -19,17 +19,16 @@
   - clang-format 安装及配置
 - 国内访问
   - 安装包打包（tar.gz）到[gitlink][]进行维护。
-  - 位于 Github 上的项目已在[Gitee][]上创建镜像。
+  - 位于 Github 上的项目已在[gitee][]上创建镜像。
 - 说明文档位在[readthedocs.io][]；也可以参照如下命令在本地生成文档查看。
-  ```
+
+  ```bash
   git clone https://github.com/dllvhaobo/working-in-wsl.git
   cd working-in-wsl
   pip install -r requirements.txt
   mkdocs serve
   ```
 
-[githubissue]: https://github.com/neovim/neovim/issues/19711#issuecomment-1214241593
-[docker-install]: https://docs.docker.com/engine/install/ubuntu/
-[use-docker-non-root]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+[gitee]: https://gitee.com/dllvhaobo/dashboard/projects
 [gitlink]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
 [readthedocs.io]: https://workinginwsl.readthedocs.io
