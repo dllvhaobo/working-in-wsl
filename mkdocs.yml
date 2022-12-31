@@ -3,9 +3,9 @@ theme:
   # name: 'windmill'
   # name: 'rtd-dropdown'
   # name: 'custommill'
-  name: 'gitbook'
+  # name: 'gitbook'
   # name: 'material'
-  # name: "bootstrap4"
+  name: "bootstrap4"
   # name: "cerulean"
   # name: "yeti"
   # name: "solar"
@@ -13,14 +13,15 @@ theme:
   # name: 'mkdocs'
   # name: 'ivory'
 nav:
-  - "WSL": wsl/
+  - "QUICKSTART": quickstart.md
+  - "WSL": WSL.md
   - "VIM": vim/
   - "CLANG": clang/
   - "MISC": misc/
 
 markdown_extensions:
   - toc:
-      permalink: "#"
+      # permalink: "#"
   - attr_list
   - def_list
   - tables
