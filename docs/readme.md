@@ -26,40 +26,9 @@ QuickInstall 可以完成所有相关配置，可以忽略后续的章节。
 
 受到各种原因的限制，目前的开发环境只能是基于 UBUNTU-18.04.5 的环境。基于此目前可以使用以下三种方式搭建环境。
 
-- SSH 登录编译服务器，参考如下脚本进行服务器配置。
-
-  ```bash
-  git clone git@cnninvmgtlb01:lv_h1/syscfg.git
-  cd syscfg/non-root-install
-  ./quickinstall_1804_non_root.sh
-  ```
-
-- WSL2 + Ubuntu18.04，参考如下脚本进行服务器配置。
-
-  ```bash
-  git clone git@cnninvmgtlb01:lv_h1/syscfg.git
-  cd syscfg/non-root-install
-  ./quickinstall_1804_root.sh
-  ```
-
-- Docker + Ubuntu18.04 镜像，启动 docker 镜像，参考`docker_config.sh`配置用户；然后参考 WSL2 的配置脚本即可。
-
-## Prepare
-
-```bash
-mkdir -p ${XDG_DATA_HOME:-$HOME/.local}/share
-mkdir -p ${XDG_DATA_HOME:-$HOME/.local}/bin
-mkdir -p ${XDG_DATA_HOME:-$HOME/.local}/lib
-
-git clone git@cnninvmgtlb01:lv_h1/syscfg.git`
-```
 
 
 ### gtags
-=======
-
-### gtags
->>>>>>> Stashed changes
 
 ```bash
 ## https://ftp.gnu.org/pub/gnu/global/

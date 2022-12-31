@@ -17,6 +17,7 @@ nav:
   - "WSL": WSL.md
   - "VIM": vim/
   - "CLANG": clang/
+  - "COC": coc/
   - "MISC": misc/
 
 markdown_extensions:

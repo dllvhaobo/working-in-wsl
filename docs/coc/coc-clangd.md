@@ -1,5 +1,3 @@
-# coc-clangd官方说明
-
 This extension connects [coc.nvim][] to the [clangd][] language server.
 
 ## Quick Start

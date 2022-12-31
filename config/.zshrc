@@ -46,6 +46,7 @@ if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
 fi
 
+# Add "serarch suffix" for Joynext
 if [ -e "${XDG_DATA_HOME:-$HOME}"/adddns.sh ]; then
   source  "${XDG_DATA_HOME:-$HOME}"/adddns.sh
 fi
@@ -60,8 +61,6 @@ export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.s
 export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
 
 export DISPLAY=${HOST_GW}:1.0
-# Add "serarch suffix" for Joynext
-"${XDG_DATA_HOME:-$HOME}"/adddns.sh
 
 # Following is for WSL only
 ################################################################################

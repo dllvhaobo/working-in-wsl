@@ -20,14 +20,18 @@
 - 国内访问
   - 安装包打包（tar.gz）到[gitlink][]进行维护。
   - 位于 Github 上的项目已在[gitee][]上创建镜像。
-- 说明文档位在[readthedocs.io][]；也可以参照如下命令在本地生成文档查看。
+- 说明文档
 
-  ```bash
-  git clone https://github.com/dllvhaobo/working-in-wsl.git
-  cd working-in-wsl
-  pip install -r requirements.txt
-  mkdocs serve
-  ```
+  - [QuickStart][./docs/quickstart.md]
+  - [在线文档][readthedocs.io]
+  - 也可以参照如下命令在本地生成文档查看。
+
+    ```bash
+    git clone https://github.com/dllvhaobo/working-in-wsl.git
+    cd working-in-wsl
+    pip install -r requirements.txt
+    mkdocs serve
+    ```
 
 [gitee]: https://gitee.com/dllvhaobo/dashboard/projects
 [gitlink]: https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package

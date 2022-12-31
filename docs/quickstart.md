@@ -3,15 +3,13 @@
 ```bash
 sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 sudo apt update
-sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autopoint \
-                    bc bison build-essential cmake curl device-tree-compiler flex \
-                    g++ gcc gettext git global gperf intltool jq lib32stdc++6  \
-                    libcurl4-openssl-dev libcurses-ocaml-dev liblz4-tool libffi-dev \
-                    libdist-zilla-plugin-localemsgfmt-perl liblocale-msgfmt-perl \
-                    libmount-dev libncurses5-dev libtool libtool-bin libxml2-utils \
-                    lsb m4 make pkg-config python3-dev python3-pip ruby ruby-dev tig \
-                    squashfs-tools srecord subversion zip zlib1g-dev zsh autojump \
-                    zsh-theme-powerlevel9k zsh-syntax-highlighting zsh-autosuggestions
+sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autopoint gettext flex \
+                    bc bison build-essential cmake curl device-tree-compiler libcurl4-openssl-dev \
+                    g++ gcc git global gperf intltool jq lib32stdc++6 libcurses-ocaml-dev liblz4-tool \
+                    libffi-dev libdist-zilla-plugin-localemsgfmt-perl liblocale-msgfmt-perl pkg-config \
+                    libmount-dev libncurses5-dev libtool libtool-bin libxml2-utils  make python3-dev \ 
+                    python3-pip ruby ruby-dev tig lsb m4 squashfs-tools srecord subversion zlib1g-dev \
+                    zsh autojump zsh-theme-powerlevel9k zsh-syntax-highlighting zsh-autosuggestions zip 
 ```
 
 ## ZSH
@@ -21,7 +19,7 @@ ln -s $(pwd)/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
 chsh lv -s /usr/bin/zsh
 ```
 
-## Neovim
+## NEOVIM
 
 neovim 是 vim 的一个分支，其特性是 vim 的超集，操作与 VIM 几乎完全兼容。快速安装请参考如下步骤。详细信息请参考[neovim][]和[neovim.io][]
 
@@ -36,7 +34,7 @@ mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim}"
 ln -s $(pwd)/config/init.vim ~/.config/nvim/init.vim
 ```
 
-## Nodejs
+## NODEJS
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs
@@ -45,7 +43,7 @@ echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/deb
 sudo apt-get update && sudo apt install -y yarn nodejs
 ```
 
-## Nodejs Mirror
+设置NPM和YARN国内镜像
 
 ```bash
 npm set registry https://registry.npm.taobao.org
@@ -73,7 +71,7 @@ yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium --global
 yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector --global
 ```
 
-## 插件管理器 Vim-Plug
+## VIM-PLUG
 
 我们使用 vim-plug 作为 neovim 的插件管理器, 快速安装请参考如下步骤。详细信息请参考[vim-plug][]
 
@@ -82,9 +80,7 @@ mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
 cp config/plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
 ```
 
-## 安装插件
-
-### 本地解压
+## 安装插件-本地解压
 
 受到网络的影响，在线安装非常慢并且不稳定。所有的插件都已经同步到国内仓库，可以使用如下步骤安装。
 
@@ -94,11 +90,11 @@ cd package/vim-plug
 ./unpack.sh
 ```
 
-### 在线下载
+## 安装插件-在线下载
 
 neovim 安装完成之后，拷贝`config/init.vim`到`~/.config/nvim/init.vim`之后，执行`nvim -c PlugInstall -c quit -c quit`等待插件安装完成。
 
-## 安装 COC Extensions
+## 安装 COC EXTENSIONS
 
 在 init.vim 中定义好的 extensions，在 neovim 启动的时候，会自动进行安装。如果希望手动安装其他 COC 扩展，可以通过`CocList marketplace`选择需要的扩展进行安装。
 
