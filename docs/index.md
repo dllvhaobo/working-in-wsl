@@ -1,23 +1,19 @@
 1. [WSL 安装及配置][]
-1. UBUNTU 安装及配置
 1. DevICon 字体
 1. WindowsTerminal
 1. VSCODE
+1. UBUNTU 安装及配置
 1. ZSH
+1. NEOVIM
+1. VIM-PLUG
+1. COC.NVIM
 1. Git Configuration
 1. Subversion Configuration
-1. NEOVIM
-1. COC.NVIM
-1. VIM-PLUG
 
 ## CLANG 配置
 
 ## VIM
 
-- [VIM 基础操作][]
-- [VIM 插件管理][]
-- [GIT-DIFF][]
-- [SVN-DIFF][]
 
 [wsl 安装及配置]: WSL.md
 [vim 基础操作]: ./vim/vim-basic.md

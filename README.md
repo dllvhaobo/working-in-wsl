@@ -18,7 +18,7 @@
   - clang 安装及配置
   - clang-format 安装及配置
 - 国内访问
-  - 安装包打包（tar.gz）到[gitlink][]进行维护。
+  - 安装包已经打包成tar.gz，并在国内仓库进行维护，详情请查看[gitlink][]。
   - 位于 Github 上的项目已在[gitee][]上创建镜像。
 - 说明文档
 

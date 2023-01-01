@@ -26,4 +26,5 @@ style 文件的配置项的说明见 Clang 官网。
 [clang-format官方说明]: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 [clang-format本地]: ./clang-format-style-options.md
 [clang-format安装]: https://apt.llvm.org/
- `sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 1`
+
+`sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 1`
