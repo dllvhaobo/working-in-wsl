@@ -3,13 +3,57 @@
 ```bash
 sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 sudo apt update
-sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autopoint gettext flex \
-                    bc bison build-essential cmake curl device-tree-compiler libcurl4-openssl-dev \
-                    g++ gcc git global gperf intltool jq lib32stdc++6 libcurses-ocaml-dev liblz4-tool \
-                    libffi-dev libdist-zilla-plugin-localemsgfmt-perl liblocale-msgfmt-perl pkg-config \
-                    libmount-dev libncurses5-dev libtool libtool-bin libxml2-utils  make python3-dev \ 
-                    python3-pip ruby ruby-dev tig lsb m4 squashfs-tools srecord subversion zlib1g-dev \
-                    zsh autojump zsh-theme-powerlevel9k zsh-syntax-highlighting zsh-autosuggestions zip 
+sudo apt install -y android-sdk-libsparse-utils
+sudo apt install -y autoconf
+sudo apt install -y autogen
+sudo apt install -y autojump
+sudo apt install -y automake
+sudo apt install -y autopoint
+sudo apt install -y bc
+sudo apt install -y bison
+sudo apt install -y build-essential
+sudo apt install -y cmake
+sudo apt install -y curl
+sudo apt install -y device-tree-compiler
+sudo apt install -y flex
+sudo apt install -y g++
+sudo apt install -y gcc
+sudo apt install -y gettext
+sudo apt install -y git
+sudo apt install -y global
+sudo apt install -y gperf
+sudo apt install -y intltool
+sudo apt install -y jq
+sudo apt install -y lib32stdc++6
+sudo apt install -y libcurl4-openssl-dev
+sudo apt install -y libcurses-ocaml-dev
+sudo apt install -y libdist-zilla-plugin-localemsgfmt-perl
+sudo apt install -y libffi-dev
+sudo apt install -y liblocale-msgfmt-perl
+sudo apt install -y liblz4-tool
+sudo apt install -y libmount-dev
+sudo apt install -y libncurses5-dev
+sudo apt install -y libtool
+sudo apt install -y libtool-bin
+sudo apt install -y libxml2-utils
+sudo apt install -y lsb
+sudo apt install -y m4
+sudo apt install -y make
+sudo apt install -y pkg-config
+sudo apt install -y python3-dev
+sudo apt install -y python3-pip
+sudo apt install -y ruby
+sudo apt install -y ruby-dev
+sudo apt install -y squashfs-tools
+sudo apt install -y srecord
+sudo apt install -y subversion
+sudo apt install -y tig
+sudo apt install -y zip
+sudo apt install -y zlib1g-dev
+sudo apt install -y zsh
+sudo apt install -y zsh-autosuggestions
+sudo apt install -y zsh-syntax-highlighting
+sudo apt install -y zsh-theme-powerlevel9k
 ```
 
 ## ZSH

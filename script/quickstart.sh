@@ -10,15 +10,21 @@ sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autop
                     libmount-dev libncurses5-dev libtool libtool-bin libxml2-utils \
                     lsb m4 make pkg-config python3-dev python3-pip ruby ruby-dev tig \
                     squashfs-tools srecord subversion zip zlib1g-dev zsh autojump \
-                    zsh-theme-powerlevel9k zsh-syntax-highlighting zsh-autosuggestions
+                    zsh-theme-powerlevel9k zsh-syntax-highlighting zsh-autosuggestions \
+                    ripgrep
 
 
 ################################################################################
 # nodejs + yarn 
 ################################################################################
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+curl -fsSL https://deb.nodesource.com/setup_18.x |  \
+    sudo -E bash - && sudo apt-get install -y nodejs
+
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg \
+    | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | \
+    sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt install -y yarn nodejs
 
 npm set registry https://registry.npm.taobao.org

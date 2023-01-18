@@ -4,7 +4,7 @@
 # %TBC JRA=CNSDEFECT-2056%JRA Tickets
 # %REM%Disciption Only
 # %FIN RDM=2075  TBC JRA=XIT-3847 REM% Combined commit summary 
-                                                                                                                                    and keyword 'REM' is needed only no ticket/issue is associated at most cases.
+and keyword 'REM' is needed only no ticket/issue is associated at most cases.
 
 # Main Rules:
 # Commit message must be composed of TICKETS part and DESCRIPTION part.
