@@ -37,10 +37,12 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
-source /usr/share/autojump/autojump.zsh
+# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+ZSH_HOME=/usr/share
+source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+source ${ZSH_HOME}/autojump/autojump.zsh
 
 if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
@@ -60,7 +62,7 @@ PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-
 export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
 export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
 
-export DISPLAY=${HOST_GW}:1.0
+# export DISPLAY=${HOST_GW}:1.0
 
 # Following is for WSL only
 ################################################################################
@@ -74,10 +76,10 @@ alias vim=nvim
 alias v=nvim 
 
 # alias adb=adb.exe
-alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
-if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
-    git config --global proxy.https socks5://${HOST_GW}:20170
-fi
+# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
+# if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
+# 	git config --global proxy.https socks5://${HOST_GW}:20170
+# fi
 # 
 # 不使用Docker-Desktop，默认启动Docker服务
 # DOCKER_DISTRO="Ubuntu"
