@@ -47,7 +47,10 @@ WINDOWS 下修改键位映射的开源小工具[SharpKey][]
 
 ### Mackbook
 
-I use Karabiner with a configuration taken from this GitHub issue comment. After installing Karabiner, copy `karabiner/karabiner.json` to `~/.config/karabiner/karabiner.json,` and modify the rules array.
+- https://karabiner-elements.pqrs.org下载"Karabiner-Elements"
+- 安装"Karabiner-Elements"
+- 启动"Karabiner-Elements"
+- "Complex Modifications"->"Add rule",网页中搜索 "change caps_lock to dual keys, escape and left_control" 点击"import"
 
 ### Manjaro
 
@@ -58,7 +61,6 @@ setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 xmodmap ~/xmodmaprc
 ```
-
 
 ## WindowsTerminal
 
