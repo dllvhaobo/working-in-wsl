@@ -4,8 +4,6 @@
   "codeLens.enable": true,
   // "clangd.semanticHighlighting": true,
   // "coc.preferences.formatOnSaveFiletypes": ["json", "python", "c", "c++"],
-  // "coc.preferences.formatOnSaveFiletypes": ["json", "python"],
-
   // "coc.preferences.previewAutoClose": false,
   "languageserver": {
     "bash": {

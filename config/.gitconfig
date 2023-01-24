@@ -17,6 +17,7 @@
 [difftool "vimdiff"]
     path = /home/lv/.local/bin/nvim
 [proxy]
+	https = socks5://172.18.32.1:20170
 	; https = socks5://172.19.208.1:20170
 [merge]
 	tool = vimdiff
