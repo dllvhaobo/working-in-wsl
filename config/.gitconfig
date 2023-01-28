@@ -4,22 +4,31 @@
 [diff]
     tool = vimdiff
     ; tool = meld
-[difftool]
-	prompt = false
-[alias]
-	d = difftool
+    ; tool = kdiff3
+; [alias]
+	; d = difftool
 [pull]
-        rebase = false
+    rebase = false
 [core]
-        editor = nvim
+    editor = nvim
 [init]
-        defaultBranch = main
+    defaultBranch = main
 [difftool "vimdiff"]
-    path = /home/lv/.local/bin/nvim
+    path = /usr/local/bin/nvim
+    prompt = false
 [proxy]
 	; https = socks5://172.19.208.1:20170
 [merge]
-	tool = vimdiff
+    tool = p4merge
+    ; tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+	keepBackup = false
+[mergetool "p4merge"]
+	path = /home/lv/.local/bin/p4merge
+    cmd = p4merge $BASE $LOCAL $REMOTE $MERGED
+[mergetool "vimdiff"]
+	path = /usr/local/bin/nvim
+[commit]
+	template = /home/lv/works/working-in-wsl/config/git-commit-template.txt
