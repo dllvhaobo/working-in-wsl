@@ -38,8 +38,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey '^ ' autosuggest-accept
-# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-ZSH_HOME=/usr/share
+ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+# ZSH_HOME=/usr/share
 source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
