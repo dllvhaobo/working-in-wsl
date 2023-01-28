@@ -37,15 +37,13 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-source  "${XDG_DATA_HOME:-$HOME/.local/share}"/zsh-autosuggestions/zsh-autosuggestions.zsh
-source  "${XDG_DATA_HOME:-$HOME/.local/share}"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source  "${XDG_DATA_HOME:-$HOME/.local/share}"/powerlevel9k/powerlevel9k.zsh-theme
-source  "${XDG_DATA_HOME:-$HOME/.local/share}"/autojump/autojump.zsh
-
-# source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
-# source /usr/share/autojump/autojump.zsh
+bindkey '^ ' autosuggest-accept
+# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+ZSH_HOME=/usr/share
+source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+source ${ZSH_HOME}/autojump/autojump.zsh
 
 if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
@@ -56,10 +54,7 @@ if [ -e "${XDG_DATA_HOME:-$HOME}"/.adddns.sh ]; then
   "${XDG_DATA_HOME:-$HOME}"/.adddns.sh
 fi
 
-bindkey '^ ' autosuggest-accept
-
 PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
-
 
 # export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
 export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
@@ -84,15 +79,16 @@ alias adb=adb.exe
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi
-# 
+ 
+
 # 不使用Docker-Desktop，默认启动Docker服务
 # DOCKER_DISTRO="Ubuntu"
 # DOCKER_DIR=/mnt/wsl/shared-docker
 # DOCKER_SOCK="$DOCKER_DIR/docker.sock"
 # export DOCKER_HOST="unix://$DOCKER_SOCK"
 # if [ ! -S "$DOCKER_SOCK" ]; then
-   # mkdir -pm o=,ug=rwx "$DOCKER_DIR"
-   # sudo chgrp docker "$DOCKER_DIR"
-   # /mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd < /dev/null > $DOCKER_DIR/dockerd.log 2>&1"
+#    mkdir -pm o=,ug=rwx "$DOCKER_DIR"
+#    sudo chgrp docker "$DOCKER_DIR"
+#    /mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd < /dev/null > $DOCKER_DIR/dockerd.log 2>&1"
 # fi
 

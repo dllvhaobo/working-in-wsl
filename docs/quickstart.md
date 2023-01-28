@@ -9,6 +9,7 @@ sudo apt install -y autogen
 sudo apt install -y autojump
 sudo apt install -y automake
 sudo apt install -y autopoint
+sudo apt install -y bat
 sudo apt install -y bc
 sudo apt install -y bison
 sudo apt install -y build-essential
@@ -42,6 +43,7 @@ sudo apt install -y make
 sudo apt install -y pkg-config
 sudo apt install -y python3-dev
 sudo apt install -y python3-pip
+sudo apt install -y ripgrep
 sudo apt install -y ruby
 sudo apt install -y ruby-dev
 sudo apt install -y squashfs-tools
@@ -76,6 +78,7 @@ sudo apt install neovim
 
 mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim}"
 ln -s $(pwd)/config/init.vim ~/.config/nvim/init.vim
+ln -s $(pwd)/config/coc-settings.json ~/.config/nvim/coc-settings.json
 ```
 
 ## NODEJS
@@ -87,7 +90,7 @@ echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/deb
 sudo apt-get update && sudo apt install -y yarn nodejs
 ```
 
-设置NPM和YARN国内镜像
+设置 NPM 和 YARN 国内镜像
 
 ```bash
 npm set registry https://registry.npm.taobao.org

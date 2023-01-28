@@ -1,22 +1,20 @@
+# README
 
-<<<<<<< Updated upstream
-## gtags
-||||||| constructed merge base
-* [QuickInstall](#quickinstall)
-* [Prepare](#prepare)
-* [dependency](#dependency)
-* [neovim](#neovim)
-    * [vim-plug](#vim-plug)
-    * [Nodejs](#nodejs)
-    * [Python](#python)
-    * [copy-plugin](#copy-plugin)
-    * [gtags](#gtags)
-    * [ctags](#ctags)
-    * [ripgrep](#ripgrep)
-* [Git](#git)
-* [ZSH](#zsh)
-* [关闭 PowerLevel9K 的检查 GIT 更新 Option](#关闭-powerlevel9k-的检查-git-更新-option)
-* [SSH 登录](#ssh-登录)
+- [QuickInstall](#quickinstall)
+- [Prepare](#prepare)
+- [dependency](#dependency)
+- [neovim](#neovim)
+  - [vim-plug](#vim-plug)
+  - [Nodejs](#nodejs)
+  - [Python](#python)
+  - [copy-plugin](#copy-plugin)
+  - [gtags](#gtags)
+  - [ctags](#ctags)
+  - [ripgrep](#ripgrep)
+- [Git](#git)
+- [ZSH](#zsh)
+- [关闭 PowerLevel9K 的检查 GIT 更新 Option](#关闭-powerlevel9k-的检查-git-更新-option)
+- [SSH 登录](#ssh-登录)
 
 <!-- vim-markdown-toc -->
 
@@ -26,9 +24,17 @@ QuickInstall 可以完成所有相关配置，可以忽略后续的章节。
 
 受到各种原因的限制，目前的开发环境只能是基于 UBUNTU-18.04.5 的环境。基于此目前可以使用以下三种方式搭建环境。
 
-
-
 ### gtags
+
+Gtags 也就是 GNU GLOBAL，是一个非常强大的源码符号索引工具。它通过建立索引数据库，不但可以查找函数的定义，还可以查找函数的所有引用（被调用的地方）；而且它还可以增量地更新索引数据库，当代码有所改变时，它可以在很短的时间内更新索引数据库，保持索引数据库和代码同步。
+
+LeaderF 可以自己管理 gtags 数据库（GTAGS，GRTAGS，GPATH），它不会在你的项目目录下生成任何额外的文件或目录。gtags 数据库文件存储在$HOME/.LfCache/gtags/%PATH%OF%YOUR%PROJECT/下面， %PATH%OF%YOUR%PROJECT 是把你项目路径中的 \ 或 / 替换成 %。
+
+只要设置 let g:Lf_GtagsAutoGenerate = 1， LeaderF 就会在打开第一个文件时自动生成 gtags 数据库。当代码有更改并且已经有 gtags 数据库生成时，更改的代码会自动同步到 gtags 数据库（即使 g:Lf_GtagsAutoGenerate 是 0）。
+
+只有在项目根目录下有 g:Lf_RootMarkers（默认值是['.git', '.hg', '.svn']）里面指定的文件或目录时，LeaderF 才会自动生成 gtags 数据库；否则只能手动生成 gtags 数据库：Leaderf gtags --update，但是当代码有更改时，gtags 数据库依然可以自动更新。
+
+Leaderf gtags 使用介绍，具体使用方法可以用:Leaderf gtags -h 来查看。
 
 ```bash
 ## https://ftp.gnu.org/pub/gnu/global/
@@ -41,6 +47,8 @@ make install
 ```
 
 ## ctags
+
+vista 插件依赖'universal-ctags'.
 
 ```bash
 ##https://github.com/universal-ctags/ctags

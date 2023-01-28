@@ -17,6 +17,7 @@
     path = /usr/local/bin/nvim
     prompt = false
 [proxy]
+	https = socks5://172.18.32.1:20170
 	; https = socks5://172.19.208.1:20170
 [merge]
     tool = p4merge
