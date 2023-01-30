@@ -24,7 +24,9 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval "$(dircolors -b)"
+fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -39,12 +41,20 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey '^ ' autosuggest-accept
 
-# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-ZSH_HOME=/usr/share
-source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-source ${ZSH_HOME}/autojump/autojump.zsh
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    ZSH_HOME=/usr/share
+    source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    source ${ZSH_HOME}/autojump/autojump.zsh
+    source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    ZSH_HOME=/usr/local/share
+    [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+    [ -f ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+    [ -f ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]&& . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
@@ -57,16 +67,28 @@ fi
 
 PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
 
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/openjdk/bin:$PATH"
+
+fi
 # export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
-export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
-export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
+  export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
+fi
 
 # export DISPLAY=${HOST_GW}:1.0
 
 # Following is for WSL only
 ################################################################################
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export HOST_GW=`ip route |awk '/default/{print $3}'`
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export HOST_GW='127.0.0.1'
+fi
+alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
-export HOST_GW=`ip route |awk '/default/{print $3}'`
 export EDITOR=nvim
 export SVN_EDITOR=nvim
 alias ll="ls -ahl"
@@ -75,7 +97,6 @@ alias vim=nvim
 alias v=nvim 
 
 # alias adb=adb.exe
-alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
