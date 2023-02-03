@@ -38,9 +38,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey '^ ' autosuggest-accept
-
-# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-ZSH_HOME=/usr/share
+ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+# ZSH_HOME=/usr/share
 source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
@@ -51,11 +50,11 @@ if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
 fi
 
 # Add "serarch suffix" for Joynext
-if [ -e "${XDG_DATA_HOME:-$HOME}"/adddns.sh ]; then
-  source  "${XDG_DATA_HOME:-$HOME}"/adddns.sh
+if [ -e "${XDG_DATA_HOME:-$HOME}"/.adddns.sh ]; then
+  "${XDG_DATA_HOME:-$HOME}"/.adddns.sh
 fi
 
-PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
+PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
 
 # export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
 export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
@@ -74,9 +73,9 @@ alias vi=nvim
 alias vim=nvim
 alias v=nvim 
 
-# alias adb=adb.exe
-alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
-
+export DISPLAY=${HOST_GW}:0
+alias adb=adb.exe
+# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi

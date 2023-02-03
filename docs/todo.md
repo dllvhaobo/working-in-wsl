@@ -66,6 +66,11 @@ xmodmap ~/xmodmaprc
 
 ## VsCode
 
+
+https://github.com/VSCodeVim/Vim#input-method
+https://github.com/daipeihust/im-select#to-get-current-keyboard-locale
+https://www.science.co.il/language/Locale-codes.php
+
 ## WSL2 安装
 
 ## ubuntu
