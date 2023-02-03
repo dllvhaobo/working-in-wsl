@@ -12,33 +12,33 @@ Features:
 
 ### Windows
 
-### AutoHotKey
+- AutoHotKey
 
-[AutoHotkey] 是一个自由、开源的宏生成器和自动化软件工具，它让用户能够自动执行重复性任务。AutoHotkey 可以修改任何应用程序的用户界面（例如，把默认的 Windows 按键控制命令替换为 Emacs 风格）。它是由定制的脚本语言驱动，旨在提供键盘快捷键或热键。
+    [AutoHotkey][] 是一个自由、开源的宏生成器和自动化软件工具，它让用户能够自动执行重复性任务。AutoHotkey 可以修改任何应用程序的用户界面（例如，把默认的 Windows 按键控制命令替换为 Emacs 风格）。它是由定制的脚本语言驱动，旨在提供键盘快捷键或热键。
 
-这里使用 AutoHotkey 将`Caps`映射成为`Ctrl`和`ESC`按键。只需要将`config/caps2escape.ahk`拷贝到`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
+    这里使用 AutoHotkey 将`Caps`映射成为`Ctrl`和`ESC`按键。只需要将`config/caps2escape.ahk`拷贝到`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
 
-- 单独按压`Caps`映射成为`ESC`
-- `Caps`+`其他按键`，`Caps`映射成为`Ctrl`
+    - 单独按压`Caps`映射成为`ESC`
+    - `Caps`+`其他按键`，`Caps`映射成为`Ctrl`
 
-关于 AutoHotkey 的其他使用方法可以参考
+    关于 AutoHotkey 的其他使用方法可以参考
 
-- [AutoHotkey:常用技巧分享][]
-- [AutoHotkey 官网][autohotkey]
+    - [AutoHotkey:常用技巧分享][]
+    - [AutoHotkey 官网][autohotkey]
 
-#### SharpKey
+* SharpKey
 
-WINDOWS 下修改键位映射的开源小工具[SharpKey][]
+    WINDOWS 下修改键位映射的开源小工具[SharpKey][]
 
-图形化的操作基本没有学习成本
+    图形化的操作基本没有学习成本
 
-一旦修改完成就再也不需要软件了，删除即可
+    一旦修改完成就再也不需要软件了，删除即可
 
-软件也是不需要安装，下载打开即用
+    软件也是不需要安装，下载打开即用
 
-![img](../img/sharpkeys.png)
+    ![img](../img/sharpkeys.png)
 
-#### Ubuntu
+### Ubuntu
 
 执行`apt install -y xcape gnome-tweaks`安装"xcape"和"gnome-tweaks"。然后参考如下步骤完成设置，详情请参考[Remapping Caps Lock to Control and Escape][]
 
