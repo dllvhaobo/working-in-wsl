@@ -132,6 +132,13 @@ set noswapfile              " 禁用缓冲文件, 禁用.swap文件
 " vim-plug: Install Begin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Plug 'embear/vim-foldsearch'
+
+" im-sleect: 输入法自动切换
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'zhaosheng-pan/vim-im-select'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline: VIM底部状态条
@@ -232,6 +239,11 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" snippets
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'honza/vim-snippets'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient: LSP support
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'autozimu/LanguageClient-neovim', {  'branch': 'next',  'do': 'bash install.sh'  }
@@ -252,9 +264,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TO Confirm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'honza/vim-snippets'
 " Plug 'ryanoasis/vim-devicons'
-" Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 " Plug 'skanehira/docker-compose.vim'
 " Plug 'neoclide/coc-highlight'
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -346,10 +357,14 @@ Plug 'morhetz/gruvbox'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'ryanoasis/vim-devicons'
 
-""""""""""""""""""""k"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pappasam/coc-jedi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Plug 'bootleq/vim-gitdiffall'
+
+Plug 'samoshkin/vim-mergetool'
+
 Plug 'tell-k/vim-autopep8'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -394,6 +409,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 1
 let g:Lf_StlColorscheme = 'powerline'
+" let g:Lf_UseVersionControlTool = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_ShowDevIcons = 1
 let g:Lf_IgnoreCurrentBufferName = 1
@@ -412,7 +428,7 @@ let g:Lf_WildIgnore = {
 " let g:Lf_PopupWeigth= 0.8
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
-let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 1, 'Files':1, }
+let g:Lf_PreviewResult = {'Function': 1, 'BufTag': 1, 'Files':1, 'Tags': 1, }
 let g:Lf_PreviewCode=1
 let g:Lf_RecurseSubmodules = 1  " 递归查找git submodule
 
@@ -427,7 +443,8 @@ noremap <leader>fm :LeaderfMarks<CR>
 noremap <C-e> :LeaderfBuffer<CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  -e %s ", expand("<cword>"))<CR>
+" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  --iglob !*.xml --iglob !*.html --iglob !*.json --iglob !*.js --iglob !*test* -e %s ", expand("<cword>"))<CR>
 "" search visually selected text literally
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
@@ -566,7 +583,6 @@ let g:vista_default_executive = 'ctags'
 " instead of the default one for these filetypes when using `:Vista` without
 " specifying the executive.
 let g:vista_executive_for = {
-  \ 'cpp': 'vim_lsp',
   \ 'php': 'vim_lsp',
   \ }
 
@@ -590,7 +606,7 @@ let g:vista#renderer#icons = {
 \   "variable": "\uf71b",
 \  }
 let g:vista_update_on_text_changed = 1
-let g:vista_close_on_jump = 1
+let g:vista_close_on_jump = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -842,7 +858,6 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-vimlsp',
   \ 'coc-pyright',
-  \ 'coc-groovy',
   \ 'coc-webview',
   \ 'coc-cmake']
   " \ 'coc-jedi',
@@ -1016,6 +1031,8 @@ nmap <leader>tm :TableModeToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " markdown-preview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:mkdp_open_to_the_world = 1
 nmap <leader>mp <Plug>MarkdownPreview
 " nmap <leader>mp <Plug>MarkdownPreviewToggle
 
@@ -1040,3 +1057,19 @@ au FileType go nmap <leader>rv <Plug>(go-run-vertical)
 nmap <leader>day i<C-R>=strftime("[%Y-%m-%d]")<CR><ESC>
 nmap <leader>time i<C-R>=strftime("[%T]")<CR><ESC>
 nmap <leader>date i<C-R>=strftime("[%Y-%m-%d %T]")<CR><ESC>
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MergeTool
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+
+nmap <leader>mt <plug>(MergetoolToggle)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" foldsearch
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:foldsearch_highlight=1
+let g:foldsearch_disable_mappings=1
