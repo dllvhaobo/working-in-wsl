@@ -12,22 +12,22 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [
-        ".ccls",
-        ".ccls-root",
-        "compile_commands.json",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
-    },
+    //"ccls": {
+    //  "command": "ccls",
+    //  "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+    //  "rootPatterns": [
+    //    ".ccls",
+    //    ".ccls-root",
+    //    "compile_commands.json",
+    //    ".git/",
+    //    ".hg/"
+    //  ],
+    //  "initializationOptions": {
+    //    "cache": {
+    //      "directory": "/tmp/ccls"
+    //    }
+    //  }
+    //},
 //    "clangd": {
 //      "command": "clangd",
 //      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
@@ -43,11 +43,14 @@
       }
     }
   },
+  "clang-format-style-options.priority": 99,
+  "clang-format-style-options.shortcut": "voldikss",
   "explorer.icon.enableNerdfont": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.enableFloatinput": true,
-  //  "snippets.userSnippetsDirectory": "/home/lv/.config/nvim/plugged/vim-snippets/snippets",
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd",
   "clangd.enabled": true,
-  "clangd.compilationDatabasePath": ""
+
+  "python.formatting.autopep8Path": "/home/lv/.local/bin/autopep8",
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css"
 }

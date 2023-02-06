@@ -2,8 +2,10 @@
 set -x
 # CONFIG_JNN=1 bob dev  -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
 # CONFIG_JNN=1 bob dev  -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
+CONFIG_JNN=1 bob dev -v -B -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
+CONFIG_JNN=1 bob dev -v -B -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
 # CONFIG_JNN=1 bob dev -v -b -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
-CONFIG_JNN=1 bob dev -v -b -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
+# CONFIG_JNN=1 bob dev -v -b -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
 # CONFIG_JNN=1 bob dev -b  -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/media::mediaapplication::tsd-media-mib3-target
 # CONFIG_JNN=1 bob dev  -b -DCONFIG_JNN=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ei/ei-variant-37W-GP-VW_CHN/sal::tsd-sal-app-target
 #
