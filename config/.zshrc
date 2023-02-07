@@ -40,38 +40,21 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey '^ ' autosuggest-accept
-<<<<<<< HEAD
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
     ZSH_HOME=/usr/share
-    source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-    source ${ZSH_HOME}/autojump/autojump.zsh
-    source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    . ${ZSH_HOME}/autojump/autojump.zsh
+    . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    ZSH_HOME=/usr/local/share
+    ZSH_HOME=
     [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-    [ -f ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    [ -f ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]&& . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]&& . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-||||||| 2476b62
-
-# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-ZSH_HOME=/usr/share
-source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-source ${ZSH_HOME}/autojump/autojump.zsh
-=======
-ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-# ZSH_HOME=/usr/share
-source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-source ${ZSH_HOME}/autojump/autojump.zsh
->>>>>>> 06cdce8dbad6e692e41be28ab0cd0a7b44052888
 
 if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
@@ -82,12 +65,11 @@ if [ -e "${XDG_DATA_HOME:-$HOME}"/.adddns.sh ]; then
   "${XDG_DATA_HOME:-$HOME}"/.adddns.sh
 fi
 
-PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
+PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/openjdk/bin:$PATH"
-
+    PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/openjdk/bin:$PATH"
 fi
 # export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -95,7 +77,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
 fi
 
-# export DISPLAY=${HOST_GW}:1.0
 
 # Following is for WSL only
 ################################################################################
@@ -104,6 +85,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export HOST_GW='127.0.0.1'
 fi
+
 alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
 export EDITOR=nvim
@@ -113,18 +95,12 @@ alias vi=nvim
 alias vim=nvim
 alias v=nvim 
 
-<<<<<<< HEAD
-# alias adb=adb.exe
 
-||||||| 2476b62
-# alias adb=adb.exe
-alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export DISPLAY=${HOST_GW}:0
+fi
 
-=======
-export DISPLAY=${HOST_GW}:0
 alias adb=adb.exe
-# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
->>>>>>> 06cdce8dbad6e692e41be28ab0cd0a7b44052888
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi
