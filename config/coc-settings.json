@@ -52,5 +52,9 @@
   "clangd.enabled": true,
 
   "python.formatting.autopep8Path": "/home/lv/.local/bin/autopep8",
-  "markdown-preview-enhanced.previewTheme": "atom-dark.css"
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+
+  "pyright.enable": true,
+  "pyright.completion.snippetSupport": true,
+  "python.pythonPath": "/usr/bin/python3.6"
 }

@@ -251,7 +251,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " snippets
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snispets'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient: LSP support
@@ -280,7 +280,6 @@ Plug 'puremourning/vimspector'
 " TO Confirm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'ryanoasis/vim-devicons'
-Plug 'puremourning/vimspector'
 " Plug 'skanehira/docker-compose.vim'
 " Plug 'neoclide/coc-highlight'
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -975,7 +974,7 @@ map <silent> <leader>ff :call CocAction('format')<CR>
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coc-snippets
+" coc-snippets start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
@@ -984,6 +983,19 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc-snippets end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " grep word under cursor
 " command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
