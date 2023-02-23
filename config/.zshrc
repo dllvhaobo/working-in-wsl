@@ -24,7 +24,9 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval "$(dircolors -b)"
+fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -40,8 +42,20 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 ################################################################################
 # ZSH Plug
 ################################################################################
-ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 # ZSH_HOME=/usr/share
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    . ${ZSH_HOME}/autojump/autojump.zsh
+    . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+    [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+    [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]&& . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # zsh-syntax-highlighting
 if [ -e "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
@@ -98,23 +112,35 @@ fi
   # "${XDG_DATA_HOME:-$HOME}"/.adddns.sh
 # fi
 
-# PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:${XDG_DATA_HOME:-$HOME/works/system_config/tools/}:$PATH"
 
-PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/openjdk/bin:$PATH"
+else
+    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
+fi
+
 # export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
-export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
-export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
+  export EA_STM_EXPORT_FILE="${XDG_DATA_HOME:-$HOME}"/works/stmgen/export.xml
+fi
 
 ################################################################################
 # DISPLAY X11 Server
 ################################################################################
 # export HOST_GW=`ip route |awk '/default/{print $3}'`
-export HOST_GW=`awk '/nameserver/{print $2}' /etc/resolv.conf`
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export HOST_GW=`awk '/nameserver/{print $2}' /etc/resolv.conf`
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export HOST_GW='127.0.0.1'
+fi
 # export DISPLAY=${HOST_GW}:1.0
 export DISPLAY=${HOST_GW}:0
 
 # Following is for WSL only
 ################################################################################
+
+alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
 export EDITOR=nvim
 export SVN_EDITOR=nvim

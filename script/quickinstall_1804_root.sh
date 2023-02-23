@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-set -ex 
+set -x 
 INSTALL_DIR=$(pwd)
 ROOT_DIR=$(dirname ${INSTALL_DIR})
 export PATH="${XDG_DATA_HOME:-$HOME/.local/bin}":$PATH
