@@ -2,14 +2,14 @@
 
 import os
 import argparse
+from re import sub
 import traceback
 import yaml
 import logging
-from pprint import pprint as print
+#  from pprint import pprint as print
 
 logging.basicConfig(level=logging.INFO,
-                    format='[%(filename)s:%(lineno)-4d %(levelname)s ]%(message)s')
-#  logging.basicConfig(level=logging.INFO)
+                    format='[%(asctime)s %(filename)s:%(lineno)-4d %(funcName)20s ]%(message)s')
 logger = logging.getLogger(__name__)
 
 '''
@@ -17,8 +17,8 @@ Readme
 ## For Develop
 - bob dev 时指定的定义为module
 - module 依赖的定义为submodule
-- src_dir bob下载代码的路径，通过 `bob  query-path` 可查询
-- build_dir bob编译是中间产物的路径，`bob  query-path` 可查询 通常的compile_commands.json保存在此位置
+- src bob下载代码的路径，通过 `bob  query-path` 可查询
+- build bob编译是中间产物的路径，`bob  query-path` 可查询 通常的compile_commands.json保存在此位置
 - yaml recipe文件所在路径
 
 ## Feature
@@ -45,179 +45,246 @@ Example：
         dir:tsd.bt.phone.mib3 workspace中git clone的目录名
 '''
 
-CMD_BOB_QUERY_SRC_PATH = "CONFIG_JNN=1 bob query-path -f {{build}} -DCONFIG_JNN=1 {module}"
-CMD_BOB_QUERY_BUILD_PATH = "CONFIG_JNN=1 bob query-path -f {{src}} -DCONFIG_JNN=1 {module}"
-CMD_BOB_SHOW = "CONFIG_JNN=1 bob show --format=yaml -DCONFIG_JNN=1 {module}"
-CMD_BOB_QUERY_RECIPE = "CONFIG_JNN=1 bob query-recipe -DCONFIG_JNN=1 {module}"
+__CMD_BOB_QUERY_SRC_PATH__ = "CONFIG_JNN=1 bob query-path -f {{src}} -DCONFIG_JNN=1 {module}"
+__CMD_BOB_QUERY_BUILD_PATH__ = "CONFIG_JNN=1 bob query-path -f {{build}} -DCONFIG_JNN=1 {module}"
+__CMD_BOB_SHOW__ = "CONFIG_JNN=1 bob show --format=yaml -DCONFIG_JNN=1 {module}"
+__CMD_BOB_QUERY_RECIPE__ = "CONFIG_JNN=1 bob query-recipe -DCONFIG_JNN=1 {module}"
 
-DEF_MODULES = [
+__DEF_PACKAGES__ = [
+    'ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target',
     'ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target'
 ]
 
-#  DEF_MODULES = [
+__CLANG_CFG_PATTERN__ = '''
+If:
+  PathMatch: "{src}/.*"
+CompileFlags:
+  CompilationDatabase: "{build}"
+'''
+#  DEF_PACKAGES = [
 #      'ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target',
 #      'ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target'
 #  ]
 
 
 def os_popen(cmd_string):
-    logger.info("POPEN:{}".format(cmd_string))
+    logger.debug("cmd:{}".format(cmd_string))
     return os.popen(cmd_string)
 
 
-class Recpie:
-    def __init__(self, module, **kawrgs):
-        self.module = module
-        self.yaml_content = kawrgs.get(module)
-        self.info = self.yaml_content.get(
-            'info') if self.yaml_content is not None else None
-        self.depends = self.yaml_content.get(
-            'depends') if self.yaml_content is not None else None
-        self.yaml = self.yaml_content.get(
-            'yaml') if self.yaml_content is not None else None
-        self.src_dir = self.yaml_content.get(
-            'src_dir') if self.yaml_content is not None else None
-        self.build_dir = self.yaml_content.get(
-            'build_dir') if self.yaml_content is not None else None
-        self.kawrgs = kawrgs
-        self.logger = logger.getChild(__class__.__name__)
-        self.logger.setLevel(logging.INFO)
-        #  self.logger.setLevel(logging.INFO)
+class Package:
+    def __init__(self, name, **kawrgs):
+        logger.info("package:{}".format(name))
+        self.name = name
+        self.kwargs = kawrgs
+        self.content = kawrgs.get(self.name)
+        logger.debug(self.content)
+        self.sub_pkgs = list()
+        self.info = self.content.get(
+            'info') if self.content is not None else None
+        self.depends = self.content.get(
+            'depends') if self.content is not None else None
+        self.yaml = self.content.get(
+            'yaml') if self.content is not None else None
+        self.src = self.content.get(
+            'src') if self.content is not None else None
+        self.build = self.content.get(
+            'build') if self.content is not None else None
 
     def get_info(self):
         if self.info is None:
-            cmd_string = CMD_BOB_SHOW.format(module=self.module)
+            cmd_string = __CMD_BOB_SHOW__.format(module=self.name)
             self.info = yaml.full_load(os_popen(cmd_string))
-        self.logger.debug(self.module)
-        self.logger.debug(self.info)
+        #  logger.debug(self.info)
         return self.info
 
     def get_depends(self):
 
         if self.depends is None:
             self.depends = self.get_info().get('depends')
-        self.logger.debug("SubModuls: {}".format(self.depends))
+        logger.debug("SubModuls: {}".format(self.depends))
         return self.depends
 
     def get_yaml(self):
 
         if self.yaml is None:
-            cmd_string = CMD_BOB_QUERY_RECIPE.format(module=self.module)
-            self.logger.debug(cmd_string)
+            cmd_string = __CMD_BOB_QUERY_RECIPE__.format(module=self.name)
             recpie_files_list = os_popen(cmd_string).readlines()
             for i in recpie_files_list:
                 if self.yaml is None and i.startswith('recipes'):
                     self.yaml = i.strip('\n')
-        self.logger.debug(self.yaml)
+        logger.debug(self.yaml)
         return self.yaml
 
-    def get_build_dir(self):
-        if self.build_dir is None:
+    def get_build(self):
+        if self.build is None:
             try:
-                cmd_string = CMD_BOB_QUERY_BUILD_PATH.format(
-                    module=self.module)
+                cmd_string = __CMD_BOB_QUERY_BUILD_PATH__.format(
+                    module=self.name)
                 work_dir_str = os_popen(cmd_string).readlines()
                 work_dir_str = work_dir_str[0].strip('\n')
-                self.build_dir = work_dir_str
+                self.build = work_dir_str
 
-            except Exception:
-                self.logger.error(
-                    "could not get working dir for {}".format(self.module))
-                self.logger.error(traceback.print_exc())
+            except Exception as e:
+                logger.error(
+                    "Get build dir Failed for with error:'{}'".format(str(e)))
                 pass
 
-        self.logger.debug("build_dir {}".format(self.build_dir))
-        return self.build_dir
+        logger.debug("build {}".format(self.build))
+        return self.build
 
-    def get_src_dir(self):
-        if self.src_dir is None:
+    def get_src(self):
+        if self.src is None:
             try:
-                cmd_string = CMD_BOB_QUERY_SRC_PATH.format(module=self.module)
+                cmd_string = __CMD_BOB_QUERY_SRC_PATH__.format(
+                    module=self.name)
                 work_dir_str = os.popen(cmd_string).readlines()
                 work_dir_str = work_dir_str[0].strip('\n')
-                self.src_dir = work_dir_str
+                self.src = work_dir_str
 
-            except Exception:
-                self.logger.error(
-                    "could not get working dir for {}".format(self.module))
-                self.logger.error(traceback.print_exc())
+            except Exception as e:
+                logger.error(
+                    "Get src dir Failed for with error:'{}'".format(str(e)))
                 pass
-        self.logger.debug("src_dri {}".format(self.src_dir))
-        return self.src_dir
+        logger.debug("src_dri {}".format(self.src))
+        return self.src
 
     def dump(self):
-        return {'recpie_path': self.module,
+        return {'recpie_path': self.name,
                 'info': self.get_info(),
                 'depends': self.get_depends(),
                 'yaml': self.get_yaml(),
-                'src_dir': self.get_src_dir(),
-                'build_dir': self.get_build_dir()}
+                'src': self.get_src(),
+                'build': self.get_build()}
 
-    def process(self):
+    def process(self, recursive=False):
         self.get_info()
         self.get_depends()
         self.get_yaml()
-        self.get_src_dir()
-        self.get_build_dir()
+        self.get_src()
+        self.get_build()
+        if (recursive == True):
+            logger.info(self.get_depends())
+            depends = self.get_depends()
+            self.sub_pkgs = [Package(x, **self.kwargs)
+                             for x in depends] if depends is not None else {}
+            for pkg in self.sub_pkgs:
+                pkg.process(recursive=self.kwargs.get('recursive', False))
 
 
 class Cache:
     def __init__(self, **kawrgs) -> None:
         #  self.recipes = []
         self.cachefile = kawrgs.get('cachefile', "")
-        self.yaml_content = dict()
+        self.content = dict()
         self.logger = logger.getChild(__class__.__name__)
         self.error = self.logger.error
         self.info = self.logger.info
         self.debug = self.logger.debug
-        self.yaml_content = yaml.full_load(open(self.cachefile, 'r').read())
 
-    def ERR(self, *args, **kwargs):
-        self.logger.error(args, **kwargs)
-
-    def WAR(self, *args, **kwargs):
-        self.logger.warn(args, **kwargs)
-
-    def INF(self, *args, **kwargs):
-        self.logger.info(*args, **kwargs)
-
-    def get(self, module_name):
+    def load(self):
         try:
-            self.info(module_name)
-            return self.yaml_content.get(module_name)
+            self.content = yaml.full_load(open(self.cachefile, 'r').read())
         except Exception as err:
-            self.ERR(str(err))
-            Exception.with_traceback.print_exc()
+            logger.error(str(err))
+            traceback.print_exc()
 
-    def dump(self,module_list):
+    def dump_append(self, module_list):
+        try:
+            with open(self.cachefile, 'a') as f:
+                f.write(yaml.dump(module_list))
+        except Exception as err:
+            logger.error(str(err))
+            traceback.print_exc()
+
+    def dump(self, module_list):
         try:
             with open(self.cachefile, 'w') as f:
                 f.write(yaml.dump(module_list))
         except Exception as err:
-            self.ERR(str(err))
-            Exception.with_traceback.print_exc()
+            logger.error(str(err))
+            traceback.print_exc()
 
 
 def config():
     parser = argparse.ArgumentParser(
         description='在工程根目录下执行，查找指定目录内的所有的compile_commands.json文件，并生成".clang"文件到指定目录')
 
-    parser.add_argument('--modules', type=str, nargs="+",
-                        default=DEF_MODULES, help='指定目标modules')
+    parser.add_argument('--packages', type=str, nargs="+", dest='packages',
+                        default=__DEF_PACKAGES__, help='指定目标packages')
 
-    parser.add_argument('--submodule', type=str, default="phone",
+    parser.add_argument('--selector', type=str, nargs="+", default="phone",
                         help='指定关注的模块(目录名)，比如"phone","media"等等')
 
-    parser.add_argument('--cache', dest='cache',
+    parser.add_argument(
+        '--cachefile', help="cache文件的路径,默认为当前目录的.clangchage", default='.clangcache')
+
+    parser.add_argument('--save-cache', dest='save_cache', default=True,
+                        action='store_true', help="保存所有过程信息，减少下次生成的时间")
+
+    parser.add_argument('--no-save-cache', dest='save_cache',
+                        action='store_false', help="不保存所有过程信息，不覆盖当前cache文件")
+
+    parser.add_argument('--use-cache', dest='cache',
                         action='store_true', help="使用之前生成的cache文件,解析")
 
-    parser.add_argument('--no-cache', dest='cache',
-                        action='store_false', help="不使用之前生成的cache文件,解析")
+    parser.add_argument('--recursive', dest='recursive', default=False,
+                        action='store_true', help="递归查找编译所有sub-package")
 
-    parser.add_argument(
-        '--cachefile',  help="指定cachefile的路径,默认为当前目录的.clangchage", default='.clangcache')
+    parser.add_argument('--build-depends', dest='build_depends', default=False,
+                        action='store_true', help="下载并编译sub-package")
+
+    parser.add_argument('--clangfile', type=str, default='.clangd',
+                        help="默认保存在当前文件夹下.clangd")
 
     return vars(parser.parse_args())
+
+
+class Clangd:
+    def __init__(self, **kwargs) -> None:
+        self.kwargs = kwargs
+        self.selector = list()
+        self.packages = list()
+        self.cache = Cache(**kwargs)
+
+    def process(self):
+        logger.debug(self.kwargs)
+        for pkg_name in self.kwargs.get('packages', __DEF_PACKAGES__):
+            pkg = Package(pkg_name,  **self.kwargs)
+            pkg.process(recursive=True)
+            self.packages.append(pkg)
+            for sub_pkg in pkg.sub_pkgs:
+                self.packages.append(sub_pkg)
+
+    def write_cache(self):
+        os_popen("rm {}".format(self.kwargs.get('cachefile')))
+        dump_dict = {}
+        for pkg in self.packages:
+            dump_dict.update({pkg.name: pkg.dump()})
+            #  for pkg in pkg.sub_pkgs:
+            #  dump_dict.update({pkg.name: pkg.dump()})
+
+        self.cache.dump(dump_dict)
+
+    def write_clangd(self):
+        content = []
+        content_all = []
+        for pkg in self.packages:
+            logger.info("package_name:{}".format(pkg.name))
+            logger.info("         src:{}".format(pkg.src))
+            logger.info("       build:{}".format(pkg.build))
+            content_all.append("package_name:{}\n".format(pkg.name))
+            content_all.append("         src:{}\n".format(pkg.src))
+            content_all.append("       build:{}\n".format(pkg.build))
+            if pkg.build is not None and pkg.src is not None:
+                if (os.path.exists(os.path.join(os.getcwd(), pkg.build, 'compile_commands.json'))):
+                    content.append(__CLANG_CFG_PATTERN__.format(
+                        src=pkg.src.replace('dev/src/', ".*/"), build=os.path.join(os.getcwd(),pkg.build)))
+
+        with open(self.kwargs.get('clangfile', '.clangd'), 'w') as f:
+            f.write('---'.join(content))
+        with open('all_info', 'w') as f:
+            f.writelines(content_all)
 
 
 def is_submodule(yaml, module_name):
@@ -229,51 +296,23 @@ def is_submodule(yaml, module_name):
         return False
 
 
-def write_cache(pkg_dump, filename):
-    with open(filename, 'w') as f:
-        f.write(yaml.dump(pkg_dump))
-
-
-#  def load_cache(filename):
-#      with open(filename, 'r') as f:
-#          return yaml.full_load(f.read())
-
-
-def main_entry():
+def test():
     args = config()
-    module_list = {}
-    recipe_list = []
-
+    logger.info(args)
     try:
         cache = Cache(**args)
-        args.update(cache.yaml_content)
-        for module_name in args.get('modules', DEF_MODULES):
-            module = Recpie(module_name,  **args)
-            module.process()
-            module_list.update({module_name: module.dump()})
-            recipe_list.append(module)
-
-            submodules = module.get_depends()
-            logger.info(submodules)
-            for module_name in submodules:
-                logger.info("SubModule:{}".format(module_name))
-                module = Recpie(module=module_name,**args)
-                module.process()
-                module_list.update({module_name: module.dump()})
-                recipe_yaml = module.get_yaml()
-                if is_submodule(recipe_yaml, args.get('submodule')):
-                    recipe_list.append(module)
-
-        cache.dump(module_list)
-
+        cache.load()
+        args.update(cache.content)
+        clang = Clangd(**args)
+        clang.process()
+        clang.write_cache()
+        clang.write_clangd()
     except Exception as e:
         logger.error(str(e))
-        Exception.with_traceback.print_exc()
-        pass
-
-    #  write_cache(module_list, args.get('cachefile'))
+        traceback.print_exc()
 
 
 if __name__ == "__main__":
-    main_entry()
+    #  main_entry()
     #  print(test())
+    test()
