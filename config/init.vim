@@ -18,7 +18,7 @@ set nocompatible         " 关闭vi兼容模式，以支持更多vim特性
 set encoding=utf-8       " 文件编码
 set fileformats=unix,dos " 文件格式，影响行结尾(unix:0x0a,windos;0x0a0d,mac:0x0d)
 
-set mouse=nv             " 支持鼠标
+set mouse=             " 支持鼠标
 
 set foldmethod=indent    " 依据缩进进行折叠
 set foldlevel=99
@@ -134,7 +134,7 @@ set noswapfile              " 禁用缓冲文件, 禁用.swap文件
 call plug#begin('~/.config/nvim/plugged')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plug 'embear/vim-foldsearch'
+" Plug 'embear/vim-foldsearch'
 
 " im-sleect: 输入法自动切换
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,6 +165,16 @@ Plug 'easymotion/vim-easymotion'
 " vista: 侧边符号栏
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'liuchengxu/vista.vim'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Replaced with vista
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'majutsushi/tagbar'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tree-sitter 代码高亮
+" tree-sitter代码高亮与vista冲突，安装tree-sitter会导致vista关闭后，buffer区不刷新
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown: 表格对齐
@@ -241,7 +251,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " snippets
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snispets'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient: LSP support
@@ -262,10 +272,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VimSpector 代码调试器
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'puremourning/vimspector'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TO Confirm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'ryanoasis/vim-devicons'
-Plug 'puremourning/vimspector'
 " Plug 'skanehira/docker-compose.vim'
 " Plug 'neoclide/coc-highlight'
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -284,10 +298,6 @@ Plug 'puremourning/vimspector'
 " Plug 'vim-syntastic/syntastic'
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Replaced with vista
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'majutsushi/tagbar'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
@@ -337,12 +347,6 @@ Plug 'morhetz/gruvbox'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" tree-sitter 代码高亮
-" tree-sitter代码高亮与vista冲突，安装tree-sitter会导致vista关闭后，buffer区不刷新
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " copilot Microsoft智能补全,100$/Year
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'github/copilot.vim'
@@ -350,7 +354,7 @@ Plug 'morhetz/gruvbox'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Startify: vim启动时，显示最近打开的文件
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " devicons: 文件图标
@@ -437,7 +441,7 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>mr :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 " noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 " noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-" noremap <leader>fa :LeaderfFunction<CR>
+noremap <leader>fa :LeaderfFunction<CR>
 noremap <leader>fm :LeaderfMarks<CR>
 " noremap <leader>bl :LeaderfBuffer<CR>
 noremap <C-e> :LeaderfBuffer<CR>
@@ -554,7 +558,7 @@ noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 " Vista
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent>T :Vista!!<CR>
-nmap <leader>fa :Vista finder<CR>
+" nmap <leader>fa :Vista finder<CR>
 
 " function! NearestMethodOrFunction() abort
 "   return get(b:, 'vista_nearest_method_or_function', '')
@@ -847,9 +851,7 @@ colorscheme gruvbox
 " coc.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = [
-  \ 'coc-yank',
   \ 'coc-syntax',
-  \ 'coc-snippets',
   \ 'coc-prettier',
   \ 'coc-marketplace',
   \ 'coc-explorer',
@@ -858,8 +860,10 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-vimlsp',
   \ 'coc-pyright',
-  \ 'coc-webview',
-  \ 'coc-cmake']
+  \ 'coc-webview']
+  " \ 'coc-snippets',
+  " \ 'coc-cmake']
+  " \ 'coc-yank',
   " \ 'coc-jedi',
   " \ 'coc-git',
   " \ 'coc-tasks',
@@ -970,7 +974,7 @@ map <silent> <leader>ff :call CocAction('format')<CR>
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coc-snippets
+" coc-snippets start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
@@ -979,6 +983,19 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc-snippets end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " grep word under cursor
 " command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
@@ -1071,5 +1088,5 @@ nmap <leader>mt <plug>(MergetoolToggle)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " foldsearch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:foldsearch_highlight=1
-let g:foldsearch_disable_mappings=1
+" let g:foldsearch_highlight=1
+" let g:foldsearch_disable_mappings=1
