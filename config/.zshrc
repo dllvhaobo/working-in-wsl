@@ -40,7 +40,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey '^ ' autosuggest-accept
-<<<<<<< HEAD
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
@@ -56,22 +55,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
     [ -f ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]&& . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-||||||| 2476b62
-
-# ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-ZSH_HOME=/usr/share
-source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-source ${ZSH_HOME}/autojump/autojump.zsh
-=======
-ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-# ZSH_HOME=/usr/share
-source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-source ${ZSH_HOME}/autojump/autojump.zsh
->>>>>>> 06cdce8dbad6e692e41be28ab0cd0a7b44052888
 
 if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
@@ -113,18 +96,9 @@ alias vi=nvim
 alias vim=nvim
 alias v=nvim 
 
-<<<<<<< HEAD
+
 # alias adb=adb.exe
 
-||||||| 2476b62
-# alias adb=adb.exe
-alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
-
-=======
-export DISPLAY=${HOST_GW}:0
-alias adb=adb.exe
-# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
->>>>>>> 06cdce8dbad6e692e41be28ab0cd0a7b44052888
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi
