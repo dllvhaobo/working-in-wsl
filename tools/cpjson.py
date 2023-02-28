@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
+'''
+扫描指定目录下面的compile_commands.json文件
+并根据工程的目录名生成.clang文件。用于coc-clang的symbol索引
+'''
+
 
 import os
 from pprint import pprint as print
 import argparse
 
 config_pattern = '''
+
 If:
   PathMatch: ".*/{src_dir_path}/.*"
 CompileFlags:
@@ -27,18 +33,18 @@ def find_commands_compile_json(**kwargs):
 
 def config():
     parser = argparse.ArgumentParser(
-        description='查找指定目录内的所有的compile_commands.json文件，并生成clang的匹配规则')
+        description='在工程根目录下执行，查找指定目录内的所有的compile_commands.json文件，并生成".clang"文件到指定目录')
 
-    parser.add_argument('-r', '--root', type=str, help='工程根目录，默认指向工程的dev/build',
-                        default="/home/lv/works/recipes-svw-cns3.0/dev/build")
+    parser.add_argument('-r', '--root', type=str,
+                        help='指定查找compile_commands.json的根目录，"dev/build"', default="dev/build")
 
-    parser.add_argument('-s', '--subfolder', type=str, default="", nargs="*",
-                        help='工程根目录下的子目录，比如"phone", "media"等')
+    parser.add_argument('-s', '--subfolder', type=str, default="",
+                        nargs="*", help='指定关注的模块(目录名)，比如"phone","media"等等')
 
-    parser.add_argument('-f', '--file_path', type=str, help='指定需要生成的".clang"文件路径',
+    parser.add_argument('-f', '--file_path', type=str, help='指定".clang"生成的路径，默认生成到当前目录下。',
                         default="{PWD}/.clangd".format(PWD=os.environ.get("PWD")))
 
-    parser.add_argument('-m', '--mode', choices=['a', 'w'], required=True, help='a:追加模式；w：重新生成',
+    parser.add_argument('-m', '--mode', choices=['a', 'n'], required=True, help='a:追加模式；n:重新生成',
                         default="{PWD}/.clangd".format(PWD=os.environ.get("PWD")))
 
     return vars(parser.parse_args())
@@ -64,6 +70,7 @@ def mk_clangd_config_file(clang_cfg_list, clang_cfg_file, mode='a'):
     result = '---'.join(clang_cfg_string)
 
     print("write clangd config file %s" % (clang_cfg_file))
+    mode = 'w' if mode == 'a' else 'a'
     with open(clang_cfg_file, mode) as f:
         f.write(result)
 
@@ -71,8 +78,9 @@ def mk_clangd_config_file(clang_cfg_list, clang_cfg_file, mode='a'):
 if __name__ == "__main__":
 
     cfg = config()
-    print(cfg)
+
     root_dir = cfg.get("root")
+
     subfolder_list = cfg.get("subfolder", "")
 
     json_path_list = []
