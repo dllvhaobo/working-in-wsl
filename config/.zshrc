@@ -39,36 +39,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-################################################################################
-# ZSH Plug
-################################################################################
-# ZSH_HOME=/usr/share
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-    . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-    . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-    . ${ZSH_HOME}/autojump/autojump.zsh
-    . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-    [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]&& . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# zsh-syntax-highlighting
-if [ -e "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# zsh-autosuggestions
-if [ -e "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-    source ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
-# powerlevel9k
-if [ -e "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ]; then
 #   | background_jobs | Indicator for background jobs.
 #   | battery         | Current battery status.
 #   | context         | Your username and host, conditionalized based on $USER and SSH status.
@@ -91,26 +62,26 @@ if [ -e "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ]; then
 #   | user            | Your current username
 #   | vi_mode         | Your prompt's Vi editing mode (NORMAL/ INSERT).
 #   | ssh             | Indicates whether or not you are in an SSH session.
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-    # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery disk_usage ram dir vcs)
-    # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
-    source ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
-fi
-
-# autojump
-if [ -e "${ZSH_HOME}/autojump/autojump.zsh" ]; then
-    source ${ZSH_HOME}/autojump/autojump.zsh
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery disk_usage ram dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] . ${ZSH_HOME}/autojump/autojump.zsh
+    [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && .${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ]. ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    bindkey '^ ' autosuggest-accept
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+    [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
     bindkey '^ ' autosuggest-accept
 fi
 
-# if [ -e "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ]; then
-#   source  "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
-# fi
-
-# # Add "serarch suffix" for Joynext
-# if [ -e "${XDG_DATA_HOME:-$HOME}"/.adddns.sh ]; then
-  # "${XDG_DATA_HOME:-$HOME}"/.adddns.sh
-# fi
+[ -f "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ] && ."${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh 
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -147,11 +118,34 @@ export SVN_EDITOR=nvim
 alias ll="ls -ahl"
 alias vi=nvim
 alias vim=nvim
+<<<<<<< HEAD
+alias v=nvim 
+
+
+# alias adb=adb.exe
+
+||||||| 5970f67
+alias v=nvim 
+
+<<<<<<< HEAD
+# alias adb=adb.exe
+
+||||||| 2476b62
+# alias adb=adb.exe
+alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
+
+=======
+export DISPLAY=${HOST_GW}:0
+alias adb=adb.exe
+# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
+>>>>>>> 06cdce8dbad6e692e41be28ab0cd0a7b44052888
+=======
 alias v=nvim
 alias adb=adb.exe
 
 
 # alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
+>>>>>>> fe854f48749531b6a5a11f7b9801feb9b18fb9bb
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi
