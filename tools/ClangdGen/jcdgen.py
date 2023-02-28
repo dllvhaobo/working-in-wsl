@@ -75,7 +75,7 @@ def main_entry():
 
 def test_entry():
     args = config()
-    logger.info(args)
+    print(args)
 
 
 if __name__ == "__main__":
