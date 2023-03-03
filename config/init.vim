@@ -49,7 +49,7 @@ set softtabstop=4
 set shiftwidth=4
 
 " 自动跳转到打开的文件所在目录
-" set autochdir
+set noautochdir
 " 使用系统剪贴板
 " set clipboard+=unnamedplus
 " set backspace=indent,eol,start    " 退格跳过缩进，行结尾，开始
@@ -409,6 +409,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LeaderF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:Lf_RootMarkers = ['.project']
 let g:python3_host_prog = '/usr/bin/python3'
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 1
@@ -420,7 +421,7 @@ let g:Lf_IgnoreCurrentBufferName = 1
 " let g:Lf_DevIconsFont = "DejaVu Sans Mono for Powerline"
 let g:Lf_DevIconsFont = "Droid Sans Mono"
 let g:Lf_WildIgnore = {
-            \ 'file': ['*.json' ,'*.html']
+            \ 'file': ['*.json' ,'*.html','*.json','*test*','*.txt']
             \ }
 " let g:Lf_WildIgnore = {
             " \ 'dir': ['Build','build', '.cache', 'tools'],
