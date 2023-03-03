@@ -7,9 +7,11 @@ set -x
 # ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
 # ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target/basic-services::rsi-library::tsd-vw-rsi-viwi-server-dev/basic-services::rsi-library::tsd-rsi-server-dev/basic-services::systeminfo::tsd-systeminformation-features-dev
 # ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target/basic-services::rsi-library::tsd-vw-rsi-viwi-server-dev/basic-services::rsi-library::tsd-rsi-server-dev/vehicle-connectivity::automotive-ethernet::tsd-aeth-data-api-mib3-dev/vehicle-connectivity::automotive-ethernet::tsd-aeth-data-api-dev
+#
+# ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
+# ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
 modules="
-ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
-ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
+ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target/phone::bt-middleware::tsd-blueware-mib3-bluego-dev/phone::bt-middleware::tsd-blueware-bluego-dev/phone::bt-middleware::ext-bluego-dev
 "
 
 OPT=$1
