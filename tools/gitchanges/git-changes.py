@@ -52,7 +52,7 @@ def get_git_info(repo_path):
     if result.returncode != 0:
         return None
     output = result.stdout.strip()
-    remote = output.split()[0]
+    remote = output.split()[1]
     cmd = ['git', '-C', repo_path, 'rev-parse', '--abbrev-ref', 'HEAD']
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
     if result.returncode != 0:
