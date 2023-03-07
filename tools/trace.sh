@@ -7,4 +7,7 @@ if [ "$MODE"x == "hci"x ];then
     nc 192.168.1.4 13337 2>&1 > ~/logs/$(date "+%F_%H_%M").cfa &
 fi
 
+# nc 192.168.1.4 15361 | tee -a  ~/logs/$(date "+%F_%H_%M").log
+# nc 192.168.1.4 15361 |grep "media"  | tee -a  ~/logs/$(date "+%F_%H_%M").log
 nc 192.168.1.4 15361 |grep "\[phone"  | tee -a  ~/logs/$(date "+%F_%H_%M").log
+# nc 192.168.1.4 15361   | tee -a  ~/logs/$(date "+%F_%H_%M").log
