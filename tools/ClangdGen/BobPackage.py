@@ -61,7 +61,8 @@ class BobPackage:
         return self.__yaml
 
     def get_build_dir(self):
-        if self.__build is None:
+        
+        if self.__build is None or self.__build =='':
             try:
                 cmd_string = __CMD_BOB_QUERY_BUILD_PATH__.format(
                     module=self.name)
@@ -73,7 +74,6 @@ class BobPackage:
                     "Get build dir Failed for with error:'{}'".format(str(e)))
             finally:
                 logger.debug("build {}".format(self.__build))
-                self.__build=''
         return self.__build
 
     def get_src_dir(self):

@@ -1,3 +1,4 @@
+from logging import log
 import os
 import traceback
 
@@ -19,6 +20,7 @@ class ClangdConfig:
         self.__cache = cache
 
     def append(self, name, src_dir, build_dir):
+        logger.info("build_dir {}".format(build_dir))
         self.content_list.append({
             'name': name,
             'src':  src_dir,
@@ -47,6 +49,7 @@ class ClangdConfig:
         clangd_config_content = set()
 
         def find_jcbd(path):
+            logger.info("find_jcdb:{}".format(path))
             jcdb_path = os.popen(
                 "find {} -name compile_commands.json".format(path)).readlines()
             if len(jcdb_path) and isinstance(jcdb_path[0], str):
@@ -64,14 +67,8 @@ class ClangdConfig:
                     logger.error("src_dir: {}".format(value.get('src')))
                     logger.error("build_dir : {}".format(value.get('build')))
 
-            print("self.content_list length {}".format(len(self.content_list)))
-            clangd_config_content = [__CLANG_CFG_PATTERN__.format(
-                **x) for x in self.content_list]
-            print("clangd_config_content length {}".format(
-                len(clangd_config_content)))
+            clangd_config_content = [__CLANG_CFG_PATTERN__.format(**x) for x in self.content_list]
             clangd_config_content = set(clangd_config_content)
-            print("clangd_config_content length {}".format(
-                len(clangd_config_content)))
         except Exception as e:
             logger.error(str(e))
             traceback.print_exc()

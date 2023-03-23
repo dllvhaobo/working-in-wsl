@@ -22,7 +22,7 @@ def config():
                         default=__DEF_PACKAGES__, help='指定一个或者多个bob编译的package')
 
     parser.add_argument('--cachefile', metavar='',
-                        help="cache文件的路径,默认为当前目录的.clangchage", default='.clangdcache')
+                        help="cache文件的路径,默认为当前目录的.clangchage", default='.clangdcache.yaml')
 
     parser.add_argument('--use-cache', dest='use_cache', default=True,
                         action='store_true', help="用之前生成的cache文件解析")
@@ -56,8 +56,9 @@ def main_entry():
     cache = BobInfoCache(**args)
     cache.load()
 
-    #  Clang Infomation
 
+    print(cache.content)
+    #  Clang Infomation
     try:
         for pkg_name in args.get('packages', list()):
             package = BobPackage(pkg_name, args.get('recursive'), cache, **args)
@@ -80,4 +81,3 @@ def test_entry():
 
 if __name__ == "__main__":
     main_entry()
-    #  test_entry()
