@@ -2,6 +2,13 @@
 
 import argparse
 import traceback
+import os
+import sys
+# 获取当前脚本所在目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 将同级目录添加到 Python 模块搜索路径
+sys.path.append(current_dir)
 from pprint import pprint as print
 from logger import logger
 from BobInfoCache import BobInfoCache

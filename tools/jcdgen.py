@@ -1,1 +1,1 @@
-ClangdGen/jcdgen.py
+/home/lv/works/working-in-wsl/tools/ClangdGen/main.py

@@ -1,0 +1,18 @@
+[tool.pyright]
+# 启用类型检查
+enable = true
+
+# 配置 Python 解释器路径，例如：
+# pythonPath = "/usr/local/bin/python"
+# 或者从虚拟环境中获取解释器路径：
+# pythonPath = "${workspaceFolder}/venv/bin/python"
+
+# 配置导入路径，例如：
+# venvPath = "${workspaceFolder}/venv"
+# 或者使用系统默认路径：
+# venvPath = "system"
+
+# 配置额外的模块搜索路径，例如：
+# extraPaths = ["${workspaceFolder}/src"]
+# 或者使用默认模块搜索路径：
+extraPaths = ["./"]
