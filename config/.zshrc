@@ -118,34 +118,12 @@ export SVN_EDITOR=nvim
 alias ll="ls -ahl"
 alias vi=nvim
 alias vim=nvim
-<<<<<<< HEAD
 alias v=nvim 
-
-
-# alias adb=adb.exe
-
-||||||| 5970f67
-alias v=nvim 
-
-<<<<<<< HEAD
-# alias adb=adb.exe
-
-||||||| 2476b62
-# alias adb=adb.exe
+alias adb=adb.exe
 alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
-=======
-export DISPLAY=${HOST_GW}:0
-alias adb=adb.exe
-# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
->>>>>>> 06cdce8dbad6e692e41be28ab0cd0a7b44052888
-=======
-alias v=nvim
-alias adb=adb.exe
-
 
 # alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
->>>>>>> fe854f48749531b6a5a11f7b9801feb9b18fb9bb
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi

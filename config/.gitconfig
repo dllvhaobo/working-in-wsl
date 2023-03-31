@@ -20,8 +20,8 @@
 	; https = socks5://172.18.32.1:20170
 	; https = socks5://172.19.208.1:20170
 [merge]
-    tool = p4merge
-    ; tool = vimdiff
+    ; tool = p4merge
+    tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
