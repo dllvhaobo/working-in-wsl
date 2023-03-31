@@ -63,15 +63,16 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 #   | vi_mode         | Your prompt's Vi editing mode (NORMAL/ INSERT).
 #   | ssh             | Indicates whether or not you are in an SSH session.
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery disk_usage ram dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( time dir vcs newline)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    # ZSH_HOME="/usr/share"
     ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ] && . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
     [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-    [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] . ${ZSH_HOME}/autojump/autojump.zsh
-    [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && .${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ]. ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] && . ${ZSH_HOME}/autojump/autojump.zsh
     bindkey '^ ' autosuggest-accept
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
@@ -81,7 +82,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     bindkey '^ ' autosuggest-accept
 fi
 
-[ -f "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ] && ."${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh 
+# [ -f "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ] && ."${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -106,7 +107,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export HOST_GW='127.0.0.1'
 fi
 # export DISPLAY=${HOST_GW}:1.0
-export DISPLAY=${HOST_GW}:0
 
 # Following is for WSL only
 ################################################################################
@@ -120,10 +120,7 @@ alias vi=nvim
 alias vim=nvim
 alias v=nvim 
 alias adb=adb.exe
-alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
-
-# alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
 # 	git config --global proxy.https socks5://${HOST_GW}:20170
 # fi

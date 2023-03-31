@@ -58,5 +58,6 @@
   "pyright.enable": true,
   "pyright.completion.snippetSupport": true,
   "python.pythonPath": "/usr/bin/python3.6",
-  "python.analysis.extraPaths": ["./"]
+  "python.analysis.extraPaths": ["./"],
+  "clangd.fallbackFlags": []
 }

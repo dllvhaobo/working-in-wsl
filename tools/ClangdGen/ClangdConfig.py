@@ -44,20 +44,34 @@ class ClangdConfig:
                 f.writelines(clangdinfo)
 
     def write_projectconfig(self):
-        clangd_config_content = list() 
-        try: 
-            for name, value in self.__cache.get().items(): 
+        clangd_config_content = set()
+
+        def find_jcbd(path):
+            jcdb_path = os.popen(
+                "find {} -name compile_commands.json".format(path)).readlines()
+            if len(jcdb_path) and isinstance(jcdb_path[0], str):
+                return os.path.join(path,jcdb_path[0].strip('\n'))
+
+        try:
+            for name, value in self.__cache.get().items():
                 if isinstance(value.get('src'), str) and isinstance(value.get('build'), str):
-                    if (os.path.exists(os.path.join(os.getcwd(), value.get("build"), 'compile_commands.json'))):
-                        self.append(name, value.get('src'), value.get('build'))
+                    path = find_jcbd(os.path.join( os.getcwd(), value.get("build")))
+                    if isinstance(path, str):
+                        self.append(name, value.get('src'), os.path.dirname(path))
                 else:
                     logger.error("#"*80)
                     logger.error("\nPackage : {}".format(value.get('name')))
                     logger.error("src_dir: {}".format(value.get('src')))
                     logger.error("build_dir : {}".format(value.get('build')))
 
-            clangd_config_content = [__CLANG_CFG_PATTERN__.format(**x) for x in self.content_list]
-            
+            print("self.content_list length {}".format(len(self.content_list)))
+            clangd_config_content = [__CLANG_CFG_PATTERN__.format(
+                **x) for x in self.content_list]
+            print("clangd_config_content length {}".format(
+                len(clangd_config_content)))
+            clangd_config_content = set(clangd_config_content)
+            print("clangd_config_content length {}".format(
+                len(clangd_config_content)))
         except Exception as e:
             logger.error(str(e))
             traceback.print_exc()
