@@ -84,7 +84,9 @@ def check_all_git_repos(path):
         branch = check_git_branch(os.path.join(rootpath, repo))
         url = check_git_url(os.path.join(rootpath, repo))
         changes = classify_git_status(status) if status else None
-        print_git_status(os.path.realpath(repo), branch,url, changes)  # 测试
+        #  print(repo)
+        os.chdir(rootpath)
+        print_git_status(os.path.abspath(repo), branch,url, changes)  # 测试
 
 
 check_all_git_repos(".")
