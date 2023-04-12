@@ -9,6 +9,9 @@ set -x
 # bluego
 # ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target/phone::bt-middleware::tsd-blueware-mib3-bluego-dev/phone::bt-middleware::tsd-blueware-bluego-dev/phone::bt-middleware::ext-bluego-dev
 
+# ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
+# ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
+
 modules="
 ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
 ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
@@ -22,13 +25,13 @@ if [ -z $OPT ];then
     echo "Option: checkout and build "
 elif [ "$OPT"x == "checkoutx" ];then
     echo "Option: checkout only"
-    BOB_OPT+="-B"
+    BOB_OPT+=" -B"
 elif [ "$OPT"x == "buildx" ];then
     echo "Option: build only"
-    BOB_OPT+="-b"
+    BOB_OPT+=" -b"
 elif [ "$OPT"x == "cleanx" ];then
     echo "Option: build only"
-    BOB_OPT+="--clean"
+    BOB_OPT+=" --clean"
 else 
     BOB_OPT+=" $OPT"
 fi
