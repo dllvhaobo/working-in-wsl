@@ -125,6 +125,7 @@ export SVN_EDITOR=nvim
 alias ll="ls -ahl"
 alias vi=nvim
 alias vim=nvim
+alias v=nvim 
 alias adb=adb.exe
 
 # if [ "`git config --global --get proxy.https`" != "socks5://${HOST_GW}:20170" ]; then
