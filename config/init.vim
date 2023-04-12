@@ -51,7 +51,7 @@ set shiftwidth=4
 " 自动跳转到打开的文件所在目录
 set noautochdir
 " 使用系统剪贴板
-" set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 " set backspace=indent,eol,start    " 退格跳过缩进，行结尾，开始
 
 " 检查文件类型
@@ -370,6 +370,10 @@ Plug 'bootleq/vim-gitdiffall'
 Plug 'samoshkin/vim-mergetool'
 
 Plug 'tell-k/vim-autopep8'
+
+" Plug 'vimwiki/vimwiki'
+
+Plug 'glidenote/memolist.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug: Install End
@@ -1091,3 +1095,68 @@ nmap <leader>mt <plug>(MergetoolToggle)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:foldsearch_highlight=1
 " let g:foldsearch_disable_mappings=1
+"
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Memo List
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" suffix type (default markdown)
+let g:memolist_memo_suffix = "markdown"
+" let g:memolist_memo_suffix = "txt"
+
+" date format (default %Y-%m-%d %H:%M)
+let g:memolist_memo_date = "%Y-%m-%d %H:%M"
+" let g:memolist_memo_date = "epoch"
+" let g:memolist_memo_date = "%D %T"
+
+" tags prompt (default 0)
+" let g:memolist_prompt_tags = 1
+
+" categories prompt (default 0)
+" let g:memolist_prompt_categories = 1
+
+" use qfixgrep (default 0)
+let g:memolist_qfixgrep = 1
+
+" use vimfiler (default 0)
+" let g:memolist_vimfiler = 1
+
+" use fzf (default 0)
+" let g:memolist_fzf = 1
+
+" remove filename prefix (default 0)
+let g:memolist_filename_prefix_none = 1
+
+" use unite (default 0)
+" let g:memolist_unite = 1
+
+" use arbitrary unite source (default is 'file')
+let g:memolist_unite_source = "file_rec"
+
+" use arbitrary unite option (default is empty)
+let g:memolist_unite_option = "-auto-preview -start-insert"
+
+" use denite (default 0)
+" let g:memolist_denite = 1
+
+" use arbitrary denite source (default is 'file_rec')
+let g:memolist_denite_source = "anything"
+
+" use arbitrary denite option (default is empty)
+let g:memolist_denite_option = "anything"
+
+" use various Ex commands (default '')
+" let g:memolist_ex_cmd = 'CtrlP'
+" let g:memolist_ex_cmd = 'NERDTree'
+" let g:memolist_ex_cmd = 'Defx'
+" let g:memolist_ex_cmd = 'Clap files'
+
+" use delimiter of array in yaml front matter (default is ' ')
+let g:memolist_delimiter_yaml_array = ','
+
+" use when get items from yaml front matter
+" first line string pattern of yaml front matter (default "==========")
+let g:memolist_delimiter_yaml_start = "---"
+
+" last line string pattern of yaml front matter (default "- - -")
+let g:memolist_delimiter_yaml_end  = "---"
