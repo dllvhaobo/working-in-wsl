@@ -1,9 +1,15 @@
 # Set up the prompt
 
-# export TERM="xterm-256color"
+export TERM="xterm-256color"
+fpath+=(/home/lv/works/pure)
 autoload -Uz promptinit
 promptinit
-prompt adam1
+# prompt adam1
+zstyle :prompt:pure:path color yellow
+# zstyle ':prompt:pure:prompt:*' color red
+zstyle ':prompt:pure:prompt:*' color yellow
+zstyle :prompt:pure:git:stash show yes
+prompt pure
 
 setopt histignorealldups sharehistory
 
@@ -69,7 +75,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( time dir vcs newline)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # ZSH_HOME="/usr/share"
     ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-    [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ] && . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    # [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ] && . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
     [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] && . ${ZSH_HOME}/autojump/autojump.zsh
@@ -88,7 +94,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/openjdk/bin:$PATH"
 else
-    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
+    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/coredump-analyzer:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
 fi
 
 # export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
@@ -107,7 +113,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export HOST_GW='127.0.0.1'
 fi
 # export DISPLAY=${HOST_GW}:1.0
-export DISPLAY=${HOST_GW}:0
+# export DISPLAY=${HOST_GW}:0
 
 # Following is for WSL only
 ################################################################################
@@ -136,4 +142,7 @@ alias adb=adb.exe
 #    sudo chgrp docker "$DOCKER_DIR"
 #    /mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd < /dev/null > $DOCKER_DIR/dockerd.log 2>&1"
 # fi
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
