@@ -457,6 +457,8 @@ noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  --iglob !*.xml --iglob !*.html --
 "" search visually selected text literally
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>gn :Leaderf! rg --next<CR>
+noremap <leader>gp :Leaderf! rg --previous<CR>
 
 
 let g:Lf_GtagsAutoGenerate = 1
@@ -480,10 +482,10 @@ noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand
 noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 "
 " 跳转至引用符号的下一条
-noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf! gtags --next %s", "")<CR><CR>
 
 " 跳转至引用符号的上一条
-noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf! gtags --previous %s", "")<CR><CR>
 
 " Command	Description
 " <C-C>	quit from LeaderF

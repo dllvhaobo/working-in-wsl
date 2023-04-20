@@ -24,7 +24,7 @@ sshpass -p root ssh root@192.168.1.4 'sh /home/root/hu-update.sh'
 ################################################################################
 #  HU reboot
 ################################################################################
-# sshpass -p root ssh root@192.168.1.4 '/sbin/reboot'
+sshpass -p root ssh root@192.168.1.4 /sbin/reboot
 
 #
 # Copy From Compile-Server
