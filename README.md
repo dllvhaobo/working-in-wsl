@@ -283,59 +283,103 @@ VIM-PLUG
 
 ```json
 {
-  "vim.easymotion": true,
-  "vim.hlsearch": true,
-  "vim.leader": "space",
-  "vim.argumentObjectClosingDelimiters": [")", "]", "}"],
-  "vim.argumentObjectOpeningDelimiters": ["(", "[", "{"],
-  "vim.commandLineModeKeyBindings": [],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<leader>", "s", "l"],
-      "commands": [":vsplit"]
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "vscode-icons",
+    "remote.SSH.remotePlatform": {
+        "10.70.9.60": "linux",
+        "10.70.9.60(2222)": "linux"
     },
-    {
-      "before": ["S"],
-      "commands": [":w"]
+    "explorer.confirmDelete": false,
+    "editor.largeFileOptimizations": false,
+    "vim.argumentObjectClosingDelimiters": [
+        ")",
+        "]",
+        "}"
+    ],
+    "vim.argumentObjectOpeningDelimiters": [
+        "(",
+        "[",
+        "{"
+    ],
+    "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\Users\\lv_h1\\tools\\im-select.exe",
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.autoSwitchInputMethod.defaultIM": "1033",
+    "vim.autoSwitchInputMethod.switchIMCmd": "C:\\Users\\lv_h1\\tools\\im-select.exe {im}",
+    "vim.easymotion": true,
+    "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+    "vim.highlightedyank.enable": true,
+    "vim.normalModeKeyBindings": [
+        {
+          "before": ["<leader>", "s", "l"],
+          "commands": [":vsplit"]
+        },
+        {
+          "before": ["S"],
+          "commands": [":w"]
+        },
+        {
+          "before": ["Q"],
+          "commands": [":q"]
+        },
+        {
+          "before": [ "s", "j"],
+          "commands": [
+            ":split"
+        ]
+        },
+        {
+          "before": [ "s", "l"],
+          "commands": [
+            ":vsplit"
+        ]
+        }
+      ],
+      "vim.normalModeKeyBindingsNonRecursive": [
+      
+        {
+          "before": ["<c-j>"],
+          "after": ["5", "j"]
+        },
+        {
+          "before": ["<c-k>"],
+          "after": ["5", "k"]
+        },
+        {
+          "before": ["<leader>", "w", "h"],
+          "after": ["<c-w>", "h"]
+        },
+        {
+          "before": ["<leader>", "w", "l"],
+          "after": ["<c-w>", "l"]
+        }
+      ],
+      "vim.visualModeKeyBindingsNonRecursive": [
+        {
+          "before": ["<c-j>"],
+          "after": ["5", "j"]
+        },
+        {
+          "before": ["<c-k>"],
+          "after": ["5", "k"]
+        }
+    ],
+    "vim.commandLineModeKeyBindingsNonRecursive": [
+    
+    ],
+    "vim.handleKeys": {
+
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
     },
-    {
-      "before": ["Q"],
-      "commands": [":q"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<c-j>"],
-      "after": ["5", "j"]
-    },
-    {
-      "before": ["<c-k>"],
-      "after": ["5", "k"]
-    },
-    {
-      "before": ["<leader>", "w", "h"],
-      "after": ["<c-w>", "h"]
-    },
-    {
-      "before": ["<leader>", "w", "l"],
-      "after": ["<c-w>", "l"]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<c-j>"],
-      "after": ["5", "j"]
-    },
-    {
-      "before": ["<c-k>"],
-      "after": ["5", "k"]
-    }
-  ],
-  "vim.insertModeKeyBindingsNonRecursive": [],
-  "vim.sneak": true,
-  "vim.sneakReplacesF": true,
-  "vim.useSystemClipboard": true,
-  "vim.insertModeKeyBindings": []
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "git.autofetch": true
+}
 }
 ```
 
