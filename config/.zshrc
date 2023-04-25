@@ -1,7 +1,7 @@
 # Set up the prompt
 
 export TERM="xterm-256color"
-fpath+=(/home/lv/works/pure)
+fpath+=("${XDG_DATA_HOME:-$HOME/works/pure}")
 autoload -Uz promptinit
 promptinit
 # prompt adam1
@@ -73,8 +73,8 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( time dir vcs newline)
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # ZSH_HOME="/usr/share"
-    ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    ZSH_HOME="/usr/share"
+    # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
     # [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ] && . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
     [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
