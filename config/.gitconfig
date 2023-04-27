@@ -3,10 +3,16 @@
         name = lv_h1 
 [diff]
     tool = vimdiff
+    ; tool = bc4
     ; tool = meld
     ; tool = kdiff3
 ; [alias]
 	; d = difftool
+[merge]
+	tool = bc4
+    ; tool = vimdiff
+	conflictstyle = diff3
+
 [pull]
     rebase = false
 [core]
@@ -16,13 +22,12 @@
 [difftool "vimdiff"]
     path = /usr/local/bin/nvim
     prompt = false
+[difftool "bc4"]
+    path = /usr/bin/bcompare
+    prompt = false
 [proxy]
 	; https = socks5://172.18.32.1:20170
 	; https = socks5://172.19.208.1:20170
-[merge]
-	tool = bc4
-    ; tool = vimdiff
-	conflictstyle = diff3
 [mergetool]
 	prompt = false
 	keepBackup = false

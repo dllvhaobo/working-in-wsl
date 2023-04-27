@@ -6,6 +6,7 @@ SUFFIX=$(date +"%Y%m%d_%H%M")
 # mv /usr/bin/tsd.bt.phone.mib3 /usr/bin/tsd.bt.phone.mib3.${SUFFIX}
 # mv /usr/bin/tsd.phonemanager /usr/bin/tsd.phonemanager.${SUFFIX}
 
+systemctl mask watchdog-reboot.service
 mv /home/root/tsd.bt.phone.mib3  /usr/bin
 mv /home/root/tsd.phonemanager  /usr/bin
 

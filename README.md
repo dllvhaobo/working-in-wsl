@@ -161,7 +161,6 @@ git@gitee.com:dllvhaobo/wildfire.vim.git
 - github.global.ssl.fastly.net
 - assets-cdn.github.com
 
-
 **NOTE**: Neovim 8.0 需要 GLIBC_2.29 或者更新的 lib 库支持。在低版本的 Ubuntu 系统中 Glibc 的版本与 Neovim 依赖版本不一致。
 请使用 https://github.com/antoineco/neovim-neovim/releases发布的预编译版本。详见[GitHub Issue][githubissue]
 
@@ -230,7 +229,6 @@ xmodmap ~/xmodmaprc
 
 _希望安装其他字体的可以到 [nerd-fonts][] 去寻找自己喜欢的字体，并参照上述步骤进行安装_
 
-
 ## NEOVIM
 
 NEOVIM 的安装可以参考以下三种方法之一进行安装，新手推荐使用”快速安装“
@@ -278,8 +276,14 @@ IM-SELECT
 
 VIM-PLUG
 
+## VSCODE
 
-## Vscode 
+在 VSCODE 使用 VIM 的快捷键配置。 拷贝如下配置到文件`%APPDATA%\Code\User\settings.json`
+
+参考：
+
+- [Vscode 的 VIM 输入插件][]
+- [输入法自动切换参考][]
 
 ```json
 {
@@ -339,7 +343,7 @@ VIM-PLUG
         }
       ],
       "vim.normalModeKeyBindingsNonRecursive": [
-      
+
         {
           "before": ["<c-j>"],
           "after": ["5", "j"]
@@ -368,7 +372,7 @@ VIM-PLUG
         }
     ],
     "vim.commandLineModeKeyBindingsNonRecursive": [
-    
+
     ],
     "vim.handleKeys": {
 
@@ -387,13 +391,39 @@ COC
 
 FZF
 
-LEADERF
+`Alt+C` list当下目录的子目录并跳转
+`CTRL+R` 快速历史命令匹配
+
+```bash
+git clone --depth 1  https://github.com/junegunn/fzf.git  ~/.fzf
+.fzf/install
+```
+### AUTOJUMP
+
+```bash
+git clone https://github.com/wting/autojump.git
+autojump/install.py
+echo  '[[ -s "${XDG_DATA_HOME:-$HOME}"/.autojump/etc/profile.d/autojump.sh ]] && source "${XDG_DATA_HOME:-$HOME}"/.autojump/etc/profile.d/autojump.sh' >> "${XDG_DATA_HOME:-$HOME}"/.zshrc
+```
+
+### GIT
+
+```bash 
+tar zxf git-2.40.1.tar.gz
+cd git-2.40.1
+ ./configure --prefix=${HOME}/.local/
+make install
+```
 
 NODEJS
 
 YARN
 
 PIP
+## Clang
+
+在CMakeLists.txt中添加 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+在命令行中添加-DCMAKE_EXPORT_COMPILE_COMMANDS=on
 
 https://apt.llvm.org/
 https://clang.llvm.org/docs/ClangFormatStyleOptions.html
@@ -433,3 +463,5 @@ https://www.webkit.org/coding/coding-style.html
 [autohotkey:常用技巧分享]: https://zhuanlan.zhihu.com/p/103357456
 [autohotkey]: https://github.com/AutoHotkey/AutoHotkey
 [nerd-fonts]: https://github.com/ryanoasis/nerd-fonts
+[输入法自动切换参考]: https://github.com/daipeihust/im-select#to-get-current-keyboard-locale和https://www.science.co.il/language/Locale-codes.php
+[vscode 的 vim 输入插件]: https://github.com/VSCodeVim/Vim#input-method
