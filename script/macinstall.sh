@@ -63,6 +63,7 @@ chmod 777 /usr/local/bin/im-select
 git clone https://github.com/junegunn/fzf.git
 cd fzf
 ./install
+cd -
 
 # Link config
 mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim}"

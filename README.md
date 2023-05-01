@@ -42,8 +42,8 @@
 Features:
 
 - Switch `backspace` and `backslash`
-- CapsLock only as `escape`
-- CapsLock + `X` as `Ctrl+X`
+- CapsLock to Escape on tapped
+- CapsLock to Left_Control on hold
 
 ### Windows
 
