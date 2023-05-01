@@ -866,6 +866,7 @@ let g:coc_global_extensions = [
   \ 'coc-clang-format-style-options',
   \ 'coc-yaml',
   \ 'coc-vimlsp',
+  \ 'coc-markdown-preview-enhanced',
   \ 'coc-pyright',
   \ 'coc-webview']
   " \ 'coc-snippets',
