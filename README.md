@@ -123,21 +123,23 @@ xcape -e 'Control_L=Escape'
 xmodmap ~/xmodmaprc
 ````
 
-
 ## 字体安装
 
 安装对应字体，并且在 Terminal 中选中安装的字体，可以在 Terminal 中现实 DevIcons，连体字,中文等等。
 
 - Windows 环境下直双击字体进行安装
+
   - 如果使用 WindowsTerminal 作为终端应用，需要在`[外观->字体]`中选择对应的字体。
+
 - Ubuntu 中参照如下步骤安装字体
+
   ```bash
   mkdir ~/.fonts
   cp fonts ~/.fonts -rf
   fc-cache -f -v
   ```
 
-**NOTE**: 推荐两种字体二选一，只有这两种字体支持中文。
+  **NOTE**: 推荐两种字体二选一，只有这两种字体支持中文。
 
 - `Caskaydia Cove ExtraLight Nerd Font Complete Windows Compatible.otf`
 - `DejaVu Sans Mono Nerd Font Complete.ttf`
@@ -148,30 +150,20 @@ _希望安装其他字体的可以到 [nerd-fonts][] 去寻找自己喜欢的字
 
 ### APT
 
-修改 /etc/apt/sources.list 文件，将其中的 http://archive.ubuntu.com 和 http://security.ubuntu.com 替换为你所在地区的镜像源。
-
-例如，可以使用以下命令来修改为清华镜像源：
+修改 /etc/apt/sources.list 文件；例如，可以使用以下命令来修改为中科大镜像源：
 
 ```bash
-sudo sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
-sudo sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 ```
 
-### YARN
+### NPM&YARN
 
 配置 YARN 的国内镜像。
 
 ```bash
-yarn config set registry https://registry.npm.taobao.org --global
-yarn config set disturl https://npm.taobao.org/dist --global
-yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass --global
-yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ --global
-yarn config set puppeteer_download_host https://npm.taobao.org/mirrors --global
-yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver --global
-yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver --global
-yarn config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs --global
-yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium --global
-yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector --global
+yarn config set registry https://registry.npmmirror.com
+npm config set registry https://registry.npmmirror.com
 ```
 
 ### NPM
@@ -273,7 +265,6 @@ git@gitee.com:dllvhaobo/wildfire.vim.git
 **NOTE**: Neovim 8.0 需要 GLIBC_2.29 或者更新的 lib 库支持。在低版本的 Ubuntu 系统中 Glibc 的版本与 Neovim 依赖版本不一致。
 请使用 https://github.com/antoineco/neovim-neovim/releases发布的预编译版本。详见[GitHub Issue][githubissue]
 
-
 ## NEOVIM
 
 NEOVIM 的安装可以参考以下三种方法之一进行安装，新手推荐使用”快速安装“
@@ -312,7 +303,6 @@ tar zxf nvim-linux64-glibc-earlier.tar.gz
 
 cp -rf nvim-linux64/*  "${XDG_DATA_HOME:-$HOME/.local/share}/"
 ```
-
 
 WSL2
 

@@ -45,57 +45,30 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-
-#   | background_jobs | Indicator for background jobs.
-#   | battery         | Current battery status.
-#   | context         | Your username and host, conditionalized based on $USER and SSH status.
-#   | date            | System date.
-#   | dir             | Your current working directory.
-#   | dir_writable    | Displays a lock icon, if you do not have write permissions on the current folder.
-#   | disk_usage      | Disk usage of your current partition.
-#   | history         | The command number for the current line.
-#   | host            | Your current host name
-#   | ip              | Shows the current IP address.
-#   | vpn_ip          | Shows the current VPN IP address.
-#   | public_ip       | Shows your public IP address.
-#   | load            | Your machine's load averages.
-#   | os_icon         | Display a nice little icon, depending on your operating system.
-#   | ram             | Show free RAM.
-#   | root_indicator  | An indicator if the user has superuser status.
-#   | status          | The return code of the previous command.
-#   | swap            | Prints the current swap size.
-#   | time            | System time.
-#   | user            | Your current username
-#   | vi_mode         | Your prompt's Vi editing mode (NORMAL/ INSERT).
-#   | ssh             | Indicates whether or not you are in an SSH session.
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( time dir vcs newline)
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # ZSH_HOME="/usr/share"
     ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
     [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] && . ${ZSH_HOME}/autojump/autojump.zsh
-    bindkey '^ ' autosuggest-accept
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    bindkey '^ ' autosuggest-accept
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
-
-# [ -f "${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh ] && ."${XDG_DATA_HOME:-$HOME/.local/bin}"/gitdiffall.zsh
+bindkey '^ ' autosuggest-accept
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/node@18/bin:/usr/local/opt/openjdk/bin:$PATH"
+    PATH="${XDG_DATA_HOME:-$HOME}/works/platform-tools:/usr/local/opt/node@18/bin:/usr/local/opt/openjdk/bin:$PATH"
 else
-    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/coredump-analyzer:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
+    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:${XDG_DATA_HOME:-$HOME}/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
 fi
 
-# export STMGEN_JAR_PATH=/home/StmGen (放置stmgen.jar文件的路径) /tsd.common.tools.stmgen.jar
+
+# 状态机生成器
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export STMGEN_JAR_PATH="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
   export PATH_STMGEN_JAR="${XDG_DATA_HOME:-$HOME}"/works/stmgen/tsd.common.tools.stmgen.jar
@@ -105,7 +78,6 @@ fi
 ################################################################################
 # DISPLAY X11 Server
 ################################################################################
-# export HOST_GW=`ip route |awk '/default/{print $3}'`
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export HOST_GW=`awk '/nameserver/{print $2}' /etc/resolv.conf`
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -113,9 +85,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 # export DISPLAY=${HOST_GW}:1.0
 # export DISPLAY=${HOST_GW}:0
-
-# Following is for WSL only
-################################################################################
 
 alias set-proxy="export https_proxy=http://${HOST_GW}:20170 http_proxy=http://${HOST_GW}:20170 all_proxy=socks5://${HOST_GW}:20170"
 
@@ -144,10 +113,3 @@ alias adb=adb.exe
 # fi
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"

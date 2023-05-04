@@ -13,7 +13,7 @@ sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autop
                     squashfs-tools srecord subversion zip zlib1g-dev zsh autojump \
                     zsh-syntax-highlighting zsh-autosuggestions ripgrep
 
-ln -s $(pwd)/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
+ln -s $(pwd)/working-in-wsl/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
 chsh ${USER} -s /usr/bin/zsh
 
 ################################################################################
