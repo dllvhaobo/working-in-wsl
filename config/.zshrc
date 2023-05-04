@@ -1,7 +1,7 @@
 # Set up the prompt
 
 export TERM="xterm-256color"
-fpath+=("${XDG_DATA_HOME:-$HOME/works/pure}")
+fpath+=($HOME/.zsh/pure)
 autoload -Uz promptinit
 promptinit
 # prompt adam1
@@ -73,15 +73,13 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( time dir vcs newline)
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs history time)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    ZSH_HOME="/usr/share"
-    # ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-    # [ -f "${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme" ] && . ${ZSH_HOME}/powerlevel9k/powerlevel9k.zsh-theme
+    # ZSH_HOME="/usr/share"
+    ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
     [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] && . ${ZSH_HOME}/autojump/autojump.zsh
     bindkey '^ ' autosuggest-accept
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    [ -f /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme ] && . /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
     [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -92,7 +90,7 @@ fi
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/openjdk/bin:$PATH"
+    PATH="/Users/lvhaobo/works/platform-tools:/usr/local/opt/node@18/bin:/usr/local/opt/openjdk/bin:$PATH"
 else
     PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:/home/lv/works/coredump-analyzer:/home/lv/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
 fi
@@ -148,3 +146,8 @@ alias adb=adb.exe
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
