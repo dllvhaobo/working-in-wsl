@@ -1,15 +1,16 @@
 #!/bin/bash
 
-sudo sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-sudo sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/archive.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/security.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+
 sudo apt update
 sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autopoint \
                     bc bison build-essential cmake curl device-tree-compiler flex \
-                    g++ gcc gettext git global gperf intltool jq lib32stdc++6  \
+                    g++ gcc gettext git global gperf intltool jq \
                     libcurl4-openssl-dev libcurses-ocaml-dev liblz4-tool libffi-dev \
                     libdist-zilla-plugin-localemsgfmt-perl liblocale-msgfmt-perl \
                     libmount-dev libncurses5-dev libtool libtool-bin libxml2-utils \
-                    lsb m4 make pkg-config python3-dev python3-pip ruby ruby-dev tig \
+                    lsb m4 make pkg-config python3 python3-dev python3-pip ruby ruby-dev tig \
                     squashfs-tools srecord subversion zip zlib1g-dev zsh autojump \
                     zsh-syntax-highlighting zsh-autosuggestions ripgrep
 
