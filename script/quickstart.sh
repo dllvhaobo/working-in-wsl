@@ -17,39 +17,11 @@ sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autop
 ################################################################################
 # nodejs + yarn 
 ################################################################################
-curl -fsSL https://deb.nodesource.com/setup_18.x |  \
-    sudo -E bash - && sudo apt-get install -y nodejs
-
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg \
-    | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
-
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | \
-    sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt install -y yarn nodejs
-
-npm set registry https://registry.npm.taobao.org
-npm set disturl https://npm.taobao.org/dist
-npm set sass_binary_site https://npm.taobao.org/mirrors/node-sass
-npm set electron_mirror https://npm.taobao.org/mirrors/electron
-npm set puppeteer_download_host https://npm.taobao.org/mirrors
-npm set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver
-npm set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver
-npm set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs
-npm set selenium_cdnurl https://npm.taobao.org/mirrors/selenium
-npm set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector
-npm set coc.nvim:registry https://registry.npmjs.org/
-npm cache clean --force
-
-yarn config set registry https://registry.npm.taobao.org --global
-yarn config set disturl https://npm.taobao.org/dist --global
-yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass --global
-yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ --global
-yarn config set puppeteer_download_host https://npm.taobao.org/mirrors --global
-yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver --global
-yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver --global
-yarn config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs --global
-yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium --global
-yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector --global
+curl -O https://nodejs.org/dist/v18.16.0/node-v18.16.0-linux-x64.tar.xz
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/lib/nodejs/}"
+tar xJvf node-v18.16.0-linux-x64.tar.xz -C "${XDG_DATA_HOME:-$HOME/.local/lib/nodejs/}"
+export PATH="${XDG_DATA_HOME:-$HOME/.local/lib/nodejs/node-v18.16.0-linux-x64/bin}:$PATH"
+npm install yarn
 
 ################################################################################
 # neovim 
