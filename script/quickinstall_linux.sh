@@ -2,12 +2,12 @@
 
 SCRIPT_PATH=$(realpath $0)
 WORKSROOT=$(dirname $(dirname $SCRIPT_PATH))
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.org
 
 
 #################################################################################
 # APT SOURCE
 #################################################################################
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.org
 ## TsingHua
 # sudo sed -i 's/http:\/\/archive.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 # sudo sed -i 's/http:\/\/security.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
@@ -23,12 +23,17 @@ sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autop
                     libcurl4-openssl-dev libcurses-ocaml-dev liblz4-tool libffi-dev \
                     libdist-zilla-plugin-localemsgfmt-perl liblocale-msgfmt-perl \
                     libmount-dev libncurses5-dev libtool libtool-bin libxml2-utils \
-                    lsb m4 make pkg-config python3 python3-dev python3-pip ruby ruby-dev tig \
-                    squashfs-tools srecord subversion zip zlib1g-dev zsh autojump \
-                    zsh-syntax-highlighting zsh-autosuggestions ripgrep
+                    lsb m4 make pkg-config python3 python3-dev python3-pip ruby ruby-dev \
+                    squashfs-tools srecord  zip zlib1g-dev 
 
-
-ln -s $(pwd)/working-in-wsl/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
+################################################################################
+# ZSH
+################################################################################
+sudo apt install -y zsh
+sudo apt install -y zsh-syntax-highlighting
+sudo apt install -y zsh-autosuggestions
+sudo apt install -y autojump
+ln -s ${WORKSROOT}/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
 chsh ${USER} -s /usr/bin/zsh
 
 ################################################################################
@@ -86,4 +91,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ################################################################################
 mkdir -p "$HOME/.zsh"
 git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+
+
+# TIG
+#
+# rip-grep
+#
 
