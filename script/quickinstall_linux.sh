@@ -13,8 +13,8 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list.org
 # sudo sed -i 's/http:\/\/security.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 
 ## 中科大
-sudo sed -i 's/http:\/\/archive.ubuntu.com/https:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-sudo sed -i 's/http:\/\/security.ubuntu.com/https:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 sudo apt update;
 sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autopoint \
@@ -60,7 +60,7 @@ mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim}"
 mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim/lua/plugin-config}"
 ln -s ${WORKSROOT}/config/init.vim "${XDG_DATA_HOME:-$HOME}"/.config/nvim/init.vim
 ln -s ${WORKSROOT}/config/coc-settings.json "${XDG_DATA_HOME:-$HOME}"/.config/nvim/coc-settings.json
-ln -s ${WORKSROOT}/config/coc-settings.json "${XDG_DATA_HOME:-$HOME}"/.config/nvim/lua/plugin-config/treesitter.lua
+ln -s ${WORKSROOT}/config/lua "${XDG_DATA_HOME:-$HOME}"/.config/nvim/lua
 
 ################################################################################
 # pynvim
