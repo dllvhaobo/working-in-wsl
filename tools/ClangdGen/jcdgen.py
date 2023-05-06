@@ -10,7 +10,8 @@ from ClangdConfig import ClangdConfig
 
 __DEF_PACKAGES__ = [
     'ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target',
-    'ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target'
+    'ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target',
+    'ei/ei-variant-37W-GP-VW_CHN/media::mediaapplication::tsd-media-mib3-target'
 ]
 
 

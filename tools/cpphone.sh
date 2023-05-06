@@ -5,10 +5,12 @@ echo $folder
 ROOT_DIR='/home/lv/works/recipes-svw-cns3.0'
 BT_PHONE_DIR="dev/dist/phone/bt-phone/tsd-bt-phone-mib3-target/1/workspace/usr/bin/tsd.bt.phone.mib3"
 PHONE_MGR_DIR="dev/dist/phone/phonemanager/tsd-phonemanager-target/1/workspace/usr/bin/tsd.phonemanager" 
+MEDIA_DIR="dev/build/media/mediaapplication/tsd-media-mib3-target/1/workspace/dist/usr/bin/"
 # UPDATE_SCRIPT="/home/lv/works/system_config/tools/hu-update.sh"
 UPDATE_SCRIPT="/home/lv/works/working-in-wsl/tools/hu-update.sh"
 BT_PHONE="${ROOT_DIR}/${BT_PHONE_DIR}"
 PHONE_MGR="${ROOT_DIR}/${PHONE_MGR_DIR}"
+MEDIA="${ROOT_DIR}/${MEDIA_DIR}"
 
 ################################################################################
 #  Transfer binary to Head-Unit
