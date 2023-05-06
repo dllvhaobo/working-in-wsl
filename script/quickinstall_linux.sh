@@ -4,9 +4,9 @@ SCRIPT_PATH=$(realpath $0)
 WORKSROOT=$(dirname $(dirname $SCRIPT_PATH))
 
 
-#################################################################################
-# APT SOURCE
-#################################################################################
+echo "#################################################################################"
+echo "# APT SOURCE"
+echo "#################################################################################"
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.org
 ## TsingHua
 # sudo sed -i 's/http:\/\/archive.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
@@ -26,9 +26,9 @@ sudo apt install -y android-sdk-libsparse-utils autoconf  autogen automake autop
                     lsb m4 make pkg-config python3 python3-dev python3-pip ruby ruby-dev \
                     squashfs-tools srecord  zip zlib1g-dev 
 
-################################################################################
-# ZSH
-################################################################################
+echo "################################################################################"
+echo "# ZSH"
+echo "################################################################################"
 sudo apt install -y zsh
 sudo apt install -y zsh-syntax-highlighting
 sudo apt install -y zsh-autosuggestions
@@ -36,9 +36,9 @@ sudo apt install -y autojump
 ln -s ${WORKSROOT}/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
 chsh ${USER} -s /usr/bin/zsh
 
-################################################################################
-# nodejs + yarn 
-################################################################################
+echo "################################################################################"
+echo "# nodejs + yarn" 
+echo "################################################################################"
 
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/lib/nodejs/}"
 curl -O https://nodejs.org/dist/v18.16.0/node-v18.16.0-linux-x64.tar.xz
@@ -55,9 +55,9 @@ yarn config set registry https://registry.npmmirror.com
 sudo gem install neovim
 
 
-################################################################################
-# neovim
-################################################################################
+echo "################################################################################"
+echo "# neovim"
+echo "################################################################################"
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt install neovim -y
@@ -67,28 +67,29 @@ ln -s ${WORKSROOT}/config/init.vim "${XDG_DATA_HOME:-$HOME}"/.config/nvim/init.v
 ln -s ${WORKSROOT}/config/coc-settings.json "${XDG_DATA_HOME:-$HOME}"/.config/nvim/coc-settings.json
 ln -s ${WORKSROOT}/config/lua "${XDG_DATA_HOME:-$HOME}"/.config/nvim/lua
 
-################################################################################
-# pynvim
-################################################################################
+
+echo "################################################################################"
+echo "# pynvim"
+echo "################################################################################"
 pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip3 install --upgrade pip
 pip3 install pynvim
 
-################################################################################
-# vim-plug 
-################################################################################
+echo "################################################################################"
+echo "# vim-plug"
+echo "################################################################################"
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
-cp $(pwd)/working-in-wsl/config/plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
+cp ${WORKSROOT}/config/plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
 
-################################################################################
-# fzf:  https://github.com/junegunn/fzf.git
-################################################################################
+echo "################################################################################"
+echo "# fzf:  https://github.com/junegunn/fzf.git"
+echo "################################################################################"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-################################################################################
-# Theme pure:https://github.com/sindresorhus/pure.git
-################################################################################
+echo "################################################################################"
+echo "# Theme pure:https://github.com/sindresorhus/pure.git"
+echo "################################################################################"
 mkdir -p "$HOME/.zsh"
 git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 
