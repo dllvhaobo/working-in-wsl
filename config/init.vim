@@ -20,8 +20,15 @@ set fileformats=unix,dos " 文件格式，影响行结尾(unix:0x0a,windos;0x0a0
 
 set mouse=             " 支持鼠标
 
-set foldmethod=indent    " 依据缩进进行折叠
-set foldlevel=99
+" 使用TreeSitter的折叠
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable                     " Disable folding at startup.
+
+" 不使用TreeSitter的折叠
+" set foldmethod=indent    " 依据缩进进行折叠
+" set foldlevel=99
+
 set scrolloff=10
 
 set laststatus=2        " 在所有窗口上开启Status-line
@@ -134,7 +141,6 @@ set noswapfile              " 禁用缓冲文件, 禁用.swap文件
 call plug#begin('~/.config/nvim/plugged')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Plug 'embear/vim-foldsearch'
 
 " im-sleect: 输入法自动切换
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,7 +239,7 @@ Plug 'junegunn/vim-easy-align'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Undo Tree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mbbill/undotree'
+" Plug 'mbbill/undotree'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plantuml
@@ -274,7 +280,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimSpector 代码调试器
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TO Confirm
@@ -298,25 +304,19 @@ Plug 'puremourning/vimspector'
 Plug 'vim-syntastic/syntastic'
 
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'vim-scripts/indentpython.vim'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Already Disabled
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'vimwiki/vimwiki'
-" Plug 'sbdchd/neoformat'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'scrooloose/vim-slumlord'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown: Table of Content, replaced with coc-markdown-preview-enhanced
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'mzlogin/vim-markdown-toc'
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Defx: 侧边栏文件浏览器(replaced with coc-explorer)
@@ -327,13 +327,6 @@ Plug 'vim-syntastic/syntastic'
 " Doxygen
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'vim-scripts/DoxygenToolkit.vim'
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自动选择块代码
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'gcmt/wildfire.vim'
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gruvbox配色
@@ -347,33 +340,33 @@ Plug 'morhetz/gruvbox'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" copilot Microsoft智能补全,100$/Year
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'github/copilot.vim'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Startify: vim启动时，显示最近打开的文件
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " devicons: 文件图标
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'ryanoasis/vim-devicons'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" pappasam/coc-jedi
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
-Plug 'bootleq/vim-gitdiffall'
-
-Plug 'samoshkin/vim-mergetool'
-
-Plug 'tell-k/vim-autopep8'
-
+" Deprecated
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'vimwiki/vimwiki'
+" Plug 'sbdchd/neoformat'
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'scrooloose/vim-slumlord'
+" Plug 'vimwiki/vimwiki'
+" Plug 'glidenote/memolist.vim'
+" Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+" Plug 'bootleq/vim-gitdiffall'
+" Plug 'samoshkin/vim-mergetool'
+" Plug 'tell-k/vim-autopep8'
 
-Plug 'glidenote/memolist.vim'
+" 搜索结果折叠
+" Plug 'embear/vim-foldsearch'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug: Install End
@@ -868,8 +861,8 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-markdown-preview-enhanced',
   \ 'coc-pyright',
+  \ 'coc-snippets',
   \ 'coc-webview']
-  " \ 'coc-snippets',
   " \ 'coc-cmake']
   " \ 'coc-yank',
   " \ 'coc-jedi',
@@ -1093,73 +1086,5 @@ let g:mergetool_prefer_revision = 'local'
 
 nmap <leader>mt <plug>(MergetoolToggle)
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" foldsearch
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:foldsearch_highlight=1
-" let g:foldsearch_disable_mappings=1
-"
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Memo List
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" suffix type (default markdown)
-let g:memolist_memo_suffix = "markdown"
-" let g:memolist_memo_suffix = "txt"
+lua require('plugin-config/treesitter')
 
-" date format (default %Y-%m-%d %H:%M)
-let g:memolist_memo_date = "%Y-%m-%d %H:%M"
-" let g:memolist_memo_date = "epoch"
-" let g:memolist_memo_date = "%D %T"
-
-" tags prompt (default 0)
-" let g:memolist_prompt_tags = 1
-
-" categories prompt (default 0)
-" let g:memolist_prompt_categories = 1
-
-" use qfixgrep (default 0)
-let g:memolist_qfixgrep = 1
-
-" use vimfiler (default 0)
-" let g:memolist_vimfiler = 1
-
-" use fzf (default 0)
-" let g:memolist_fzf = 1
-
-" remove filename prefix (default 0)
-let g:memolist_filename_prefix_none = 1
-
-" use unite (default 0)
-" let g:memolist_unite = 1
-
-" use arbitrary unite source (default is 'file')
-let g:memolist_unite_source = "file_rec"
-
-" use arbitrary unite option (default is empty)
-let g:memolist_unite_option = "-auto-preview -start-insert"
-
-" use denite (default 0)
-" let g:memolist_denite = 1
-
-" use arbitrary denite source (default is 'file_rec')
-let g:memolist_denite_source = "anything"
-
-" use arbitrary denite option (default is empty)
-let g:memolist_denite_option = "anything"
-
-" use various Ex commands (default '')
-" let g:memolist_ex_cmd = 'CtrlP'
-" let g:memolist_ex_cmd = 'NERDTree'
-" let g:memolist_ex_cmd = 'Defx'
-" let g:memolist_ex_cmd = 'Clap files'
-
-" use delimiter of array in yaml front matter (default is ' ')
-let g:memolist_delimiter_yaml_array = ','
-
-" use when get items from yaml front matter
-" first line string pattern of yaml front matter (default "==========")
-let g:memolist_delimiter_yaml_start = "---"
-
-" last line string pattern of yaml front matter (default "- - -")
-let g:memolist_delimiter_yaml_end  = "---"
