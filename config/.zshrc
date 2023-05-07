@@ -64,7 +64,7 @@ bindkey '^ ' autosuggest-accept
 if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="${XDG_DATA_HOME:-$HOME}/works/platform-tools:/usr/local/opt/node@18/bin:/usr/local/opt/openjdk/bin:$PATH"
 else
-    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:${XDG_DATA_HOME:-$HOME}/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
+    PATH="${XDG_DATA_HOME:-$HOME/.local/bin}:${XDG_DATA_HOME:-$HOME/.local/lib/nodejs/node-v18.16.0-linux-x64/bin}:${XDG_DATA_HOME:-$HOME}/works/stmgen:${XDG_DATA_HOME:-$HOME/works/working-in-wsl/tools/}:$PATH"
 fi
 
 
@@ -79,7 +79,7 @@ fi
 # DISPLAY X11 Server
 ################################################################################
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  export HOST_GW=`awk '/nameserver/{print $2}' /etc/resolv.conf`
+  export HOST_GW=`ip route |awk '/default/{print $3}'`
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export HOST_GW='127.0.0.1'
 fi
