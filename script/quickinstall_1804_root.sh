@@ -18,31 +18,6 @@ echo "**************************************************************************
 
 pip3 install PyYAML schema python-magic pyparsing pip_search BobBuildtool pynvim
 
-echo "*********************************************************************************"
-echo " Yarn install"
-echo "*********************************************************************************"
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install -y yarn
-
-echo "*********************************************************************************"
-echo " nvim install "
-echo "*********************************************************************************"
-cd ${INSTALL_DIR}
-tar zxf nvim-linux64-glibc-earlier.tar.gz
-cp -rf nvim-linux64/*  "${XDG_DATA_HOME:-$HOME/.local/share}/"
-
-echo "*********************************************************************************"
-echo " vim-plug install "
-echo "*********************************************************************************"
-mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
-cp ${INSTALL_DIR}/plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
-
-echo "*********************************************************************************"
-echo " nodejs install "
-echo "*********************************************************************************"
-tar xf node-v16.18.1-linux-x64.tar.xz
-cp -rf node-v16.18.1-linux-x64/* "${XDG_DATA_HOME:-$HOME/.local}/"
 
 echo "*********************************************************************************"
 echo "ripgrep install"
@@ -99,56 +74,3 @@ do
     tar zxvf $i -C "${XDG_DATA_HOME:-$HOME}"/.config/nvim/plugged/
 done
 
-echo "*********************************************************************************"
-echo "zsh and zsh-plugin install "
-echo "*********************************************************************************"
-cd ${INSTALL_DIR}
-tar -zxf zsh-autosuggestion.tar.gz -C "${XDG_DATA_HOME:-$HOME/.local/share}"
-tar -zxf zsh-syntax-highlighting.tar.gz -C "${XDG_DATA_HOME:-$HOME/.local/share}"
-tar -zxf powerlevel9k.tar.gz -C  "${XDG_DATA_HOME:-$HOME/.local/share}"
-
-echo "*********************************************************************************"
-echo " autojump install"
-echo "*********************************************************************************"
-tar -zxf ${INSTALL_DIR}/autojump.tar.gz -C "${XDG_DATA_HOME:-$HOME/.local/share}"
-ln -s  "${XDG_DATA_HOME:-$HOME/.local/share}"/autojump/autojump    "${XDG_DATA_HOME:-$HOME/.local}"/bin/autojump
-
-echo "*********************************************************************************"
-echo " yarn mirror"
-echo "*********************************************************************************"
-yarn config set registry https://registry.npm.taobao.org --global
-yarn config set disturl https://npm.taobao.org/dist --global
-yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass --global
-yarn config set electron_mirror https://npm.taobao.org/mirrors/electron/ --global
-yarn config set puppeteer_download_host https://npm.taobao.org/mirrors --global
-yarn config set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver --global
-yarn config set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver --global
-yarn config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs --global
-yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium --global
-yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector --global
-
-echo "*********************************************************************************"
-echo " nodejs mirror"
-echo "*********************************************************************************"
-npm set registry https://registry.npm.taobao.org
-npm set disturl https://npm.taobao.org/dist
-npm set sass_binary_site https://npm.taobao.org/mirrors/node-sass
-npm set electron_mirror https://npm.taobao.org/mirrors/electron
-npm set puppeteer_download_host https://npm.taobao.org/mirrors
-npm set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver
-npm set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver
-npm set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs
-npm set selenium_cdnurl https://npm.taobao.org/mirrors/selenium
-npm set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector
-npm set coc.nvim:registry https://registry.npmjs.org/
-npm cache clean --force
-
-npm install -g neovim
-npm install bash-language-server -g
-
-ln -s ${ROOT_DIR}/configs/nvim/init.vim    "${XDG_DATA_HOME:-$HOME}"/.config/nvim/init.vim
-ln -s ${ROOT_DIR}/configs/nvim/coc-settings.json    "${XDG_DATA_HOME:-$HOME}"/.config/nvim/coc-settings.json
-ln -s ${ROOT_DIR}/configs/zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
-ln -s ${ROOT_DIR}/tools/adddns.sh "${XDG_DATA_HOME:-$HOME}"/adddns.sh
-chsh $(USER) -s $(which zsh)
-# ln -s ${ROOT_DIR}/configs/.gitconfig ${XDG_DATA_HOME:-$HOME/.gitconfig
