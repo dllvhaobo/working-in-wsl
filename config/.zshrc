@@ -46,18 +46,33 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # ZSH_HOME="/usr/share"
-    ZSH_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-    [ -f "${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . ${ZSH_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh
-    [ -f "${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . ${ZSH_HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    [ -f "${ZSH_HOME}/autojump/autojump.zsh" ] && . ${ZSH_HOME}/autojump/autojump.zsh
+    if [ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    elif [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+        source  ${XDG_DATA_HOME:-$HOME/.local/share}/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
+
+    if [ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    elif [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+        source ${XDG_DATA_HOME:-$HOME/.local/share}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    fi
+
+    if [ -f "/usr/share/autojump/autojump.zsh" ]; then
+        source /usr/share/autojump/autojump.zsh
+    elif [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/autojump/autojump.zsh" ]; then
+        source ${XDG_DATA_HOME:-$HOME/.local/share}/autojump/autojump.zsh
+    fi
+
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
+
 bindkey '^ ' autosuggest-accept
 
 

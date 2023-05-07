@@ -37,7 +37,8 @@
 [mergetool "vimdiff"]
 	path = /usr/local/bin/nvim
 [commit]
-	template = /home/lv/works/working-in-wsl/config/git-commit-template.txt
+	; template = ${HOME}/.git-commit-template.txt
+	template = ~/.git-commit-template.txt
 [mergetool "bc4"]
 	path = /usr/bin/bcompare
 	cmd = bcompare $LOCAL $REMOTE $BASE -mergeoutput=$MERGED
