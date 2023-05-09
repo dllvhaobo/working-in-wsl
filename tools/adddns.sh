@@ -1,5 +1,16 @@
 #!/bin/bash
 
+GATEWAY=`ip route | awk '/default/{print $3}'`
+
+sudo touch /etc/resolv.conf
+
+if [ -z "`awk '/${GATEWAY}/{print $2}' /etc/resolv.conf`" ];then
+    echo "nameserver ${GATEWAY}" | sudo tee -a /etc/resolv.conf > /dev/null
+fi
+
+if [ -z "`awk '/114.114.114.114/{print $2}' /etc/resolv.conf`" ];then
+    echo "nameserver 114.114.114.114" | sudo tee -a /etc/resolv.conf > /dev/null
+fi
 
 if [ -z "`awk '/search/{print $1}' /etc/resolv.conf`" ];then
     
