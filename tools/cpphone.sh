@@ -2,26 +2,28 @@
 
 set -x
 echo $folder
-ROOT_DIR='/home/lv/works/recipes-svw-cns3.0'
-BT_PHONE_DIR="dev/dist/phone/bt-phone/tsd-bt-phone-mib3-target/1/workspace/usr/bin/tsd.bt.phone.mib3"
-PHONE_MGR_DIR="dev/dist/phone/phonemanager/tsd-phonemanager-target/1/workspace/usr/bin/tsd.phonemanager" 
-MEDIA_DIR="dev/build/media/mediaapplication/tsd-media-mib3-target/1/workspace/dist/usr/bin/"
-# UPDATE_SCRIPT="/home/lv/works/system_config/tools/hu-update.sh"
-UPDATE_SCRIPT="/home/lv/works/working-in-wsl/tools/hu-update.sh"
-BT_PHONE="${ROOT_DIR}/${BT_PHONE_DIR}"
-PHONE_MGR="${ROOT_DIR}/${PHONE_MGR_DIR}"
-MEDIA="${ROOT_DIR}/${MEDIA_DIR}"
 
+ROOT_DIR='/home/lv/works/recipes-svw-cns3.0'
+UPDATE_SCRIPT="/home/lv/works/working-in-wsl/tools/hu-update.sh"
+
+BT_PHONE_DIR="dev/dist/phone/bt-phone/tsd-bt-phone-mib3-target/1/workspace/usr/bin/tsd.bt.phone.mib3"
+BT_PHONE="${ROOT_DIR}/${BT_PHONE_DIR}"
+
+PHONE_MGR_DIR="dev/dist/phone/phonemanager/tsd-phonemanager-target/1/workspace/usr/bin/tsd.phonemanager" 
+PHONE_MGR="${ROOT_DIR}/${PHONE_MGR_DIR}"
+
+# MEDIA_APP_DIR="dev/dist/media/mediaapplication/tsd-media-mib3-target/1/workspace/usr/bin/tsd.media.mib3.app.target"
+# MEDIA_APP="${ROOT_DIR}/${MEDIA_APP_DIR}"
 ################################################################################
 #  Transfer binary to Head-Unit
 ################################################################################
-sshpass -p root scp $UPDATE_SCRIPT $BT_PHONE $PHONE_MGR  root@192.168.1.4:/home/root
+sshpass -p root scp $UPDATE_SCRIPT $BT_PHONE $PHONE_MGR root@192.168.1.4:/home/root
+# sshpass -p root scp $UPDATE_SCRIPT $BT_PHONE $PHONE_MGR $MEDIA_APP root@192.168.1.4:/home/root
 
 ################################################################################
 #  Update On HU side
 ################################################################################
 sshpass -p root ssh root@192.168.1.4 'sh /home/root/hu-update.sh'
-
 
 ################################################################################
 #  HU reboot

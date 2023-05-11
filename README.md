@@ -13,27 +13,22 @@
 - Ubuntu 环境配置
   - apt 国内源
   - pip 国内源
-  - npm 国内源
-  - yarn 国内源
-  - neovim 安装及配置
-  - vim-plug 插件管理器
+  - npm&yarn 国内源
   - clang 安装及配置
   - clang-format 安装及配置
 - 国内访问
   - 安装包已经打包成 tar.gz，并在国内仓库进行维护，详情请查看[gitlink][]。
   - 位于 Github 上的项目已在[gitee][]上创建镜像。
-- 说明文档
 
-  - [QuickStart][./docs/quickstart.md]
-  - [在线文档][readthedocs.io]
-  - 也可以参照如下命令在本地生成文档查看。
+## 快速安装
 
-    ```bash
-    git clone https://github.com/dllvhaobo/working-in-wsl.git
-    cd working-in-wsl
-    pip install -r requirements.txt
-    mkdocs serve
-    ```
+可以执行如下脚本快速完成安装步骤以及配置文件的部署。如果收到网络影响过程中有单独的安装组件失败，可以在script下执行相应的安装步骤。
+
+- `nvim -c PlugInstall`
+```bash
+git clone git@gitee.com:dllvhaobo/working-in-wsl.git
+working-in-wsl/script/quick_linux.sh
+```
 
 ## 键位修改
 
@@ -69,49 +64,8 @@ Features:
 ### Mackbook
 
 - 下载[karabiner](https://karabiner-elements.pqrs.org/)
-- 配置`~/.config/karabiner/karabiner.json`，参考如下`config/karabiner.json`
-
-````json
-
-"complex_modifications": {
-    "parameters": {
-        "basic.simultaneous_threshold_milliseconds": 50,
-        "basic.to_delayed_action_delay_milliseconds": 500,
-        "basic.to_if_alone_timeout_milliseconds": 1000,
-        "basic.to_if_held_down_threshold_milliseconds": 500,
-        "mouse_motion_to_scroll.speed": 100
-    },
-    "rules": [
-        {
-            "description": "Caps Lock to ESC on tap/Left Control on hold",
-            "manipulators": [
-                {
-                    "from": {
-                        "key_code": "caps_lock",
-                        "modifiers": {
-                            "optional": [
-                                "any"
-                            ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_control",
-                            "lazy": true
-                        }
-                    ],
-                    "to_if_alone": [
-                        {
-                            "key_code": "escape"
-                        }
-                    ],
-                    "type": "basic"
-                }
-            ]
-        }
-    ]
-}
-```
+- karabiner 的配置文件位于`~/.config/karabiner/karabiner.json`
+- 参考如下`./config/karabiner.json`, 拷贝`Profile`下`rules`到 karabiner 的配置文件中相应位置
 
 ### Manjaro
 
@@ -121,7 +75,7 @@ Features:
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 xmodmap ~/xmodmaprc
-````
+```
 
 ## 字体安装
 
@@ -166,87 +120,11 @@ yarn config set registry https://registry.npmmirror.com
 npm config set registry https://registry.npmmirror.com
 ```
 
-### NPM
-
-配置 Nodejs 的国内镜像。
-
-```bash
-npm set registry https://registry.npm.taobao.org
-npm set disturl https://npm.taobao.org/dist
-npm set sass_binary_site https://npm.taobao.org/mirrors/node-sass
-npm set electron_mirror https://npm.taobao.org/mirrors/electron
-npm set puppeteer_download_host https://npm.taobao.org/mirrors
-npm set chromedriver_cdnurl https://npm.taobao.org/mirrors/chromedriver
-npm set operadriver_cdnurl https://npm.taobao.org/mirrors/operadriver
-npm set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs
-npm set selenium_cdnurl https://npm.taobao.org/mirrors/selenium
-npm set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector
-npm cache clean --force
-```
-
-### COC
-
-配置 coc 使用国内镜像，将`coc.nvim:registry=https://registry.npmmirror.com`添加到`~/.npmrc`文件中。
-
 ### PIP
 
 ```bash
 pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 python3 -m pip install --upgrade pip
-```
-
-### VIM-PLUG 镜像仓库
-
-必要的 VIM 插件已经同步到 Gitee。使用如下连接添加到`${MYVIMRC}`中。
-
-```bash
-git@gitee.com:dllvhaobo/DoxygenToolkit.vim.git
-git@gitee.com:dllvhaobo/LanguageClient-neovim.git
-git@gitee.com:dllvhaobo/LeaderF-marks.git
-git@gitee.com:dllvhaobo/LeaderF.git
-git@gitee.com:dllvhaobo/coc-highlight.git
-git@gitee.com:dllvhaobo/coc-jedi.git
-git@gitee.com:dllvhaobo/coc.nvim.git
-git@gitee.com:dllvhaobo/copilot.vim.git
-git@gitee.com:dllvhaobo/defx.nvim.git
-git@gitee.com:dllvhaobo/docker-compose.vim.git
-git@gitee.com:dllvhaobo/fzf.git
-git@gitee.com:dllvhaobo/fzf.vim.git
-git@gitee.com:dllvhaobo/gruvbox.git
-git@gitee.com:dllvhaobo/indentpython.vim.git
-git@gitee.com:dllvhaobo/markdown-preview.nvim.git
-git@gitee.com:dllvhaobo/neoformat.git
-git@gitee.com:dllvhaobo/nerdcommenter.git
-git@gitee.com:dllvhaobo/nvim-treesitter.git
-git@gitee.com:dllvhaobo/open-browser.vim.git
-git@gitee.com:dllvhaobo/plantuml-previewer.vim.git
-git@gitee.com:dllvhaobo/plantuml-syntax.git
-git@gitee.com:dllvhaobo/syntastic.git
-git@gitee.com:dllvhaobo/tagbar.git
-git@gitee.com:dllvhaobo/undotree.git
-git@gitee.com:dllvhaobo/vim-airline.git
-git@gitee.com:dllvhaobo/vim-devicons.git
-git@gitee.com:dllvhaobo/vim-easy-align.git
-git@gitee.com:dllvhaobo/vim-easymotion.git
-git@gitee.com:dllvhaobo/vim-fugitive.git
-git@gitee.com:dllvhaobo/vim-go.git
-git@gitee.com:dllvhaobo/vim-instant-markdown.git
-git@gitee.com:dllvhaobo/vim-lsp-cxx-highlight.git
-git@gitee.com:dllvhaobo/vim-markdown-toc.git
-git@gitee.com:dllvhaobo/vim-peekaboo.git
-git@gitee.com:dllvhaobo/vim-polyglot.git
-git@gitee.com:dllvhaobo/vim-prettier.git
-git@gitee.com:dllvhaobo/vim-signify.git
-git@gitee.com:dllvhaobo/vim-slumlord.git
-git@gitee.com:dllvhaobo/vim-snippets.git
-git@gitee.com:dllvhaobo/vim-startify.git
-git@gitee.com:dllvhaobo/vim-surround.git
-git@gitee.com:dllvhaobo/vim-table-mode.git
-git@gitee.com:dllvhaobo/vim-visual-multi.git
-git@gitee.com:dllvhaobo/vimspector.git
-git@gitee.com:dllvhaobo/vimwiki.git
-git@gitee.com:dllvhaobo/vista.vim.git
-git@gitee.com:dllvhaobo/wildfire.vim.git
 ```
 
 ### HOSTS

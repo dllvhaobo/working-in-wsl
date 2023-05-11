@@ -7,7 +7,8 @@ SUFFIX=$(date +"%Y%m%d_%H%M")
 # mv /usr/bin/tsd.phonemanager /usr/bin/tsd.phonemanager.${SUFFIX}
 
 systemctl mask watchdog-reboot.service
-mv /home/root/tsd.bt.phone.mib3  /usr/bin
-mv /home/root/tsd.phonemanager  /usr/bin
+cp /home/root/tsd.bt.phone.mib3  /usr/bin/
+cp /home/root/tsd.phonemanager  /usr/bin/
+# cp /home/root/tsd.media.mib3.app.target /usr/bin/
 
 sync

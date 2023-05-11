@@ -14,10 +14,11 @@
 
 # Media
 # ei/ei-variant-37W-GP-VW_CHN/media::mediaapplication::tsd-media-mib3-target
+# ei/ei-variant-37W-GP-VW_CHN/media::libraries::tsd-cinemo-transport-mib3-target
+
 modules="
 ei/ei-variant-37W-GP-VW_CHN/phone::bt-phone::tsd-bt-phone-mib3-target
 ei/ei-variant-37W-GP-VW_CHN/phone::phonemanager::tsd-phonemanager-target
-ei/ei-variant-37W-GP-VW_CHN/media::mediaapplication::tsd-media-mib3-target
 "
 BOB_OPT=""
 

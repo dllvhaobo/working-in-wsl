@@ -45,12 +45,3 @@ sshpass -p root ssh root@192.168.1.4 'sh /home/root/hu-update.sh'
 ################################################################################
 sshpass -p root ssh root@192.168.1.4 /sbin/reboot
 
-#
-# Copy From Compile-Server
-#
-# TEMP_FOLDER=$(mktemp -d)
-# echo $folder
-# scp lv_h1@10.70.9.60:/srv/data/Joynext/lv_h1/works/cns3.0/dev/dist/phone/bt-phone/tsd-bt-phone-mib3-target/3/workspace/usr/bin/tsd.bt.phone.mib3 $folder
-# scp lv_h1@10.70.9.60:/srv/data/Joynext/lv_h1/works/cns3.0/dev/dist/phone/phonemanager/tsd-phonemanager-target/3/workspace/usr/bin/tsd.phonemanager $folder
-# scp $folder/tsd.phonemanager $folder/tsd.bt.phone.mib3 root@192.168.1.4:/home/root
-# ssh root@192.168.1.4 '/home/root/update.sh'
