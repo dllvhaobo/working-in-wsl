@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     yarn config set registry https://registry.npmmirror.com
 
     sudo gem install neovim
-
+    npm i -g bash-language-server
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install node@18
