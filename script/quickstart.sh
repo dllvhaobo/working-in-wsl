@@ -5,7 +5,6 @@ SCRIPT_PATH=$(realpath $0)
 WORKSROOT=$(dirname $(dirname $SCRIPT_PATH))
 
 mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim}"
-mkdir -p "${XDG_DATA_HOME:-$HOME/.config/nvim/lua/plugin-config}"
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share/nvim/site/autoload}"
 ln -s ${WORKSROOT}/config/.zshrc "${XDG_DATA_HOME:-$HOME}"/.zshrc
 ln -s ${WORKSROOT}/config/init.vim "${XDG_DATA_HOME:-$HOME}"/.config/nvim/init.vim
