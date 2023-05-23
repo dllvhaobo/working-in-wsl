@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=`cat /etc/issue |awk '/Ubuntu/{print $2}'`
+# VERSION=`cat /etc/issue |awk '/Ubuntu/{print $2}'`
 SCRIPT_PATH=$(realpath $0)
 WORKSROOT=$(dirname $(dirname $SCRIPT_PATH))
 
