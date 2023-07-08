@@ -25,4 +25,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     yarn config set registry https://registry.npmmirror.com
     npm config set registry https://registry.npmmirror.com
     sudo gem install neovim
+    npm install --global bash-language-server
 fi
