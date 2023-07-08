@@ -21,13 +21,13 @@ set fileformats=unix,dos " 文件格式，影响行结尾(unix:0x0a,windos;0x0a0
 set mouse=             " 支持鼠标
 
 " 使用TreeSitter的折叠
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set nofoldenable                     " Disable folding at startup.
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
+" set nofoldenable                     " Disable folding at startup.
 
 " 不使用TreeSitter的折叠
-" set foldmethod=indent    " 依据缩进进行折叠
-" set foldlevel=99
+set foldmethod=indent    " 依据缩进进行折叠
+set foldlevel=99
 
 set scrolloff=10
 
@@ -180,7 +180,7 @@ Plug 'liuchengxu/vista.vim'
 " tree-sitter 代码高亮
 " tree-sitter代码高亮与vista冲突，安装tree-sitter会导致vista关闭后，buffer区不刷新
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown: 表格对齐
@@ -1085,7 +1085,7 @@ let g:mergetool_prefer_revision = 'local'
 
 nmap <leader>mt <plug>(MergetoolToggle)
 
-lua require('plugin-config/treesitter')
+" lua require('plugin-config/treesitter')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline

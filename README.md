@@ -1,6 +1,6 @@
 # Working In WSL
 
-本人日常使用 Windows 作为工作环境，使用 WSL2 替换虚拟机，使用 WindowsTerminal 作为虚拟终端。该项目用于维护和记录个人工作环境的配置。主要包括 neovim，git，zsh，key-remap，clangd，wsl2 等相关配置。
+日常使用 Windows 作为工作环境，使用 WSL2 替换虚拟机，使用 WindowsTerminal 作为虚拟终端。该项目用于维护和记录个人工作环境的配置。主要包括 neovim，git，zsh，key-remap，clangd，wsl2 等相关配置。
 
 在 Windows 系统环境中，使用 WSL2 替代虚拟机；使用 WindowsTerminal 作为终端模拟器；使用 Neovim，vim-plug 构建开发环境
 
@@ -10,21 +10,14 @@
   - 修改键盘布局
   - WindowsTerminal 配置
   - VsCode 配置
-- Ubuntu 环境配置
-  - apt 国内源
-  - pip 国内源
-  - npm&yarn 国内源
-  - clang 安装及配置
-  - clang-format 安装及配置
-- 国内访问
-  - 安装包已经打包成 tar.gz，并在国内仓库进行维护，详情请查看[gitlink][]。
-  - 位于 Github 上的项目已在[gitee][]上创建镜像。
+- Ubuntu 快速配置
 
 ## 快速安装
 
-可以执行如下脚本快速完成安装步骤以及配置文件的部署。如果收到网络影响过程中有单独的安装组件失败，可以在script下执行相应的安装步骤。
+可以执行如下脚本快速完成安装步骤以及配置文件的部署。
 
-- `nvim -c PlugInstall`
+_NOTE:如果收到网络影响过程中有单独的安装组件失败，可以在 script 目录下下执行相应的安装脚本_
+
 ```bash
 git clone git@gitee.com:dllvhaobo/working-in-wsl.git
 working-in-wsl/script/quick_linux.sh
@@ -100,34 +93,7 @@ xmodmap ~/xmodmaprc
 
 _希望安装其他字体的可以到 [nerd-fonts][] 去寻找自己喜欢的字体，并参照上述步骤进行安装_
 
-## MIRRORS
-
-### APT
-
-修改 /etc/apt/sources.list 文件；例如，可以使用以下命令来修改为中科大镜像源：
-
-```bash
-sudo sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-sudo sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-```
-
-### NPM&YARN
-
-配置 YARN 的国内镜像。
-
-```bash
-yarn config set registry https://registry.npmmirror.com
-npm config set registry https://registry.npmmirror.com
-```
-
-### PIP
-
-```bash
-pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-python3 -m pip install --upgrade pip
-```
-
-### HOSTS
+## HOSTS
 
 系统配置过程中，有很多需要依赖于 Github 的访问，因为国内 DNS 污染的原因，需要手动配置 hosts 文件才能够正确的访问 github。参考`config/hosts`文件中关于 github 的配置，修改本地 HOSTS 文件. HOSTS 文件的位置如下：
 
@@ -143,52 +109,9 @@ python3 -m pip install --upgrade pip
 **NOTE**: Neovim 8.0 需要 GLIBC_2.29 或者更新的 lib 库支持。在低版本的 Ubuntu 系统中 Glibc 的版本与 Neovim 依赖版本不一致。
 请使用 https://github.com/antoineco/neovim-neovim/releases发布的预编译版本。详见[GitHub Issue][githubissue]
 
-## NEOVIM
-
-NEOVIM 的安装可以参考以下三种方法之一进行安装，新手推荐使用”快速安装“
-
-### 快速安装
-
-UBUNTU 环境下可以通过`apt install neovim`完成安装。Ubuntu 软件包管理策略比较保守，通常不会使用最新的版本，如果希望使用最新的版本，还是需要通过从源代码编译的方式进行安装。
-
-### 下载源码安装
-
-下载源码自行编译安装，通过源码安装可以随时更新代码，安装最新的版本，获取更新的特性支持。
-
-```bash
-git clone https://github.com/neovim/neovim.git
-cd neovim
-make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/full/path/
-make install
-```
-
-### 使用预编译版本
-
-在默写情况下，受到用户权限的限制，不能使用 APT 的方式进行安装，也无法安装编译时需要使用的依赖动态库。因此需要使用预先编译好的文件进行安装。
-
-```bash
-INSTALL_DIR=$(pwd)
-export PATH="${XDG_DATA_HOME:-$HOME/.local/bin}":$PATH
-
-git clone https://gitlink.org.cn/dllvhaobo/working-in-wsl-package.git
-cd working-in-wsl-package
-
-# For Ubuntu 18.04 or earlier verison:
-tar zxf nvim-linux64-glibc-earlier.tar.gz
-
-# For Ubuntu 22.04 or later version:
-# tar zxf nvim-linux64.tar.gz
-
-cp -rf nvim-linux64/*  "${XDG_DATA_HOME:-$HOME/.local/share}/"
-```
-
 WSL2
 
 WINDWOS-TERMINAL
-
-## IM-SELECT
-
-`cp tools/im-select.macos /usr/local/bin/im-select`
 
 VIM-PLUG
 
@@ -303,42 +226,29 @@ VIM-PLUG
 }
 ```
 
-COC
+## 应用说明
 
-FZF
+### Autojump
+
+`j <目录缩写> ` 可以快速跳转到深层目录。配合 ZSH-AUTOSUGGESUTION，可以非常方便的在常用目录之间跳转，详见 GIF
+
+### FZF
 
 `Alt+C` list 当下目录的子目录并跳转
 `CTRL+R` 快速历史命令匹配
 
-```bash
-git clone --depth 1  https://github.com/junegunn/fzf.git  ~/.fzf
-.fzf/install
-```
+### COC
 
-### AUTOJUMP
+### VIM
 
-```bash
-git clone https://github.com/wting/autojump.git
-autojump/install.py
-echo  '[[ -s "${XDG_DATA_HOME:-$HOME}"/.autojump/etc/profile.d/autojump.sh ]] && source "${XDG_DATA_HOME:-$HOME}"/.autojump/etc/profile.d/autojump.sh' >> "${XDG_DATA_HOME:-$HOME}"/.zshrc
-```
+### IM-SELECT
 
-### GIT
+在 VIM 中输入中文的辅助插件：
 
-```bash
-tar zxf git-2.40.1.tar.gz
-cd git-2.40.1
- ./configure --prefix=${HOME}/.local/
-make install
-```
+- 在 INSERT-MODE 的时候，可以输出中文
+- 退出 VIM 的 INSERT MODE 的时候，自动切换会英文输入法
 
-NODEJS
-
-YARN
-
-PIP
-
-## Clang
+### Clang
 
 在 CMakeLists.txt 中添加 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 在命令行中添加-DCMAKE_EXPORT_COMPILE_COMMANDS=on

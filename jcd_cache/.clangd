@@ -1,0 +1,480 @@
+
+If:
+  PathMatch: ".*/audio/microphoneprocessing/tsd-audio-microphoneprocessing-plugins/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/audio/microphoneprocessing/tsd-audio-microphoneprocessing-plugins-handsfree-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mountingservice/tsd-media-mount-control-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mountingservice/tsd-media-mount-control-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/audio/audiorouter/tsd-audio-audiorouter-client-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/audio/audiorouter/tsd-audio-audiorouter-client-api-plugin-framework-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/hmi/tsd-i18n-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/hmi/tsd-i18n-mib3-target/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-core/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-core-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/rsi-library/tsd-vw-rsi-viwi-common/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/rsi-library/tsd-vw-rsi-viwi-common-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/systeminfo/tsd-systeminformation-common/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/systeminfo/tsd-systeminformation-common-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/libs/ext-glib2/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/libs/ext-glib2-dev/1/workspace/build"
+---
+If:
+  PathMatch: ".*/phone/bt-messaging/tsd-bt-messaging-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-messaging/tsd-bt-messaging-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/sal/tsd-sal-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/sal/tsd-sal-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/hmi/tsd-i18n/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/hmi/tsd-i18n-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mountingservice/tsd-media-mount-status-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mountingservice/tsd-media-mount-status-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-cppsqlitesecurity/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-cppsqlitesecurity-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/communication/tsd-communication-runtime/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/communication/tsd-communication-runtime-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-devicemanagement/tsd-bt-management/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-devicemanagement/tsd-bt-management-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-useractionslogging-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-useractionslogging-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/audio/audiomanager/tsd-audio-sourcecontrol-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/audio/audiomanager/tsd-audio-sourcecontrol-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-dataformats/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-dataformats-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/ext-vkms/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/ext-vkms-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/tsd-phone-callservice-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/tsd-phone-callservice-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/pictureserver/tsd-media-picserver/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/pictureserver/tsd-media-picserver-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-clock-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-clock-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/libraries/tsd-cinemo-transport-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/libraries/tsd-cinemo-transport-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/vehicle-connectivity/automotive-ethernet/tsd-aeth-data-api-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/vehicle-connectivity/automotive-ethernet/tsd-aeth-data-api-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/rsi-library/tsd-rsi-client/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/rsi-library/tsd-rsi-client-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/connectivity/networking/tsd-networking-wlan-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/connectivity/networking/tsd-networking-wlan-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/persistence/tsd-persistence-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/persistence/tsd-persistence-api-commgr-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/libraries/tsd-media-mib3-stream-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/libraries/tsd-media-mib3-stream-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/tsd-phone-common/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/tsd-phone-common-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-activation-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-activation-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/phonemanager/tsd-phonemanager/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/phonemanager/tsd-phonemanager-target/1/workspace"
+---
+If:
+  PathMatch: ".*/vehicle-connectivity/automotive-ethernet/tsd-aeth-data-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/vehicle-connectivity/automotive-ethernet/tsd-aeth-data-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-mediacontroller/tsd-bt-media/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-mediacontroller/tsd-bt-media-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/audio/audiorouter/tsd-audio-audiorouter-client-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/audio/audiorouter/tsd-audio-audiorouter-client-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/connectivity/usb/tsd-usb-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/connectivity/usb/tsd-usb-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-organizer/tsd-organizer-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-organizer/tsd-organizer-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/phonemanager/tsd-phonemanager-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/phonemanager/tsd-phonemanager-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-devicemanagement/tsd-bt-management-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-devicemanagement/tsd-bt-management-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/tsd-parser-vobject/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/tsd-parser-vobject-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-middleware/tsd-blueware-bluego/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-middleware/tsd-blueware-bluego-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-handsfree/tsd-bt-handsfree-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-handsfree/tsd-bt-handsfree-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-mediacontroller/tsd-bt-media-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-mediacontroller/tsd-bt-media-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/persistence/tsd-persistence-client-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/persistence/tsd-persistence-client-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/personalization/tsd-personalization-client-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/personalization/tsd-personalization-client-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/libs/ext-openssl/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/libs/ext-openssl-vkms-engine-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/ext-systemd/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/ext-systemd-dev/1/workspace/build"
+---
+If:
+  PathMatch: ".*/phone/tsd-parser-phonenumber/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/tsd-parser-phonenumber-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/ext-h2o/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/ext-h2o-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/audio/microphoneprocessing/tsd-audio-microphoneprocessing-phone-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/audio/microphoneprocessing/tsd-audio-microphoneprocessing-phone-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-middleware/ext-bluego/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-middleware/ext-bluego-dev/1/workspace/build"
+---
+If:
+  PathMatch: ".*/system/tsd-common-guid/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-common-guid-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/tsd-parser-vobject-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/tsd-parser-vobject-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-handsfree/tsd-bt-handsfree/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-handsfree/tsd-bt-handsfree-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-mib3-gem-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-mib3-gem-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/rsi-library/tsd-rsi-common/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/rsi-library/tsd-rsi-common-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-engine-cinemo/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-engine-cinemo-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/rsi-library/tsd-vw-rsi-viwi-server/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/rsi-library/tsd-vw-rsi-viwi-server-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-mib3-picturelink/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-mib3-picturelink-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-organizer/tsd-organizer/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-organizer/tsd-organizer-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-organizer/tsd-organizer-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-organizer/tsd-organizer-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-engine/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-engine-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/system-lifecycle/tsd-systemstate-manager-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/system-lifecycle/tsd-systemstate-manager-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-messaging/tsd-bt-messaging/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-messaging/tsd-bt-messaging-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/communication/ext-commonapi-runtime/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/communication/ext-commonapi-runtime-pcc-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/hmi/tsd-dsi-cpp/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/hmi/tsd-dsi-cpp-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-devicemanagement/tsd-bt-management-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-devicemanagement/tsd-bt-management-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-middleware/tsd-blueware-mib3-bluego-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-middleware/tsd-blueware-mib3-bluego-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-speech-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-speech-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/vehicle-connectivity/canstack/tsd-canstack-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/vehicle-connectivity/canstack/tsd-canstack-api-dev/2/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-middleware/tsd-blueware-mib3-bluego/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-middleware/tsd-blueware-mib3-bluego-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/libraries/tsd-media-mediainfo-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/libraries/tsd-media-mediainfo-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/engineering/diagnostic-management/tsd-uds-api-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/engineering/diagnostic-management/tsd-uds-api-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-messaging/tsd-bt-messaging-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-messaging/tsd-bt-messaging-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-mediacontroller/tsd-bt-media-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-mediacontroller/tsd-bt-media-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/rsi-library/tsd-rsi-server/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/rsi-library/tsd-rsi-server-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/persistence/tsd-persistence-testinterface-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/persistence/tsd-persistence-testinterface-api-commgr-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/mediaapplication/tsd-media-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/mediaapplication/tsd-media-mib3-target/1/workspace"
+---
+If:
+  PathMatch: ".*/libs/tsd-common-stm/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/libs/tsd-common-stm-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-common-daemon/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-common-daemon-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-common/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-common-dev/2/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/systeminfo/tsd-systeminformation-features/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/systeminfo/tsd-systeminformation-features-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/basic-services/rsi-library/tsd-vw-rsi-viwi-client/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/basic-services/rsi-library/tsd-vw-rsi-viwi-client-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/communication/tsd-communication/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/communication/tsd-communication-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/ext-libphonenumber/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/ext-libphonenumber-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-activation-intern-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-activation-intern-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-drivers/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-drivers-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/libraries/tsd-media-commonapi/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/libraries/tsd-media-commonapi-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-phone/tsd-bt-phone-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-phone/tsd-bt-phone-mib3-target/1/workspace"
+---
+If:
+  PathMatch: ".*/engineering/diagnostic-management/tsd-uds-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/engineering/diagnostic-management/tsd-uds-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/system-lifecycle/tsd-systemstate-guard-api-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/system-lifecycle/tsd-systemstate-guard-api-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/media/libraries/tsd-media-common/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/media/libraries/tsd-media-common-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/tsd-phone-common-mib3/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/tsd-phone-common-mib3-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-handsfree/tsd-bt-handsfree-mib3-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-handsfree/tsd-bt-handsfree-mib3-api-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/communication/tsd-communication-binding/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/communication/tsd-communication-binding-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/system/tsd-threadmessages/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/system/tsd-threadmessages-dev/1/workspace"
+---
+If:
+  PathMatch: ".*/phone/bt-middleware/tsd-blueware-api/1/workspace/.*"
+CompileFlags:
+  CompilationDatabase: "/home/lv/works/recipes-svw-cns3.0/dev/build/phone/bt-middleware/tsd-blueware-api-dev/1/workspace"
