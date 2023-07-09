@@ -70,6 +70,9 @@ filetype plugin indent on           " 侦测文件类型
 " 跳转到文件上次打开的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+
+
 " 使用剪贴板内容替换当前选中内容，并重新复制
 " vnoremap p pgvy
 
