@@ -18,7 +18,7 @@ set nocompatible         " 关闭vi兼容模式，以支持更多vim特性
 set encoding=utf-8       " 文件编码
 set fileformats=unix,dos " 文件格式，影响行结尾(unix:0x0a,windos;0x0a0d,mac:0x0d)
 
-set mouse=             " 支持鼠标
+set mouse=a            " 支持鼠标
 
 " 使用TreeSitter的折叠
 " set foldmethod=expr
