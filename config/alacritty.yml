@@ -463,7 +463,7 @@ font:
 #  args:
 #    - --login
 shell:
-  program: C:\Windows\system32\wsl.exe -d Ubuntu-18.04
+  program: C:\Windows\system32\wsl.exe -d Ubuntu-22.04
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
