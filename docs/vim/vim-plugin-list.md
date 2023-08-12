@@ -52,6 +52,11 @@ cp plug.vim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload
 | 'gcmt/wildfire.vim'                | disabled |
 | 'morhetz/gruvbox'                  | disabled |
 
+| Original | Target |
+|-|-|
+| Neo-tree | coc-explorer|
+
+
 ## coc-extensions
 
 coc-git
