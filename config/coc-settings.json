@@ -2,9 +2,6 @@
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "codeLens.enable": true,
-  // "clangd.semanticHighlighting": true,
-  // "coc.preferences.formatOnSaveFiletypes": ["json", "python", "c", "c++"],
-  // "coc.preferences.previewAutoClose": false,
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -12,27 +9,6 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
-    //"ccls": {
-    //  "command": "ccls",
-    //  "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-    //  "rootPatterns": [
-    //    ".ccls",
-    //    ".ccls-root",
-    //    "compile_commands.json",
-    //    ".git/",
-    //    ".hg/"
-    //  ],
-    //  "initializationOptions": {
-    //    "cache": {
-    //      "directory": "/tmp/ccls"
-    //    }
-    //  }
-    //},
-//    "clangd": {
-//      "command": "clangd",
-//      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-//      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-//    },
 
     "golang": {
       "command": "gopls",
@@ -44,7 +20,6 @@
     }
   },
   "clang-format-style-options.priority": 99,
-  "clangd.arguments": [],
   "clang-format-style-options.shortcut": "voldikss",
   "explorer.icon.enableNerdfont": true,
   "explorer.file.showHiddenFiles": true,
@@ -59,5 +34,9 @@
   "pyright.completion.snippetSupport": true,
   "python.pythonPath": "/usr/bin/python3.6",
   "python.analysis.extraPaths": ["./"],
-  "clangd.fallbackFlags": []
+  "clangd.fallbackFlags": [],
+  "clangd.arguments": [
+      "--query-driver=/home/lv/works/recipes-svw-cns3.0/dev/dist/toolchain/aarch64-linux-gnu/1/workspace/bin/aarch64-linux-gnu-gcc",
+      "--query-driver=/home/lv/works/recipes-svw-cns3.0/dev/dist/toolchain/aarch64-linux-gnu/1/workspace/bin/aarch64-linux-gnu-g++"
+  ]
 }

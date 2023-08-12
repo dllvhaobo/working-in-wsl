@@ -4,8 +4,10 @@ set -ex
 # 搜索关键字（如果未提供命令行参数，则使用默认值）
 # keyword="${1:-\[(phone|media|audio)|HMI time}"
 # keyword="${1:-\[(phone|audio)|HMI time}"
+# keyword="${1:-\[(phone|audio)}"
 # keyword="${1:-\[(phone|media)|HMI time}"
-keyword="${1:-\[phone|HMI time}"
+# keyword="${1:-\[phone|HMI time}"
+keyword="${1:-\[phone}"
 
 # 目标文件
 output_file="export.log"

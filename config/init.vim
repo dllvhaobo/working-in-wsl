@@ -448,7 +448,7 @@ noremap <C-e> :LeaderfBuffer<CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 " noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  -e %s ", expand("<cword>"))<CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  --iglob !*.xml --iglob !*.html --iglob !*.json --iglob !*.js --iglob !*test* -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg  --iglob !*.xml --iglob !*.html --iglob !*.json --iglob !*.js --iglob !*test* --iglob !*attic* -e %s ", expand("<cword>"))<CR>
 "" search visually selected text literally
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
@@ -1059,8 +1059,8 @@ nmap <leader>mp <Plug>MarkdownPreview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plantuml-preview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:plantuml_previewer#plantuml_jar_path='/usr/share/plantuml/plantuml.jar'
-
+let g:plantuml_previewer#plantuml_jar_path='/home/lv/works/working-in-wsl/tools/plantuml-1.2023.10.jar'
+let g:plantuml_previewer#java_path='/usr/bin/java'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

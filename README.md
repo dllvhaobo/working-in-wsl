@@ -1,16 +1,6 @@
-# Working In WSL
 
-日常使用 Windows 作为工作环境，使用 WSL2 替换虚拟机，使用 WindowsTerminal 作为虚拟终端。该项目用于维护和记录个人工作环境的配置。主要包括 neovim，git，zsh，key-remap，clangd，wsl2 等相关配置。
 
-在 Windows 系统环境中，使用 WSL2 替代虚拟机；使用 WindowsTerminal 作为终端模拟器；使用 Neovim，vim-plug 构建开发环境
-
-- Windows 环境配置
-  - WSL2 安装及配置
-  - DevIcon 字体安装
-  - 修改键盘布局
-  - WindowsTerminal 配置
-  - VsCode 配置
-- Ubuntu 快速配置
+记录日常工作中使用的工具及配置。包含 neovim,git,键盘映射,wsl2,clangd,tmux, WindowsTerminal,Vscode,网络配置 等等。
 
 ## 快速安装
 
@@ -22,76 +12,8 @@ _NOTE:如果收到网络影响过程中有单独的安装组件失败，可以�
 git clone git@gitee.com:dllvhaobo/working-in-wsl.git
 working-in-wsl/script/quick_linux.sh
 ```
-
-## 键位修改
-
-各个系统（windows，ubuntu，manjaro，MacBook）的方案各有不同。具体方案请参考[remap-caps-lock-to-escape-and-control][]
-
-Features:
-
-- Switch `backspace` and `backslash`
-- CapsLock to Escape on tapped
-- CapsLock to Left_Control on hold
-
-### Windows
-
-[AutoHotkey] 是一个自由、开源的宏生成器和自动化软件工具，它让用户能够自动执行重复性任务。AutoHotkey 可以修改任何应用程序的用户界面（例如，把默认的 Windows 按键控制命令替换为 Emacs 风格）。它是由定制的脚本语言驱动，旨在提供键盘快捷键或热键。
-
-这里使用 AutoHotkey 将`Caps`映射成为`Ctrl`和`ESC`按键。只需要将`config/caps2escape.ahk`拷贝到`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
-
-- 单独按压`Caps`映射成为`ESC`
-- `Caps`+`其他按键`，`Caps`映射成为`Ctrl`
-
-关于 AutoHotkey 的其他使用方法可以参考
-
-- [AutoHotkey:常用技巧分享][]
-- [AutoHotkey 官网][autohotkey]
-
-### Ubuntu
-
-执行`apt install -y xcape gnome-tweaks`安装"xcape"和"gnome-tweaks"。然后参考如下步骤完成设置，详情请参考[Remapping Caps Lock to Control and Escape][]
-
-- Select checkbox `CapsLock as Ctrl` in `Gnome-tweaks->Keyboard & Mouse->Addtional Layout Options-> Control Position`.
-- Append `xcape -e '#66=Escape'` to ~/.profile
-
-### Mackbook
-
-- 下载[karabiner](https://karabiner-elements.pqrs.org/)
-- karabiner 的配置文件位于`~/.config/karabiner/karabiner.json`
-- 参考如下`./config/karabiner.json`, 拷贝`Profile`下`rules`到 karabiner 的配置文件中相应位置
-
-### Manjaro
-
-拷贝 xmodemaprc 到根目录`cp config/xmodmap ~/xmodmaprc`,并且将如下内容拷贝到`~/.profile`文件的最后。详情可以参照[setxkbmap][]
-
-```bash
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
-xmodmap ~/xmodmaprc
-```
-
-## 字体安装
-
-安装对应字体，并且在 Terminal 中选中安装的字体，可以在 Terminal 中现实 DevIcons，连体字,中文等等。
-
-- Windows 环境下直双击字体进行安装
-
-  - 如果使用 WindowsTerminal 作为终端应用，需要在`[外观->字体]`中选择对应的字体。
-
-- Ubuntu 中参照如下步骤安装字体
-
-  ```bash
-  mkdir ~/.fonts
-  cp fonts ~/.fonts -rf
-  fc-cache -f -v
-  ```
-
-  **NOTE**: 推荐两种字体二选一，只有这两种字体支持中文。
-
-- `Caskaydia Cove ExtraLight Nerd Font Complete Windows Compatible.otf`
-- `DejaVu Sans Mono Nerd Font Complete.ttf`
-
-_希望安装其他字体的可以到 [nerd-fonts][] 去寻找自己喜欢的字体，并参照上述步骤进行安装_
+- [fonts](./docs/fonts.md)
+- [WIndowsSubSystemLinux](./docs/WSL.md)
 
 ## HOSTS
 
@@ -285,11 +207,6 @@ https://standards.ieee.org/ieee/1800/6700/
 https://www.gnu.org/prep/standards/standards.html
 https://www.webkit.org/coding/coding-style.html
 
-[remap-caps-lock-to-escape-and-control]: https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control
-[setxkbmap]: https://my.oschina.net/swanf/blog/1549976
-[remapping caps lock to control and escape]: https://askubuntu.com/questions/177824/remapping-caps-lock-to-control-and-escape-not-the-usual-way/228379#228379
-[autohotkey:常用技巧分享]: https://zhuanlan.zhihu.com/p/103357456
-[autohotkey]: https://github.com/AutoHotkey/AutoHotkey
 [nerd-fonts]: https://github.com/ryanoasis/nerd-fonts
 [输入法自动切换参考]: https://github.com/daipeihust/im-select#to-get-current-keyboard-locale和https://www.science.co.il/language/Locale-codes.php
 [vscode 的 vim 输入插件]: https://github.com/VSCodeVim/Vim#input-method
