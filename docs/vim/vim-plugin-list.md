@@ -79,6 +79,73 @@ coc-yaml
 
 CocList exe
 
+
+## Lazy Plugins
+
+  Installed (2)
+    ○ flash.nvim  VeryLazy   s S r R <c-s>
+    ○ vim-fugitive 
+
+  Updates (1)
+    ○ neo-tree.nvim   Neotree   <leader>fe <leader>fE <leader>e <leader>E
+
+  Clean (3)
+    ○ flit.nvim 
+    ○ leap.nvim 
+    ○ vim-repeat 
+
+  Loaded (19)
+    ● LazyVim 3.75ms  start
+    ● LuaSnip 19.9ms ✔  build
+    ● alpha-nvim 1.84ms  VimEnter
+    ● bufferline.nvim 3.38ms  VeryLazy
+    ● friendly-snippets 14.39ms   LuaSnip
+    ● gruvbox.nvim 0.07ms colorscheme gruvbox   LazyVim
+    ● lazy.nvim 120041.53ms   init.lua
+    ● lualine.nvim 3.68ms  VeryLazy
+    ● mini.ai 17.21ms  VeryLazy
+    ● mini.comment 0.72ms  VeryLazy
+    ● mini.pairs 1.58ms  VeryLazy
+    ● noice.nvim 1.1ms  VeryLazy
+    ● nui.nvim 0.08ms   noice.nvim
+    ● nvim-notify 1.53ms   noice.nvim
+    ● nvim-treesitter 10.01ms   nvim-notify
+    ● nvim-treesitter-textobjects 0.1ms   mini.ai
+    ● tokyonight.nvim 3.29ms colorscheme tokyonight
+    ● vim-surround 0.55ms  start
+    ● which-key.nvim 10.29ms   mini.ai
+
+  Not Loaded (29)
+    ○ catppuccin 
+    ○ cmp-buffer   nvim-cmp
+    ○ cmp-nvim-lsp   nvim-cmp
+    ○ cmp-path   nvim-cmp
+    ○ cmp_luasnip   nvim-cmp
+    ○ dressing.nvim 
+    ○ gitsigns.nvim  BufReadPre BufNewFile
+    ○ indent-blankline.nvim  BufReadPost BufNewFile
+    ○ mason-lspconfig.nvim   nvim-lspconfig
+    ○ mason.nvim   Mason   <leader>cm   null-ls.nvim
+    ○ mini.bufremove   <leader>bd <leader>bD
+    ○ mini.indentscope  BufReadPre BufNewFile
+    ○ mini.surround   gza gzd gzf gzF gzh gzr gzn
+    ○ neoconf.nvim   Neoconf   nvim-lspconfig
+    ○ neodev.nvim   nvim-lspconfig
+    ○ null-ls.nvim  BufReadPre BufNewFile
+    ○ nvim-cmp  InsertEnter
+    ○ nvim-lspconfig  BufReadPre BufNewFile   neoconf.nvim
+    ○ nvim-navic 
+    ○ nvim-spectre   Spectre   <leader>sr
+    ○ nvim-ts-context-commentstring 
+    ○ nvim-web-devicons 
+    ○ persistence.nvim  BufReadPre   <leader>qs <leader>ql <leader>qd
+    ○ plenary.nvim 
+    ○ telescope.nvim   Telescope   <leader>, <leader>/ <leader>: <leader><space> <leader>fb <leader>ff <leader>fF <leader>fr <leader>fR <leader>gc <leader>gs <leader>s" <leader>sa <leader>sb <leader>sc <leader>sC <leader>sd <leader>sD <leader>sg <leader>sG <leader>sh <leader>sH <leader>sk <leader>sM <leader>sm <leader>so <leader>sR <leader>sw <leader>sW <leader>sw <leader>sW <leader>uC <leader>ss <leader>sS
+    ○ todo-comments.nvim   TodoTrouble TodoTelescope  BufReadPost BufNewFile   ]t [t <leader>xt <leader>xT <leader>st <leader>sT
+    ○ trouble.nvim   TroubleToggle Trouble   <leader>xx <leader>xX <leader>xL <leader>xQ [q ]q
+    ○ vim-illuminate  BufReadPost BufNewFile   ]] [[
+    ○ vim-startuptime   StartupTime
+
 ## coc-showdocuments
 
 | 快捷键      | 动作             |
