@@ -6,9 +6,9 @@
 
 Features:
 
-- Switch `backspace` and `backslash`
-- CapsLock only as `escape`
-- CapsLock + `X` as `Ctrl+X`
+  - Switch `backspace` and `backslash`
+  - CapsLock only as `escape`
+  - CapsLock + `X` as `Ctrl+X`
 
 ### Windows
 
