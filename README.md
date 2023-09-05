@@ -1,331 +1,212 @@
-<p align="center">
-  <img width="536" src="https://user-images.githubusercontent.com/8456633/174470852-339b5011-5800-4bb9-a628-ff230aa8cd4e.png">
-</p>
 
 
-![CI](https://github.com/jesseduffield/lazygit/workflows/Continuous%20Integration/badge.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jesseduffield/lazygit)](https://goreportcard.com/report/github.com/jesseduffield/lazygit)
-[![GolangCI](https://golangci.com/badges/github.com/jesseduffield/lazygit.svg)](https://golangci.com)
-[![GoDoc](https://godoc.org/github.com/jesseduffield/lazygit?status.svg)](http://godoc.org/github.com/jesseduffield/lazygit)
-[![GitHub Releases](https://img.shields.io/github/downloads/jesseduffield/lazygit/total)](https://github.com/jesseduffield/lazygit/releases)
-[![GitHub tag](https://img.shields.io/github/tag/jesseduffield/lazygit.svg)](https://github.com/jesseduffield/lazygit/releases/latest)
-[![homebrew](https://img.shields.io/homebrew/v/lazygit)](https://github.com/Homebrew/homebrew-core/blob/master/Formula/lazygit.rb)
+记录日常工作中使用的工具及配置。包含 neovim,git,键盘映射,wsl2,clangd,tmux, WindowsTerminal,Vscode,网络配置 等等。
 
-A simple terminal UI for git commands, written in Go with the [gocui](https://github.com/jroimartin/gocui "gocui") library.
+## 快速安装
 
-![Gif](../assets/staging.gif)
+可以执行如下脚本快速完成安装步骤以及配置文件的部署。
 
-## Sponsors
+_NOTE:如果收到网络影响过程中有单独的安装组件失败，可以在 script 目录下下执行相应的安装脚本_
 
-<p align="center">
- Maintenance of this project is made possible by all the <a href="https://github.com/jesseduffield/lazygit/graphs/contributors">contributors</a> and <a href="https://github.com/sponsors/jesseduffield">sponsors</a>. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/jesseduffield">click here</a>. 💙
-</p>
-
-<p align="center">
-<!-- sponsors --><a href="https://github.com/intabulas"><img src="https://github.com/intabulas.png" width="60px" alt="" /></a><a href="https://github.com/piot"><img src="https://github.com/piot.png" width="60px" alt="" /></a><a href="https://github.com/rgwood"><img src="https://github.com/rgwood.png" width="60px" alt="" /></a><a href="https://github.com/oliverguenther"><img src="https://github.com/oliverguenther.png" width="60px" alt="" /></a><a href="https://github.com/pawanjay176"><img src="https://github.com/pawanjay176.png" width="60px" alt="" /></a><a href="https://github.com/bdach"><img src="https://github.com/bdach.png" width="60px" alt="" /></a><a href="https://github.com/davidklsn"><img src="https://github.com/davidklsn.png" width="60px" alt="" /></a><a href="https://github.com/naoey"><img src="https://github.com/naoey.png" width="60px" alt="" /></a><a href="https://github.com/jryom"><img src="https://github.com/jryom.png" width="60px" alt="" /></a><a href="https://github.com/carstengehling"><img src="https://github.com/carstengehling.png" width="60px" alt="" /></a><a href="https://github.com/ceuk"><img src="https://github.com/ceuk.png" width="60px" alt="" /></a><a href="https://github.com/akospwc"><img src="https://github.com/akospwc.png" width="60px" alt="" /></a><a href="https://github.com/Xetera"><img src="https://github.com/Xetera.png" width="60px" alt="" /></a><a href="https://github.com/HoldenLucas"><img src="https://github.com/HoldenLucas.png" width="60px" alt="" /></a><a href="https://github.com/barbados-clemens"><img src="https://github.com/barbados-clemens.png" width="60px" alt="" /></a><a href="https://github.com/nartc"><img src="https://github.com/nartc.png" width="60px" alt="" /></a><a href="https://github.com/"><img src="https://github.com/.png" width="60px" alt="" /></a><a href="https://github.com/matejcik"><img src="https://github.com/matejcik.png" width="60px" alt="" /></a><a href="https://github.com/lucatume"><img src="https://github.com/lucatume.png" width="60px" alt="" /></a><a href="https://github.com/zach-fuller"><img src="https://github.com/zach-fuller.png" width="60px" alt="" /></a><a href="https://github.com/davdroman"><img src="https://github.com/davdroman.png" width="60px" alt="" /></a><a href="https://github.com/KowalskiPiotr98"><img src="https://github.com/KowalskiPiotr98.png" width="60px" alt="" /></a><a href="https://github.com/nicholascloud"><img src="https://github.com/nicholascloud.png" width="60px" alt="" /></a><a href="https://github.com/topher200"><img src="https://github.com/topher200.png" width="60px" alt="" /></a><a href="https://github.com/PhotonQuantum"><img src="https://github.com/PhotonQuantum.png" width="60px" alt="" /></a><a href="https://github.com/GitSquared"><img src="https://github.com/GitSquared.png" width="60px" alt="" /></a><a href="https://github.com/ava1ar"><img src="https://github.com/ava1ar.png" width="60px" alt="" /></a><a href="https://github.com/pedropombeiro"><img src="https://github.com/pedropombeiro.png" width="60px" alt="" /></a><a href="https://github.com/minidfx"><img src="https://github.com/minidfx.png" width="60px" alt="" /></a><a href="https://github.com/JoeKlemmer"><img src="https://github.com/JoeKlemmer.png" width="60px" alt="" /></a><a href="https://github.com/ColonelBucket8"><img src="https://github.com/ColonelBucket8.png" width="60px" alt="" /></a><a href="https://github.com/mutewinter"><img src="https://github.com/mutewinter.png" width="60px" alt="" /></a><a href="https://github.com/tobi"><img src="https://github.com/tobi.png" width="60px" alt="" /></a><a href="https://github.com/benbfortis"><img src="https://github.com/benbfortis.png" width="60px" alt="" /></a><a href="https://github.com/jakewarren"><img src="https://github.com/jakewarren.png" width="60px" alt="" /></a><a href="https://github.com/tgpholly"><img src="https://github.com/tgpholly.png" width="60px" alt="" /></a><a href="https://github.com/jisantuc"><img src="https://github.com/jisantuc.png" width="60px" alt="" /></a><a href="https://github.com/zabil"><img src="https://github.com/zabil.png" width="60px" alt="" /></a><a href="https://github.com/bitprophet"><img src="https://github.com/bitprophet.png" width="60px" alt="" /></a><a href="https://github.com/tayleighr"><img src="https://github.com/tayleighr.png" width="60px" alt="" /></a><a href="https://github.com/Novakov"><img src="https://github.com/Novakov.png" width="60px" alt="" /></a><a href="https://github.com/mthuggett"><img src="https://github.com/mthuggett.png" width="60px" alt="" /></a><a href="https://github.com/portothree"><img src="https://github.com/portothree.png" width="60px" alt="" /></a><a href="https://github.com/farzadmf"><img src="https://github.com/farzadmf.png" width="60px" alt="" /></a><a href="https://github.com/nekhaevskiy"><img src="https://github.com/nekhaevskiy.png" width="60px" alt="" /></a><a href="https://github.com/reivilibre"><img src="https://github.com/reivilibre.png" width="60px" alt="" /></a><a href="https://github.com/andreaskurth"><img src="https://github.com/andreaskurth.png" width="60px" alt="" /></a><a href="https://github.com/froody"><img src="https://github.com/froody.png" width="60px" alt="" /></a><a href="https://github.com/RohanM"><img src="https://github.com/RohanM.png" width="60px" alt="" /></a><a href="https://github.com/BSteffaniak"><img src="https://github.com/BSteffaniak.png" width="60px" alt="" /></a><!-- sponsors -->
-</p>
-
-## Elevator Pitch
-
-Rant time: You've heard it before, git is _powerful_, but what good is that power when everything is so damn hard to do? Interactive rebasing requires you to edit a goddamn TODO file in your editor? _Are you kidding me?_ To stage part of a file you need to use a command line program to step through each hunk and if a hunk can't be split down any further but contains code you don't want to stage, you have to edit an arcane patch file _by hand_? _Are you KIDDING me?!_ Sometimes you get asked to stash your changes when switching branches only to realise that after you switch and unstash that there weren't even any conflicts and it would have been fine to just checkout the branch directly? _YOU HAVE GOT TO BE KIDDING ME!_
-
-If you're a mere mortal like me and you're tired of hearing how powerful git is when in your daily life it's a powerful pain in your ass, lazygit might be for you.
-
-## Table of contents
-
-- [Installation](#installation)
-  - [Binary releases](#binary-releases)
-  - [Homebrew](#homebrew)
-  - [MacPorts](#macports)
-  - [Void Linux](#void-linux)
-  - [Scoop (Windows)](#scoop-windows)
-  - [Arch Linux](#arch-linux)
-  - [Fedora and RHEL](#fedora-and-rhel)
-  - [Solus Linux](#solus-linux)
-  - [Ubuntu](#ubuntu)
-  - [Funtoo Linux](#funtoo-linux)
-  - [FreeBSD](#freebsd)
-  - [Conda](#conda)
-  - [Go](#go)
-  - [Chocolatey (Windows)](#chocolatey-windows)
-  - [Manual](#manual)
-- [Usage](#usage)
-  - [Keybindings](#keybindings)
-  - [Changing directory on exit](#changing-directory-on-exit)
-  - [Undo/Redo](#undoredo)
-- [Configuration](#configuration)
-  - [Custom pagers](#configuration)
-  - [Custom commands](#configuration)
-- [Tutorials](#tutorials)
-- [Cool Features](#cool-features)
-- [Contributing](#contributing)
-- [Donate](#donate)
-- [Alternatives](#alternatives)
-
-Github Sponsors is matching all donations dollar-for-dollar for 12 months so if you're feeling generous consider [sponsoring me](https://github.com/sponsors/jesseduffield)
-
-[<img src="https://i.imgur.com/sVEktDn.png">](https://youtu.be/CPLdltN7wgE)
-
-## Installation
-
-### Binary Releases
-
-For Windows, Mac OS(10.12+) or Linux, you can download a binary release [here](../../releases).
-
-### Homebrew
-
-Normally the lazygit formula can be found in the Homebrew core but we suggest you tap our formula to get the frequently updated one. It works with Linux, too.
-
-Tap:
-
+```bash
+git clone git@gitee.com:dllvhaobo/working-in-wsl.git
+working-in-wsl/script/quick_linux.sh
 ```
-brew install jesseduffield/lazygit/lazygit
-```
+- [fonts](./docs/fonts.md)
+- [WIndowsSubSystemLinux](./docs/WSL.md)
 
-Core:
+## HOSTS
 
-```
-brew install lazygit
-```
+系统配置过程中，有很多需要依赖于 Github 的访问，因为国内 DNS 污染的原因，需要手动配置 hosts 文件才能够正确的访问 github。参考`config/hosts`文件中关于 github 的配置，修改本地 HOSTS 文件. HOSTS 文件的位置如下：
 
-### MacPorts
+- windows："C:\Windows\System32\drivers\etc\hosts"
+- Ubuntu: "/etc/hosts"
 
-Latest version built from github releases.
-Tap:
+查找 Github 与 IP 地址的映射关系，可以在网站`https://www.ipaddress.com`上搜索如下三个网址的 IP，将结果填写到 Hosts 文件中。
 
-```
-sudo port install lazygit
-```
+- github.com
+- github.global.ssl.fastly.net
+- assets-cdn.github.com
 
-### Void Linux
+**NOTE**: Neovim 8.0 需要 GLIBC_2.29 或者更新的 lib 库支持。在低版本的 Ubuntu 系统中 Glibc 的版本与 Neovim 依赖版本不一致。
+请使用 https://github.com/antoineco/neovim-neovim/releases发布的预编译版本。详见[GitHub Issue][githubissue]
 
-Packages for Void Linux are available in the distro repo
+WSL2
 
-They follow upstream latest releases
+WINDWOS-TERMINAL
 
-```sh
-sudo xbps-install -S lazygit
-```
+VIM-PLUG
 
-### Scoop (Windows)
+## VSCODE
 
-You can install `lazygit` using [scoop](https://scoop.sh/). It's in the `extras` bucket:
+在 VSCODE 使用 VIM 的快捷键配置。 拷贝如下配置到文件`%APPDATA%\Code\User\settings.json`
 
-```sh
-# Add the extras bucket
-scoop bucket add extras
+参考：
 
-# Install lazygit
-scoop install lazygit
-```
+- [Vscode 的 VIM 输入插件][]
+- [输入法自动切换参考][]
 
-### Arch Linux
-
-Packages for Arch Linux are available via pacman and AUR (Arch User Repository).
-
-There are two packages. The stable one which is built with the latest release
-and the git version which builds from the most recent commit.
-
-- Stable: `sudo pacman -S lazygit`
-- Development: <https://aur.archlinux.org/packages/lazygit-git/>
-
-Instruction of how to install AUR content can be found here:
-<https://wiki.archlinux.org/index.php/Arch_User_Repository>
-
-### Fedora and RHEL
-
-Packages for Fedora/RHEL and CentOS Stream are available via [Copr](https://copr.fedorainfracloud.org/coprs/atim/lazygit/) (Cool Other Package Repo).
-
-```sh
-sudo dnf copr enable atim/lazygit -y
-sudo dnf install lazygit
-```
-
-### Solus Linux
-
-```sh
-sudo eopkg install lazygit
-```
-
-### Ubuntu
-
-```sh
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit /usr/local/bin
-```
-
-Verify the correct installation of lazygit:
-
-```sh
-lazygit --version
-```
-
-### Funtoo Linux
-
-Funtoo Linux has an autogenerated lazygit package in [dev-kit](https://github.com/funtoo/dev-kit/tree/1.4-release/dev-vcs/lazygit):
-
-```sh
-sudo emerge dev-vcs/lazygit
-```
-
-### FreeBSD
-
-```sh
-pkg install lazygit
-```
-
-### Conda
-
-Released versions are available for different platforms, see <https://anaconda.org/conda-forge/lazygit>
-
-```sh
-conda install -c conda-forge lazygit
-```
-
-### Go
-
-```sh
-go install github.com/jesseduffield/lazygit@latest
-```
-
-Please note:
-If you get an error claiming that lazygit cannot be found or is not defined, you
-may need to add `~/go/bin` to your $PATH (MacOS/Linux), or `%HOME%\go\bin`
-(Windows). Not to be mistaken for `C:\Go\bin` (which is for Go's own binaries,
-not apps like lazygit).
-
-### Chocolatey (Windows)
-
-You can install `lazygit` using [Chocolatey](https://chocolatey.org/):
-
-```sh
-choco install lazygit
-```
-
-### Manual
-
-You'll need to [install Go](https://golang.org/doc/install)
-
-```
-git clone https://github.com/jesseduffield/lazygit.git
-cd lazygit
-go install
-```
-
-You can also use `go run main.go` to compile and run in one go (pun definitely intended)
-
-## Usage
-
-Call `lazygit` in your terminal inside a git repository.
-
-```sh
-$ lazygit
-```
-
-If you want, you can
-also add an alias for this with `echo "alias lg='lazygit'" >> ~/.zshrc` (or
-whichever rc file you're using).
-
-### Keybindings
-
-You can check out the list of keybindings [here](/docs/keybindings).
-
-### Changing Directory On Exit
-
-If you change repos in lazygit and want your shell to change directory into that repo on exiting lazygit, add this to your `~/.zshrc` (or other rc file):
-
-```
-lg()
+```json
 {
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "vscode-icons",
+    "remote.SSH.remotePlatform": {
+        "10.70.9.60": "linux",
+        "10.70.9.60(2222)": "linux"
+    },
+    "explorer.confirmDelete": false,
+    "editor.largeFileOptimizations": false,
+    "vim.argumentObjectClosingDelimiters": [
+        ")",
+        "]",
+        "}"
+    ],
+    "vim.argumentObjectOpeningDelimiters": [
+        "(",
+        "[",
+        "{"
+    ],
+    "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\Users\\lv_h1\\tools\\im-select.exe",
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.autoSwitchInputMethod.defaultIM": "1033",
+    "vim.autoSwitchInputMethod.switchIMCmd": "C:\\Users\\lv_h1\\tools\\im-select.exe {im}",
+    "vim.easymotion": true,
+    "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+    "vim.highlightedyank.enable": true,
+    "vim.normalModeKeyBindings": [
+        {
+          "before": ["<leader>", "s", "l"],
+          "commands": [":vsplit"]
+        },
+        {
+          "before": ["S"],
+          "commands": [":w"]
+        },
+        {
+          "before": ["Q"],
+          "commands": [":q"]
+        },
+        {
+          "before": [ "s", "j"],
+          "commands": [
+            ":split"
+        ]
+        },
+        {
+          "before": [ "s", "l"],
+          "commands": [
+            ":vsplit"
+        ]
+        }
+      ],
+      "vim.normalModeKeyBindingsNonRecursive": [
 
-    lazygit "$@"
+        {
+          "before": ["<c-j>"],
+          "after": ["5", "j"]
+        },
+        {
+          "before": ["<c-k>"],
+          "after": ["5", "k"]
+        },
+        {
+          "before": ["<leader>", "w", "h"],
+          "after": ["<c-w>", "h"]
+        },
+        {
+          "before": ["<leader>", "w", "l"],
+          "after": ["<c-w>", "l"]
+        }
+      ],
+      "vim.visualModeKeyBindingsNonRecursive": [
+        {
+          "before": ["<c-j>"],
+          "after": ["5", "j"]
+        },
+        {
+          "before": ["<c-k>"],
+          "after": ["5", "k"]
+        }
+    ],
+    "vim.commandLineModeKeyBindingsNonRecursive": [
 
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-    fi
+    ],
+    "vim.handleKeys": {
+
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "git.autofetch": true
+}
 }
 ```
 
-Then `source ~/.zshrc` and from now on when you call `lg` and exit you'll switch directories to whatever you were in inside lazygit. To override this behaviour you can exit using `shift+Q` rather than just `q`.
+## 应用说明
 
-### Undo/Redo
+### Autojump
 
-See the [docs](/docs/Undoing.md)
+`j <目录缩写> ` 可以快速跳转到深层目录。配合 ZSH-AUTOSUGGESUTION，可以非常方便的在常用目录之间跳转，详见 GIF
 
-## Configuration
+### FZF
 
-Check out the [configuration docs](docs/Config.md).
+`Alt+C` list 当下目录的子目录并跳转
+`CTRL+R` 快速历史命令匹配
 
-### Custom Pagers
+### COC
 
-See the [docs](docs/Custom_Pagers.md)
+### VIM
 
-### Custom Commands
+### IM-SELECT
 
-If lazygit is missing a feature, there's a good chance you can implement it yourself with a custom command!
+在 VIM 中输入中文的辅助插件：
 
-See the [docs](docs/Custom_Command_Keybindings.md)
+- 在 INSERT-MODE 的时候，可以输出中文
+- 退出 VIM 的 INSERT MODE 的时候，自动切换会英文输入法
 
-## Tutorials
+### Clang
 
-- [Video Tutorial](https://youtu.be/VDXvbHZYeKY)
-- [Rebase Magic Video Tutorial](https://youtu.be/4XaToVut_hs)
-- [Twitch Stream](https://www.twitch.tv/jesseduffield)
+在 CMakeLists.txt 中添加 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+在命令行中添加-DCMAKE_EXPORT_COMPILE_COMMANDS=on
 
-## Cool features
+https://apt.llvm.org/
+https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+https://clang.llvm.org/docs/JSONCompilationDatabase.html
+https://clangd.llvm.org/config.html#compilationdatabase
+https://gitee.com/dllvhaobo/coc-clangd/blob/master/README.md
+https://gitee.com/dllvhaobo/dashboard/projects
+https://github.com/daipeihust/im-select
+https://github.com/neovim/neovim/issues/19711#issuecomment-1214241593
+https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-package
+https://gitlink.org.cn/dllvhaobo/working-in-wsl-package.git
+https://neovim.io/doc/user/
+https://workinginwsl.readthedocs.io
+https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package
+https://www.gitlink.org.cn/dllvhaobo/working-in-wsl-package/tree/main/nvim-linux64-glibc-earlier.tar.gz
+https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md
+https://clangd.llvm.org/extensions.html
+https://developers.google.com/protocol-buffers/
+https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+https://firefox-source-docs.mozilla.org/code-quality/coding-style/index.html
+https://github.com/capnproto/capnproto/blob/master/kjdoc/tour.md#maybes
+https://github.com/capnproto/capnproto/blob/master/style-guide.md
+https://github.com/clangd/clangd/issues/987
+https://github.com/clangd/coc-clangd
+https://google.github.io/styleguide/cppguide.html
+https://llvm.org/docs/CodingStandards.html
+https://llvm.org/docs/CodingStandards.html#include-style
+https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html
+https://sci-hub.st/10.1109/IEEESTD.2018.8299595
+https://standards.ieee.org/ieee/1800/6700/
+https://www.gnu.org/prep/standards/standards.html
+https://www.webkit.org/coding/coding-style.html
 
-- Adding files easily
-- Resolving merge conflicts
-- Easily check out recent branches
-- Scroll through logs/diffs of branches/commits/stash
-- Quick pushing/pulling
-- Squash down and reword commits
-
-### Resolving merge conflicts
-
-![Gif](../assets/resolving-merge-conflicts.gif)
-
-### Interactive Rebasing
-
-![Interactive Rebasing](../assets/rebase.gif)
-
-## Contributing
-
-We love your input! Please check out the [contributing guide](CONTRIBUTING.md).
-For contributor discussion about things not better discussed here in the repo, join the discord channel
-
-<a href="https://discord.gg/ehwFt2t4wt"><img src='../assets/discord.png' width='75'></a>
-
-Check out this [video](https://www.youtube.com/watch?v=kNavnhzZHtk) walking through the creation of a small feature in lazygit if you want an idea of where to get started.
-
-### Debugging Locally
-
-Run `lazygit --debug` in one terminal tab and `lazygit --logs` in another to view the program and its log output side by side
-
-## Donate
-
-If you would like to support the development of lazygit, consider [sponsoring me](https://github.com/sponsors/jesseduffield) (github is matching all donations dollar-for-dollar for 12 months)
-
-## FAQ
-
-### What do the commit colors represent?
-
-- Green: the commit is included in the master branch
-- Yellow: the commit is not included in the master branch
-- Red: the commit has not been pushed to the upstream branch
-
-## Shameless Plug
-
-If you want to see what I (Jesse) am up to in terms of development, follow me on
-[twitter](https://twitter.com/DuffieldJesse) or check out my [blog](https://jesseduffield.com/)
-
-## Alternatives
-
-If you find that lazygit doesn't quite satisfy your requirements, these may be a better fit:
-
-- [GitUI](https://github.com/Extrawurst/gitui)
-- [tig](https://github.com/jonas/tig)
+[nerd-fonts]: https://github.com/ryanoasis/nerd-fonts
+[输入法自动切换参考]: https://github.com/daipeihust/im-select#to-get-current-keyboard-locale和https://www.science.co.il/language/Locale-codes.php
+[vscode 的 vim 输入插件]: https://github.com/VSCodeVim/Vim#input-method
